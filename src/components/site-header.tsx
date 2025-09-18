@@ -35,12 +35,18 @@ export default function SiteHeader() {
         const firstLink = menuRef.current?.querySelector('a') as HTMLAnchorElement | undefined;
         firstLink?.focus?.();
       }, 0);
+      const onKey = (ev: KeyboardEvent) => {
+        if (ev.key === 'Escape') setOpen(false);
+      };
+      window.addEventListener('keydown', onKey);
+      return () => {
+        window.removeEventListener('keydown', onKey);
+        document.documentElement.style.overflow = '';
+      };
     } else {
       document.documentElement.style.overflow = '';
     }
-    return () => {
-      document.documentElement.style.overflow = '';
-    };
+    return () => {};
   }, [open]);
 
   useEffect(() => {

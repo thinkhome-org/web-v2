@@ -1,12 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import ContactForm from "@/components/contact-form";
+import { Section } from "@/components/ui/section";
+import { Container } from "@/components/ui/container";
 
 export default function Home() {
   return (
     <main className="font-sans">
-      <section className="border-b border-white/10 bg-black">
-        <div className="container px-6 py-20 md:py-28">
+      <Section className="bg-black">
+        <Container className="px-6 py-20 md:py-28">
           <Image src="/logo.svg" alt="ThinkHome" width={120} height={28} priority />
           <h1 className="mt-4 text-4xl md:text-6xl font-semibold tracking-tight">Moderní IT bez starostí</h1>
           <p className="mt-6 max-w-2xl text-white/80">Komplexní správa IT, weby, cloud a bezpečnost pro malé firmy a domácnosti. Rychle, srozumitelně a spolehlivě.</p>
@@ -14,11 +16,11 @@ export default function Home() {
             <Link href="#kontakt" className="focus-ring rounded-md bg-accent px-5 py-3 text-sm font-medium text-white hover:bg-[#a50f19] transition-colors">Kontaktovat</Link>
             <Link href="#sluzby" className="focus-ring rounded-md border border-white/15 px-5 py-3 text-sm font-medium hover:bg-white/5 transition-colors">Naše služby</Link>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      <section id="sluzby" className="border-b border-white/10 bg-[#0d0d0d]">
-        <div className="container px-6 py-16 md:py-24">
+      <Section id="sluzby" className="bg-[#0d0d0d]">
+        <Container className="px-6 py-16 md:py-24">
           <h2 className="text-2xl md:text-3xl font-semibold">Služby</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
@@ -41,11 +43,11 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      <section id="proces" className="border-b border-white/10 bg-black">
-        <div className="container px-6 py-16 md:py-24">
+      <Section id="proces" className="bg-black">
+        <Container className="px-6 py-16 md:py-24">
           <h2 className="text-2xl md:text-3xl font-semibold">Postup spolupráce</h2>
           <ol className="mt-6 grid gap-4 md:grid-cols-3 text-white/80">
             {[
@@ -59,16 +61,16 @@ export default function Home() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      <section id="kontakt" className="bg-[#0d0d0d]">
-        <div className="container px-6 py-16 md:py-24">
+      <Section id="kontakt" className="bg-[#0d0d0d]">
+        <Container className="px-6 py-16 md:py-24">
           <h2 className="text-2xl md:text-3xl font-semibold">Kontaktujte nás</h2>
           <p className="mt-2 text-white/70 max-w-2xl">Máte dotaz nebo potřebujete konzultaci? Vyplňte formulář – zpráva se otevře ve vašem e‑mailovém klientu.</p>
           <ContactForm />
-        </div>
-      </section>
+        </Container>
+      </Section>
     </main>
   );
 }

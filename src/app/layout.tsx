@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="cs">
-      <body className={`${plexSans.variable} ${plexMono.variable} antialiased bg-background text-foreground`}>
+      <body className={`${plexSans.variable} ${plexMono.variable} antialiased bg-background text-foreground`} suppressHydrationWarning>
         <a href="#main" className="skip-link">Přeskočit na obsah</a>
         <SiteHeader />
         <main id="main">{children}</main>
