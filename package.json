@@ -18,7 +18,6 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@playwright/test": "^1.55.0",
     "@swc/core": "^1.13.5",
     "@swc/jest": "^0.2.39",
     "@tailwindcss/postcss": "^4",

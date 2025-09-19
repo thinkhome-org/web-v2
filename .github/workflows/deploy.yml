@@ -79,16 +79,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
-      - name: Run unit tests
-        run: npx jest --ci --runInBand
-
-      - name: Start dev server
-        run: |
-          PORT=3003 nohup npx next dev &
-          sleep 3
-
-      - name: Run Playwright tests
-        run: npx playwright test --reporter=line
+      # Tests byly záměrně odstraněny na přání. Lze je kdykoli znovu zapnout.
 
       - name: Build with Next.js (static export)
         run: |
