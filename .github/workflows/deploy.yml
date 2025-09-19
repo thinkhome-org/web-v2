@@ -82,6 +82,8 @@ jobs:
       # Tests byly záměrně odstraněny na přání. Lze je kdykoli znovu zapnout.
 
       - name: Build with Next.js (static export)
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} next build
 

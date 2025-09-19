@@ -1,10 +1,13 @@
 import ContactForm from '@/components/contact-form';
 import { Container } from '@/components/ui/container';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { readYamlObject } from '@/lib/yaml';
 
 export const metadata = { title: 'Kontakt – ThinkHome' };
 
-export default function Page() {
+type Contacts = { email?: string; phone?: string; address?: { name?: string; ico?: string } };
+export default async function Page() {
+  const contacts = await readYamlObject<Contacts>('contacts.yaml');
   return (
     <section className="px-6 py-16 md:py-24">
       <Container>
@@ -22,8 +25,8 @@ export default function Page() {
               </CardHeader>
               <CardContent>
                 <div className="grid text-sm text-white/80">
-                  <a className="hover:underline" href="mailto:info@thinkhome.org">info@thinkhome.org</a>
-                  <a className="hover:underline" href="tel:+420910129289">+420 910 129 289</a>
+                  {contacts?.email && <a className="hover:underline" href={`mailto:${contacts.email}`}>{contacts.email}</a>}
+                  {contacts?.phone && <a className="hover:underline" href={`tel:${contacts.phone.replace(/\s+/g,'')}`}>{contacts.phone}</a>}
                 </div>
               </CardContent>
             </Card>
@@ -33,14 +36,18 @@ export default function Page() {
               </CardHeader>
               <CardContent>
                 <dl className="grid gap-2 text-sm text-white/80">
-                  <div>
-                    <dt className="text-white/60">Oficiální název</dt>
-                    <dd>Ing. Štefan Paluba</dd>
-                  </div>
-                  <div>
-                    <dt className="text-white/60">IČO</dt>
-                    <dd>10727078</dd>
-                  </div>
+                  {contacts?.address?.name && (
+                    <div>
+                      <dt className="text-white/60">Oficiální název</dt>
+                      <dd>{contacts.address.name}</dd>
+                    </div>
+                  )}
+                  {contacts?.address?.ico && (
+                    <div>
+                      <dt className="text-white/60">IČO</dt>
+                      <dd>{contacts.address.ico}</dd>
+                    </div>
+                  )}
                 </dl>
               </CardContent>
             </Card>

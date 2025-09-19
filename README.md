@@ -14,15 +14,13 @@ Struktura
 - `src/app` – App Router, stránky a layout
 - `src/components` – UI komponenty (např. `contact-form.tsx`)
 - `src/components/ui` – elementy (Button, Input, Textarea, Label, Card, Section, Container, Spinner)
-- `src/lib/discord-webhook.ts` – klientská utilita pro Discord webhook (URL v Base64)
+- `src/app/api/contact/route.ts` – serverové odeslání na Discord webhook (env `DISCORD_WEBHOOK_URL`)
 - `public/` – statická aktiva (logo, ikony)
 
 Kontakt/Discord webhook
 -----------------------
 
-Formulář je čistě klientský (`'use client'`) a odesílá data na Discord webhook přes `fetch`. URL webhooku je obfuskovaná v Base64 v `src/lib/discord-webhook.ts`.
-
-Upozornění: Base64 NENÍ bezpečnostní opatření, pouze skrytí před rychlým přečtením zdroje. Pro produkci doporučujeme serverovou proxy a tajný webhook na serveru.
+Formulář nyní volá serverovou route `POST /api/contact`, která odešle zprávu na Discord webhook z prostředí serveru. Nastavte proměnnou prostředí `DISCORD_WEBHOOK_URL` v prostředí nasazení.
 
 Styly a UI
 ----------

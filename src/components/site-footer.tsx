@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconBrandLinkedin, IconMail, IconPhone, IconBrandGithub } from '@tabler/icons-react';
+import { readYamlObject } from '@/lib/yaml';
 import { NAV_ITEMS } from '@/config/navigation';
 
-export default function SiteFooter() {
+type Contacts = { email?: string; phone?: string; linkedin?: string; github?: string };
+export default async function SiteFooter() {
+  const contacts = await readYamlObject<Contacts>('contacts.yaml');
   return (
     <footer className="border-t border-white/10 bg-[#0d0d0d]">
       <div className="container px-6 py-12 grid gap-10 md:grid-cols-12">
@@ -17,11 +20,11 @@ export default function SiteFooter() {
           ))}
         </nav>
         <div className="grid gap-2 text-sm md:col-span-3">
-          <a href="mailto:info@thinkhome.org" className="flex items-center gap-2 hover:underline"><IconMail size={16} /> info@thinkhome.org</a>
-          <a href="tel:+420910129289" className="flex items-center gap-2 hover:underline"><IconPhone size={16} /> +420 910 129 289</a>
+          {contacts?.email && <a href={`mailto:${contacts.email}`} className="flex items-center gap-2 hover:underline"><IconMail size={16} /> {contacts.email}</a>}
+          {contacts?.phone && <a href={`tel:${contacts.phone.replace(/\s+/g,'')}`} className="flex items-center gap-2 hover:underline"><IconPhone size={16} /> {contacts.phone}</a>}
           <div className="flex items-center gap-3 pt-2">
-            <a aria-label="LinkedIn" href="#" className="rounded-md p-2 hover:bg-white/5"><IconBrandLinkedin size={18} /></a>
-            <a aria-label="GitHub" href="#" className="rounded-md p-2 hover:bg-white/5"><IconBrandGithub size={18} /></a>
+            {contacts?.linkedin && <a aria-label="LinkedIn" href={contacts.linkedin} className="rounded-md p-2 hover:bg-white/5"><IconBrandLinkedin size={18} /></a>}
+            {contacts?.github && <a aria-label="GitHub" href={contacts.github} className="rounded-md p-2 hover:bg-white/5"><IconBrandGithub size={18} /></a>}
           </div>
         </div>
       </div>

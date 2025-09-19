@@ -10,4 +10,12 @@ export async function readYamlArray<T = unknown>(relativePath: string): Promise<
   return data as T[];
 }
 
+export async function readYamlObject<T = unknown>(relativePath: string): Promise<T | null> {
+  const file = path.join(process.cwd(), 'src', 'content', relativePath);
+  const raw = await fs.readFile(file, 'utf8');
+  const data = parse(raw);
+  if (data && typeof data === 'object' && !Array.isArray(data)) return data as T;
+  return null;
+}
+
 

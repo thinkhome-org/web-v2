@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, FormEvent } from 'react';
-import { postDiscordMessage, buildContactEmbed, collectClientInfo } from '@/lib/discord-webhook';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
@@ -35,9 +34,13 @@ export default function ContactForm() {
     const message = String(data.get('message') || '');
 
     try {
-      const client = await collectClientInfo();
-      const payload = buildContactEmbed({ name: company ? `${name} (${company})` : name, email, phone, message: subject ? `Předmět: ${subject}\n\n${message}` : message, client });
-      await postDiscordMessage(payload);
+      const payload = { name, email, phone, company, subject, message, website: String(data.get('website') || '') };
+      const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      if (!res.ok) {
+        // graceful fallback to mailto
+        window.location.href = `mailto:info@thinkhome.org?subject=${encodeURIComponent(subject || 'Poptávka z webu')}&body=${encodeURIComponent(`${name}\n${email}${phone ? `\n${phone}` : ''}\n\n${message}`)}`;
+        return;
+      }
       setSuccess('Děkujeme, zpráva byla odeslána. Ozveme se co nejdříve.');
       form.reset();
     } catch {
