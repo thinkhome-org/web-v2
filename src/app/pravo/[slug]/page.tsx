@@ -16,13 +16,12 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(ctx: { params: Promise<{ slug: string }> }) {
   const { slug } = await ctx.params;
-  const title = TITLES[slug] || 'Právní dokument';
-  return { title: `${title} – ThinkHome` };
+  const pageTitle = TITLES[slug] || 'Právní dokument';
+  return { title: `${pageTitle} – ThinkHome` };
 }
 
 export default async function Page(ctx: { params: Promise<{ slug: string }> }) {
   const { slug } = await ctx.params;
-  const title = TITLES[slug] || 'Právní dokument';
   const file = path.join(process.cwd(), 'src', 'content', 'legal', `${slug}.md`);
   const md = await fs.readFile(file, 'utf8').catch(() => '# Dokument nenalezen');
   const html = renderMarkdown(md);

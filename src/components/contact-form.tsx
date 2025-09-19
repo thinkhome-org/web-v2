@@ -40,7 +40,7 @@ export default function ContactForm() {
       await postDiscordMessage(payload);
       setSuccess('Děkujeme, zpráva byla odeslána. Ozveme se co nejdříve.');
       form.reset();
-    } catch (err: any) {
+    } catch {
       setError('Odeslání selhalo. Zkuste to prosím znovu nebo nás kontaktujte na info@thinkhome.org.');
     } finally {
       setIsSubmitting(false);

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { IconBrandLinkedin, IconMail, IconPhone, IconBrandGithub } from '@tabler/icons-react';
 import { NAV_ITEMS } from '@/config/navigation';
 
@@ -7,7 +8,7 @@ export default function SiteFooter() {
     <footer className="border-t border-white/10 bg-[#0d0d0d]">
       <div className="container px-6 py-12 grid gap-10 md:grid-cols-12">
         <div className="md:col-span-5">
-          <img src="/logo.svg" alt="ThinkHome" width={110} height={26} loading="lazy" decoding="async" />
+          <Image src="/logo.svg" alt="ThinkHome" width={110} height={26} loading="lazy" />
           <p className="mt-3 text-sm text-white/70 max-w-sm">Moderní IT bez starostí. Správa IT, weby, cloud a bezpečnost pro SMB a domácnosti.</p>
         </div>
         <nav aria-label="Hlavní odkazy" className="grid gap-2 text-sm md:col-span-4">
@@ -28,9 +29,9 @@ export default function SiteFooter() {
         <div className="container px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
           <p>© {new Date().getFullYear()} ThinkHome</p>
           <div className="flex items-center gap-4">
-            <a href="/pravo/ochrana-soukromi" className="hover:underline">Ochrana soukromí</a>
-            <a href="/pravo/cookies" className="hover:underline">Cookies</a>
-            <a href="/pravo/vop" className="hover:underline">VOP</a>
+            <Link href="/pravo/ochrana-soukromi" className="hover:underline">Ochrana soukromí</Link>
+            <Link href="/pravo/cookies" className="hover:underline">Cookies</Link>
+            <Link href="/pravo/vop" className="hover:underline">VOP</Link>
           </div>
         </div>
       </div>

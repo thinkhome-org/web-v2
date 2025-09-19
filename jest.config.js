@@ -6,5 +6,15 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   testMatch: ['<rootDir>/**/*.test.(ts|tsx)'],
-  transform: {},
+  transform: {
+    '^.+\\.(t|j)sx?$': ['@swc/jest', {
+      jsc: {
+        target: 'es2020',
+        parser: { syntax: 'typescript', tsx: true },
+        transform: { react: { runtime: 'automatic' } },
+      },
+      module: { type: 'commonjs' },
+    }],
+  },
+  testEnvironmentOptions: { customExportConditions: ['node', 'node-addons'] },
 };

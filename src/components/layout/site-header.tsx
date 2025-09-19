@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { IconMenu2, IconX } from '@tabler/icons-react';
@@ -53,7 +54,7 @@ export default function SiteHeader() {
     <header className={`sticky-header sticky top-0 z-50 border-b border-white/10 blurred-bg ${scrolled ? '' : ''}`}>
       <div className="container px-6 h-14 md:h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <img src="/logo.svg" alt="ThinkHome" width={110} height={26} />
+          <Image src="/logo.svg" alt="ThinkHome" width={110} height={26} />
         </Link>
         <nav className="hidden md:flex items-center gap-1">
           {NAV_ITEMS.map(({ href, label }) => {
