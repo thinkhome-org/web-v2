@@ -1,14 +1,13 @@
 export const metadata = { title: 'Náš tým – ThinkHome' };
 
-const TEAM = [
-  { name: 'Samuel Paluba', role: 'CEO & Senior IT Consultant' },
-  { name: 'Ondřej Jansa', role: 'CTO & Cybersecurity Expert' },
-  { name: 'Vojtěch Pell', role: 'WordPress Specialist & Školitel' },
-  { name: 'Erdinç Daşkın', role: 'Senior Frontend Developer' },
-  { name: 'Šimon', role: 'Hardware Specialist' },
-];
+type Person = { name: string; role: string };
+async function getTeam(): Promise<Person[]> {
+  const { readYamlArray } = await import('@/lib/yaml');
+  return readYamlArray<Person>('team.yaml');
+}
 
-export default function Page() {
+export default async function Page() {
+  const TEAM = await getTeam();
   return (
     <section className="px-6 py-16 md:py-24">
       <div className="container">

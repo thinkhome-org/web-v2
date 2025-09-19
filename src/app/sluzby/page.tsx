@@ -1,18 +1,13 @@
 export const metadata = { title: 'Služby – ThinkHome' };
 
-const SERVICES = [
-  { title: 'Turn‑key IT management', desc: '24/7 dohled, správa zařízení a sítí' },
-  { title: 'Repasované PC', desc: 'Výkup, repas a instalace spolehlivé techniky' },
-  { title: 'Webové systémy', desc: 'Next.js a WordPress – návrh, vývoj, provoz' },
-  { title: 'Backup & e‑maily', desc: 'Bezpečné zálohy, firemní e‑mail, privátní cloud' },
-  { title: 'Google/M365/Zoho', desc: 'Nasazení, správa, migrace a školení' },
-  { title: 'Infrastruktura', desc: 'WiFi (UniFi), kamery, tiskárny, NAS' },
-  { title: 'Licence & poradenství', desc: 'Optimalizace licencí/nákladů' },
-  { title: 'Školení', desc: 'Efektivita práce a kyberbezpečnost' },
-  { title: 'Bezpečnostní audit', desc: 'Audit a penetrační testy' },
-];
+type Service = { title: string; desc: string };
+async function getServices(): Promise<Service[]> {
+  const { readYamlArray } = await import('@/lib/yaml');
+  return readYamlArray<Service>('services.yaml');
+}
 
-export default function Page() {
+export default async function Page() {
+  const SERVICES = await getServices();
   return (
     <section className="px-6 py-16 md:py-24">
       <div className="container">
