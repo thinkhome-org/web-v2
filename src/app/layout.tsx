@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import SiteHeader from "@/components/site-header";
+import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/site-footer";
 
 const plexSans = IBM_Plex_Sans({
@@ -17,14 +17,18 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://localhost:3003'),
-  title: "ThinkHome – Moderní IT bez starostí",
+  metadataBase: new URL('https://thinkhome.org'),
+  title: {
+    default: 'ThinkHome – Moderní IT bez starostí',
+    template: '%s – ThinkHome',
+  },
   description:
-    "Komplexní IT služby pro SMB a domácnosti: správa IT, weby, cloud a bezpečnost.",
+    'Komplexní IT služby pro SMB a domácnosti: správa IT, weby, cloud a bezpečnost.',
   openGraph: {
     title: 'ThinkHome – Moderní IT bez starostí',
     description: 'Komplexní IT služby pro SMB a domácnosti: správa IT, weby, cloud a bezpečnost.',
-    url: 'http://localhost:3003',
+    url: 'https://thinkhome.org',
+    siteName: 'ThinkHome',
     type: 'website',
   },
   twitter: {

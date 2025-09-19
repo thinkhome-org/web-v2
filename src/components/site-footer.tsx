@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { IconBrandLinkedin, IconMail, IconPhone, IconBrandGithub } from '@tabler/icons-react';
+import { NAV_ITEMS } from '@/config/navigation';
 
 export default function SiteFooter() {
   return (
@@ -10,11 +11,9 @@ export default function SiteFooter() {
           <p className="mt-3 text-sm text-white/70 max-w-sm">Moderní IT bez starostí. Správa IT, weby, cloud a bezpečnost pro SMB a domácnosti.</p>
         </div>
         <nav aria-label="Hlavní odkazy" className="grid gap-2 text-sm md:col-span-4">
-          <Link href="/o-nas" className="hover:underline">O nás</Link>
-          <Link href="/nas-tym" className="hover:underline">Náš tým</Link>
-          <Link href="/sluzby" className="hover:underline">Služby</Link>
-          <Link href="/reference" className="hover:underline">Reference</Link>
-          <Link href="/kontakt" className="hover:underline">Kontakt</Link>
+          {NAV_ITEMS.filter(i => i.href !== '/').map((i) => (
+            <Link key={i.href} href={i.href} className="hover:underline">{i.label}</Link>
+          ))}
         </nav>
         <div className="grid gap-2 text-sm md:col-span-3">
           <a href="mailto:info@thinkhome.org" className="flex items-center gap-2 hover:underline"><IconMail size={16} /> info@thinkhome.org</a>

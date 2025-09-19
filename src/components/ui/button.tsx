@@ -1,8 +1,14 @@
-import { ButtonHTMLAttributes, forwardRef } from 'react';
+import { ButtonHTMLAttributes, forwardRef, ReactNode } from 'react';
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+/**
+ * Accessible button component with variants and loading state.
+ */
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'primary' | 'secondary' | 'ghost';
   size?: 'sm' | 'md';
+  loading?: boolean;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
 };
 
 const base = 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-ring disabled:opacity-60 disabled:cursor-not-allowed';
@@ -17,11 +23,15 @@ const sizes: Record<string, string> = {
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { className = '', variant = 'primary', size = 'md', ...props },
+  { className = '', variant = 'primary', size = 'md', loading = false, disabled, children, leftIcon, rightIcon, ...props },
   ref,
 ) {
   return (
-    <button ref={ref} className={`${base} ${variants[variant]} ${sizes[size]} ${className}`} {...props} />
+    <button ref={ref} className={`${base} ${variants[variant]} ${sizes[size]} ${className}`} disabled={disabled || loading} {...props}>
+      {leftIcon}
+      {children}
+      {rightIcon}
+    </button>
   );
 });
 

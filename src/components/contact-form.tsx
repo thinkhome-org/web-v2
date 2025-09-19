@@ -1,7 +1,12 @@
 'use client';
 
-import { FormEvent, useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 import { postDiscordMessage, buildContactEmbed, collectClientInfo } from '@/lib/discord-webhook';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Spinner } from '@/components/ui/spinner';
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,28 +50,28 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="mt-8 grid gap-4 max-w-xl fade-in">
       <div className="grid gap-2">
-        <label htmlFor="name" className="text-sm text-white/80">Jméno a příjmení</label>
-        <input id="name" name="name" required className="w-full rounded-md border border-white/15 bg-black px-3 py-2 text-sm placeholder-white/40 focus-ring" placeholder="Vaše jméno" />
+        <Label htmlFor="name">Jméno a příjmení</Label>
+        <Input id="name" name="name" required placeholder="Vaše jméno" />
       </div>
       <div className="grid gap-2">
-        <label htmlFor="company" className="text-sm text-white/80">Společnost (volitelné)</label>
-        <input id="company" name="company" className="w-full rounded-md border border-white/15 bg-black px-3 py-2 text-sm placeholder-white/40 focus-ring" placeholder="Název firmy" />
+        <Label htmlFor="company">Společnost (volitelné)</Label>
+        <Input id="company" name="company" placeholder="Název firmy" />
       </div>
       <div className="grid gap-2">
-        <label htmlFor="email" className="text-sm text-white/80">E‑mail</label>
-        <input id="email" name="email" type="email" required className="w-full rounded-md border border-white/15 bg-black px-3 py-2 text-sm placeholder-white/40 focus-ring" placeholder="vas@email.cz" />
+        <Label htmlFor="email">E‑mail</Label>
+        <Input id="email" name="email" type="email" required placeholder="vas@email.cz" />
       </div>
       <div className="grid gap-2">
-        <label htmlFor="phone" className="text-sm text-white/80">Telefon</label>
-        <input id="phone" name="phone" className="w-full rounded-md border border-white/15 bg-black px-3 py-2 text-sm placeholder-white/40 focus-ring" placeholder="+420 123 456 789" />
+        <Label htmlFor="phone">Telefon</Label>
+        <Input id="phone" name="phone" placeholder="+420 123 456 789" />
       </div>
       <div className="grid gap-2">
-        <label htmlFor="subject" className="text-sm text-white/80">Předmět</label>
-        <input id="subject" name="subject" className="w-full rounded-md border border-white/15 bg-black px-3 py-2 text-sm placeholder-white/40 focus-ring" placeholder="O čem chcete mluvit?" />
+        <Label htmlFor="subject">Předmět</Label>
+        <Input id="subject" name="subject" placeholder="O čem chcete mluvit?" />
       </div>
       <div className="grid gap-2">
-        <label htmlFor="message" className="text-sm text-white/80">Zpráva</label>
-        <textarea id="message" name="message" rows={5} className="w-full rounded-md border border-white/15 bg-black px-3 py-2 text-sm placeholder-white/40 focus-ring" placeholder="Popište váš požadavek..." />
+        <Label htmlFor="message">Zpráva</Label>
+        <Textarea id="message" name="message" rows={5} placeholder="Popište váš požadavek..." />
       </div>
       <div className="hidden">
         <label htmlFor="website" className="text-sm">Web</label>
@@ -79,11 +84,11 @@ export default function ContactForm() {
       {success && <p className="text-sm text-green-400 slide-up">{success}</p>}
       {error && <p className="text-sm text-red-400 slide-up">{error}</p>}
       <div className="flex items-center gap-3">
-        <button type="submit" disabled={isSubmitting} className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-white hover:bg-[#a50f19] transition-colors disabled:opacity-60 disabled:cursor-not-allowed inline-flex items-center gap-2">
-          {isSubmitting && <span className="h-4 w-4 rounded-full border-2 border-white/50 border-t-transparent spin" />}
+        <Button type="submit" loading={isSubmitting} className="inline-flex items-center gap-2">
+          {isSubmitting && <Spinner />}
           {isSubmitting ? 'Odesílám…' : 'Odeslat zprávu'}
-        </button>
-        <span className="text-xs text-white/50">Zpráva se odešle bezpečně na náš Discord</span>
+        </Button>
+        <span className="text-xs text-white/50">Zpráva se odešle bezpečně s SSL zabezpečením</span>
       </div>
     </form>
   );

@@ -1,17 +1,29 @@
-// FE-only helper for posting messages to Discord webhook
-// Note: Base64 obfuscation pouze skryje URL před triviálním přečtením ve zdrojáku.
+export type DiscordEmbedField = { name: string; value: string; inline?: boolean };
+export type DiscordEmbed = {
+  title?: string;
+  description?: string;
+  color?: number;
+  timestamp?: string;
+  fields?: DiscordEmbedField[];
+  footer?: { text: string };
+  author?: { name: string };
+};
+export type DiscordPayload = {
+  username?: string;
+  embeds?: DiscordEmbed[];
+};
 
 const BASE64_WEBHOOK = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTQxNzQ3NzAyNjI2ODMxOTg5OC9uejMwN01tdGpJM2FINnpPSTdFSDNxUDJsekhaMklCaUZ6R29sUG43eXh5bEl1Q3VSdDdTS3JyU2p2b0ptOWREd0lvQQ==";
 
-function decodeBase64(input) {
-  if (typeof window !== 'undefined' && window.atob) {
-    return window.atob(input);
+function decodeBase64(input: string): string {
+  if (typeof window !== 'undefined' && (window as any).atob) {
+    return (window as any).atob(input);
   }
-  // Fallback (shouldn't happen on client)
+  // Node fallback
   return Buffer.from(input, 'base64').toString('binary');
 }
 
-export async function postDiscordMessage(payload) {
+export async function postDiscordMessage(payload: DiscordPayload): Promise<Response> {
   const url = decodeBase64(BASE64_WEBHOOK);
   const res = await fetch(url, {
     method: 'POST',
@@ -27,7 +39,22 @@ export async function postDiscordMessage(payload) {
   return res;
 }
 
-export async function collectClientInfo() {
+export type ClientInfo = {
+  ip: string;
+  url: string;
+  referrer: string;
+  language: string;
+  languages: string;
+  timeZone: string;
+  viewport: string;
+  screenRes: string;
+  dpr: number;
+  ua: string;
+  brand: string;
+  platform: string;
+};
+
+export async function collectClientInfo(): Promise<ClientInfo> {
   try {
     const nav = typeof navigator !== 'undefined' ? navigator : undefined;
     const win = typeof window !== 'undefined' ? window : undefined;
@@ -42,8 +69,8 @@ export async function collectClientInfo() {
     const screenRes = win?.screen ? `${win.screen.width}x${win.screen.height}` : '';
     const dpr = win?.devicePixelRatio || 1;
     const ua = nav?.userAgent || '';
-    const brand = nav?.userAgentData?.brands?.map(b => `${b.brand} ${b.version}`).join(', ') || '';
-    const platform = nav?.userAgentData?.platform || nav?.platform || '';
+    const brand = (nav as any)?.userAgentData?.brands?.map((b: any) => `${b.brand} ${b.version}`).join(', ') || '';
+    const platform = (nav as any)?.userAgentData?.platform || nav?.platform || '';
 
     let ip = '';
     try {
@@ -58,19 +85,19 @@ export async function collectClientInfo() {
   }
 }
 
-function truncate(text, max) {
+function truncate(text: string, max: number): string {
   if (typeof text !== 'string') return '';
   return text.length > max ? `${text.slice(0, max - 1)}…` : text;
 }
 
-export function buildContactEmbed({ name, email, phone, message, client }) {
+export function buildContactEmbed({ name, email, phone, message, client }: { name: string; email: string; phone?: string; message: string; client?: ClientInfo; }): DiscordPayload {
   const timestamp = new Date().toISOString();
   const msg = (message || '').trim();
   const description = truncate(msg, 1900);
 
-  const details = client || {};
+  const details = client || ({} as ClientInfo);
   const browser = details.brand || details.ua || '-';
-  const fieldsClient = [
+  const fieldsClient: DiscordEmbedField[] = [
     { name: 'IP', value: details.ip || '-', inline: true },
     { name: 'Prohlížeč', value: truncate(browser, 1024) || '-', inline: true },
     { name: 'Platforma', value: details.platform || '-', inline: true },

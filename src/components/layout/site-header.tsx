@@ -6,8 +6,6 @@ import { useEffect, useRef, useState } from 'react';
 import { IconMenu2, IconX } from '@tabler/icons-react';
 import { NAV_ITEMS } from '@/config/navigation';
 
-const navItems = NAV_ITEMS;
-
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -24,7 +22,6 @@ export default function SiteHeader() {
   useEffect(() => {
     if (open) {
       document.documentElement.style.overflow = 'hidden';
-      // initial focus
       setTimeout(() => {
         const firstLink = menuRef.current?.querySelector('a') as HTMLAnchorElement | undefined;
         firstLink?.focus?.();
@@ -44,7 +41,7 @@ export default function SiteHeader() {
   }, [open]);
 
   useEffect(() => {
-    setOpen(false); // close menu on route change
+    setOpen(false);
   }, [pathname]);
 
   function isActive(href: string) {
@@ -59,7 +56,7 @@ export default function SiteHeader() {
           <img src="/logo.svg" alt="ThinkHome" width={110} height={26} />
         </Link>
         <nav className="hidden md:flex items-center gap-1">
-          {navItems.map(({ href, label }) => {
+          {NAV_ITEMS.map(({ href, label }) => {
             const active = isActive(href);
             return (
               <Link
@@ -87,13 +84,12 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile overlay */}
       {open && (
         <div className="md:hidden fixed inset-0 z-[60]" role="dialog" aria-modal="true">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setOpen(false)} />
           <div ref={menuRef} id="mobile-menu" className="absolute inset-x-0 top-14 border-t border-white/10 bg-black" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
             <div className="container px-3 py-2 grid max-h-[70vh] overflow-y-auto">
-              {navItems.map(({ href, label, icon: Icon }) => (
+              {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
                 <Link key={href} href={href} className={`flex items-center gap-2 rounded-md px-3 py-3 focus-ring transition-colors ${isActive(href) ? 'bg-white/10' : 'hover:bg-white/5'}`}>
                   {Icon && <Icon size={18} className="text-white/80" />}
                   <span className="text-sm text-white/90">{label}</span>
