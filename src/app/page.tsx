@@ -48,7 +48,7 @@ export default function Home() {
           <h2 className="text-2xl md:text-3xl font-semibold">Proč si vybrat ThinkHome</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             <Card>
-              <CardHeader className="pb-1 flex items-center gap-2 text-white/90"><Icons.IconClockBolt size={18} /> Rychlá reakce</CardHeader>
+              <CardHeader className="pb-1 flex items-center gap-2 text-white/90"><Icons.IconBolt size={18} /> Rychlá reakce</CardHeader>
               <CardContent className="text-sm text-white/70">Kritické problémy řešíme obratem, podpora k dispozici 24/7.</CardContent>
             </Card>
             <Card>
