@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react';
 
 export function Card({ className = '', ...props }: HTMLAttributes<HTMLDivElement>) {
-  return <div className={`rounded-lg border border-white/10 bg-muted ${className}`} {...props} />;
+  return <div className={`rounded-lg border border-white/10 bg-muted blurred-bg ${className}`} {...props} />;
 }
 
 export function CardHeader({ className = '', ...props }: HTMLAttributes<HTMLDivElement>) {

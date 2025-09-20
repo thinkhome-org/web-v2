@@ -60,11 +60,13 @@ body {
 .transition-shadow {
   transition: box-shadow 150ms ease;
 }
-.hover-glow:hover {
+/* Accent glow utility */
+.accent-glow {
   box-shadow:
     0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent),
     0 0 18px color-mix(in srgb, var(--accent) 25%, transparent);
 }
+.hover-glow:hover { box-shadow: var(--hover-glow, 0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent), 0 0 18px color-mix(in srgb, var(--accent) 25%, transparent)); }
 
 /* Safari/WebKit stabilizace headeru s rozostřením */
 .sticky-header {
