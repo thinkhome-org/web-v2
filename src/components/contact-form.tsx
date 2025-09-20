@@ -11,15 +11,15 @@ import { useToast } from '@/components/ui/toast-provider';
 import { sendDiscordContact } from '@/lib/client-webhook';
 
 const clientSchema = z.object({
-  name: z.string().min(1, 'Vyplňte prosím jméno'),
-  email: z.string().email('Zadejte platný e‑mail'),
+  name: z.string().optional().transform((v) => (v || '').trim()),
+  email: z.string().email('Zadejte platný e‑mail').optional(),
   phone: z
     .string()
     .optional()
     .refine((v) => !v || /^[+0-9 ()-]{6,}$/.test(v), 'Zadejte platný telefon'),
   company: z.string().optional(),
   subject: z.string().optional(),
-  message: z.string().min(1, 'Napište zprávu'),
+  message: z.string().min(4, 'Zpráva musí mít alespoň 4 znaky'),
   website: z.string().optional(),
 });
 
@@ -95,9 +95,20 @@ export default function ContactForm() {
         } catch {}
       }
 
-      // 3) Mailto fallback
+      // 3) Mailto fallback (lépe formátovaný předmět i tělo)
       if (!ok) {
-        window.location.href = `mailto:info@thinkhome.org?subject=${encodeURIComponent(subject || 'Poptávka z webu')}&body=${encodeURIComponent(`${name}\n${email}${phone ? `\n${phone}` : ''}\n\n${message}`)}`;
+        const mailSubject = subject?.trim() ? `Poptávka: ${subject.trim()}` : 'Poptávka z webu';
+        const mailBody = [
+          `Jméno: ${name || '-'}`,
+          `E‑mail: ${email || '-'}`,
+          phone ? `Telefon: ${phone}` : undefined,
+          company ? `Společnost: ${company}` : undefined,
+          '',
+          message,
+        ]
+          .filter(Boolean)
+          .join('\n');
+        window.location.href = `mailto:info@thinkhome.org?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
         return;
       }
       setSuccess('Děkujeme, zpráva byla odeslána. Ozveme se co nejdříve.');
@@ -114,7 +125,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="mt-8 grid gap-4 max-w-xl fade-in" aria-busy={isSubmitting}>
       <div className="grid gap-2">
-        <Label htmlFor="name">Jméno a příjmení</Label>
+        <Label htmlFor="name">Jméno a příjmení (nepovinné)</Label>
         <Input id="name" name="name" autoComplete="name" aria-invalid={Boolean(fieldErrors.name)} aria-describedby={fieldErrors.name ? 'name-error' : undefined} placeholder="Vaše jméno" className={fieldErrors.name ? 'border-red-500' : ''} onChange={() => clearFieldError('name')} />
         {fieldErrors.name && <p id="name-error" className="text-xs text-red-400">{fieldErrors.name}</p>}
       </div>
@@ -123,7 +134,7 @@ export default function ContactForm() {
         <Input id="company" name="company" autoComplete="organization" placeholder="Název firmy" onChange={() => clearFieldError('company')} />
       </div>
       <div className="grid gap-2">
-        <Label htmlFor="email">E‑mail</Label>
+        <Label htmlFor="email">E‑mail (nepovinné)</Label>
         <Input id="email" name="email" type="email" autoComplete="email" aria-invalid={Boolean(fieldErrors.email)} aria-describedby={fieldErrors.email ? 'email-error' : undefined} placeholder="vas@email.cz" className={fieldErrors.email ? 'border-red-500' : ''} onChange={() => clearFieldError('email')} />
         {fieldErrors.email && <p id="email-error" className="text-xs text-red-400">{fieldErrors.email}</p>}
       </div>
@@ -137,8 +148,8 @@ export default function ContactForm() {
         <Input id="subject" name="subject" placeholder="O čem chcete mluvit?" onChange={() => clearFieldError('subject')} />
       </div>
       <div className="grid gap-2">
-        <Label htmlFor="message">Zpráva</Label>
-        <Textarea id="message" name="message" rows={5} required aria-invalid={Boolean(fieldErrors.message)} aria-describedby={fieldErrors.message ? 'message-error' : undefined} placeholder="Popište váš požadavek..." className={fieldErrors.message ? 'border-red-500' : ''} onChange={() => clearFieldError('message')} />
+        <Label htmlFor="message">Zpráva (min. 4 znaky)</Label>
+        <Textarea id="message" name="message" rows={5} required minLength={4} aria-invalid={Boolean(fieldErrors.message)} aria-describedby={fieldErrors.message ? 'message-error' : undefined} placeholder="Popište váš požadavek..." className={fieldErrors.message ? 'border-red-500' : ''} onChange={() => clearFieldError('message')} />
         {fieldErrors.message && <p id="message-error" className="text-xs text-red-400">{fieldErrors.message}</p>}
       </div>
       <div className="hidden">
@@ -149,7 +160,7 @@ export default function ContactForm() {
         <input type="checkbox" required className="mt-1" />
         Souhlasím se zpracováním údajů pro účely vyřízení poptávky.
       </label>
-      {success && <p className="text-sm text-green-400 slide-up" role="status" aria-live="polite">{success}</p>}
+      {/* Úspěch oznamujeme jen toastem, bez duplicitního zeleného textu */}
       {error && <p className="text-sm text-red-400 slide-up" role="alert" aria-live="assertive">{error}</p>}
       <div className="flex items-center gap-3">
         <Button type="submit" loading={isSubmitting} className="inline-flex items-center gap-2">
