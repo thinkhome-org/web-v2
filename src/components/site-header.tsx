@@ -92,8 +92,16 @@ export default function SiteHeader() {
       {open && (
         <div className="md:hidden fixed inset-0 z-[60]" role="dialog" aria-modal="true">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setOpen(false)} />
-          <div ref={menuRef} id="mobile-menu" className="absolute inset-x-0 top-14 border-t border-white/10 bg-black" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
-            <div className="container px-3 py-2 grid max-h-[70vh] overflow-y-auto">
+          <div ref={menuRef} id="mobile-menu" className="absolute inset-0 bg-black flex flex-col" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+            <div className="container px-3 py-3 flex items-center justify-between border-b border-white/10">
+              <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+                <Image src="/logo.svg" alt="ThinkHome" width={110} height={26} />
+              </Link>
+              <button aria-label="Zavřít menu" className="rounded-md p-2 hover:bg-white/5 focus-ring" onClick={() => setOpen(false)}>
+                <Icons.IconX size={22} className="text-white" />
+              </button>
+            </div>
+            <div className="container px-3 py-2 flex-1 overflow-y-auto grid">
               {navItems.map(({ href, label, icon: Icon }) => (
                 <Link key={href} href={href} className={`flex items-center gap-2 rounded-md px-3 py-3 focus-ring transition-colors transition-shadow ${isActive(href) ? 'bg-white/10' : 'hover:bg-white/5 hover-glow'}`}>
                   {Icon && <Icon size={18} className="text-white/80" />}

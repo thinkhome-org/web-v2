@@ -12,7 +12,12 @@ import { sendDiscordContact } from '@/lib/client-webhook';
 
 const clientSchema = z.object({
   name: z.string().optional().transform((v) => (v || '').trim()),
-  email: z.string().email('Zadejte platný e‑mail').optional(),
+  // E‑mail: prázdný povolen bez validace, jinak musí být platný
+  email: z
+    .string()
+    .optional()
+    .transform((v) => (v || '').trim())
+    .refine((v) => v === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), 'Zadejte platný e‑mail'),
   phone: z
     .string()
     .optional()
@@ -119,18 +124,18 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-8 grid gap-4 max-w-xl fade-in" aria-busy={isSubmitting}>
+    <form onSubmit={handleSubmit} className="mt-8 grid gap-4 max-w-xl mx-auto fade-in" aria-busy={isSubmitting}>
       <div className="grid gap-2">
-        <Label htmlFor="name">Jméno a příjmení (nepovinné)</Label>
+        <Label htmlFor="name">Jméno a příjmení</Label>
         <Input id="name" name="name" autoComplete="name" aria-invalid={Boolean(fieldErrors.name)} aria-describedby={fieldErrors.name ? 'name-error' : undefined} placeholder="Vaše jméno" className={fieldErrors.name ? 'border-red-500' : ''} onChange={() => clearFieldError('name')} />
         {fieldErrors.name && <p id="name-error" className="text-xs text-red-400">{fieldErrors.name}</p>}
       </div>
       <div className="grid gap-2">
-        <Label htmlFor="company">Společnost (volitelné)</Label>
+        <Label htmlFor="company">Společnost</Label>
         <Input id="company" name="company" autoComplete="organization" placeholder="Název firmy" onChange={() => clearFieldError('company')} />
       </div>
       <div className="grid gap-2">
-        <Label htmlFor="email">E‑mail (nepovinné)</Label>
+        <Label htmlFor="email">E‑mail</Label>
         <Input id="email" name="email" type="email" autoComplete="email" aria-invalid={Boolean(fieldErrors.email)} aria-describedby={fieldErrors.email ? 'email-error' : undefined} placeholder="vas@email.cz" className={fieldErrors.email ? 'border-red-500' : ''} onChange={() => clearFieldError('email')} />
         {fieldErrors.email && <p id="email-error" className="text-xs text-red-400">{fieldErrors.email}</p>}
       </div>
@@ -152,18 +157,14 @@ export default function ContactForm() {
         <label htmlFor="website" className="text-sm">Web</label>
         <input id="website" name="website" autoComplete="off" tabIndex={-1} />
       </div>
-      <label className="flex items-start gap-2 text-sm text-white/80">
-        <input type="checkbox" required className="mt-1" />
-        Souhlasím se zpracováním údajů pro účely vyřízení poptávky.
-      </label>
       {/* Úspěch oznamujeme jen toastem, bez duplicitního zeleného textu */}
       {error && <p className="text-sm text-red-400 slide-up" role="alert" aria-live="assertive">{error}</p>}
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col items-center gap-3">
         <Button type="submit" loading={isSubmitting} className="inline-flex items-center gap-2">
           {isSubmitting && <Spinner />}
           {isSubmitting ? 'Odesílám…' : 'Odeslat zprávu'}
         </Button>
-        <span className="text-xs text-white/50">Zpráva se odešle bezpečně s SSL zabezpečením</span>
+        <p className="text-xs text-white/60 text-center">Souhlasím se zpracováním údajů pro účely vyřízení poptávky.</p>
       </div>
     </form>
   );
