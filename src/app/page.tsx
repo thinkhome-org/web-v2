@@ -12,7 +12,7 @@ export default function Home() {
       <HomeProcess />
       <section id="kontakt" className="bg-[#0d0d0d] px-6 py-16 md:py-24">
         <h2 className="text-2xl md:text-3xl font-semibold">Kontaktujte nás</h2>
-        <p className="mt-2 text-white/70 max-w-2xl">Máte dotaz nebo potřebujete konzultaci? Vyplňte formulář – zpráva se otevře ve vašem e‑mailovém klientu.</p>
+        <p className="mt-2 text-white/70 max-w-2xl">Máte dotaz nebo potřebujete konzultaci? Vyplňte formulář – doručíme ho na náš kanál a ozveme se co nejdřív.</p>
         <ContactForm />
       </section>
     </main>
