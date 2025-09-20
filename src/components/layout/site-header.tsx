@@ -56,23 +56,24 @@ export default function SiteHeader() {
         <Link href="/" className="flex items-center gap-2">
           <Image src="/logo.svg" alt="ThinkHome" width={110} height={26} priority={pathname === '/'} />
         </Link>
-        <nav className="hidden md:flex items-center gap-1">
-          {NAV_ITEMS.map(({ href, label }) => {
+        <nav className="hidden md:flex items-center gap-1 ml-auto">
+          {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
             const active = isActive(href);
+            const isContact = href === '/kontakt';
             return (
               <Link
                 key={href}
                 href={href}
                 aria-current={active ? 'page' : undefined}
-                className={`rounded-md px-3 py-2 text-sm focus-ring transition-colors ${active ? 'bg-white/10 text-white' : 'text-white/80 hover:bg-white/5'}`}
+                className={`flex items-center gap-2 rounded-md px-3 py-2 focus-ring transition-colors ${active ? 'bg-white/10' : 'hover:bg-white/5'}`}
               >
-                {label}
+                {Icon && <Icon size={18} className="text-white/80" />}
+                <span className={`text-sm ${isContact ? 'text-accent' : 'text-white/90'}`}>{label}</span>
               </Link>
             );
           })}
         </nav>
         <div className="flex items-center gap-2">
-          <Link href="/kontakt" className="hidden md:inline-flex focus-ring rounded-md bg-accent px-4 py-2 text-sm font-medium text-white hover:bg-[#a50f19] transition-colors">Kontakt</Link>
           <button
             aria-label="Menu"
             aria-expanded={open}
@@ -93,10 +94,9 @@ export default function SiteHeader() {
               {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
                 <Link key={href} href={href} className={`flex items-center gap-2 rounded-md px-3 py-3 focus-ring transition-colors ${isActive(href) ? 'bg-white/10' : 'hover:bg-white/5'}`}>
                   {Icon && <Icon size={18} className="text-white/80" />}
-                  <span className="text-sm text-white/90">{label}</span>
+                  <span className={`text-sm ${href === '/kontakt' ? 'text-accent' : 'text-white/90'}`}>{label}</span>
                 </Link>
               ))}
-              <Link href="/kontakt" className="mt-1 mb-2 rounded-md bg-accent px-3 py-3 text-sm font-medium text-white hover:bg-[#a50f19] focus-ring">Kontakt</Link>
             </div>
           </div>
         </div>
