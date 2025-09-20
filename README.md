@@ -60,6 +60,19 @@ UI Elementy – API
 - `Section`, `Container`: layout sekcí a max-width wrapper
 - `Spinner`: inline indikátor načítání
 
+Ikony (Tabler)
+--------------
+
+- Používejte centrální import ikon přes `Icons`:
+  ```ts
+  import { Icons } from '@/components/ui';
+  
+  function Example() {
+    return <Icons.IconMail size={18} />;
+  }
+  ```
+- Přímé importy z `@tabler/icons-react` jsou lintem zakázané (viz ESLint pravidlo `no-restricted-imports`).
+
 
 Licence
 -------

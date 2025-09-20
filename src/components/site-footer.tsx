@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { IconBrandLinkedin, IconMail, IconPhone, IconBrandGithub } from '@tabler/icons-react';
+import { Icons } from '@/components/ui';
 import { readYamlObject } from '@/lib/yaml';
 import { NAV_ITEMS } from '@/config/navigation';
 
@@ -20,11 +20,11 @@ export default async function SiteFooter() {
           ))}
         </nav>
         <div className="grid gap-2 text-sm md:col-span-3">
-          {contacts?.email && <a href={`mailto:${contacts.email}`} className="flex items-center gap-2 hover:underline"><IconMail size={16} /> {contacts.email}</a>}
-          {contacts?.phone && <a href={`tel:${contacts.phone.replace(/\s+/g,'')}`} className="flex items-center gap-2 hover:underline"><IconPhone size={16} /> {contacts.phone}</a>}
+          {contacts?.email && <a href={`mailto:${contacts.email}`} className="flex items-center gap-2 hover:underline"><Icons.IconMail size={16} /> {contacts.email}</a>}
+          {contacts?.phone && <a href={`tel:${contacts.phone.replace(/\s+/g,'')}`} className="flex items-center gap-2 hover:underline"><Icons.IconPhone size={16} /> {contacts.phone}</a>}
           <div className="flex items-center gap-3 pt-2">
-            {contacts?.linkedin && <a aria-label="LinkedIn" href={contacts.linkedin} target="_blank" rel="noopener noreferrer" className="rounded-md p-2 hover:bg-white/5"><IconBrandLinkedin size={18} /></a>}
-            {contacts?.github && <a aria-label="GitHub" href={contacts.github} target="_blank" rel="noopener noreferrer" className="rounded-md p-2 hover:bg-white/5"><IconBrandGithub size={18} /></a>}
+            {contacts?.linkedin && <a aria-label="LinkedIn" href={contacts.linkedin} target="_blank" rel="noopener noreferrer" className="rounded-md p-2 hover:bg-white/5"><Icons.IconBrandLinkedin size={18} /></a>}
+            {contacts?.github && <a aria-label="GitHub" href={contacts.github} target="_blank" rel="noopener noreferrer" className="rounded-md p-2 hover:bg-white/5"><Icons.IconBrandGithub size={18} /></a>}
           </div>
         </div>
       </div>

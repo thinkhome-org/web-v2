@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { IconMenu2, IconX } from '@tabler/icons-react';
+import { Icons } from '@/components/ui';
 import { NAV_ITEMS } from '@/config/navigation';
 
 const navItems = NAV_ITEMS;
@@ -62,16 +62,15 @@ export default function SiteHeader() {
         <nav className="hidden md:flex items-center gap-1 ml-auto">
           {navItems.map(({ href, label, icon: Icon }) => {
             const active = isActive(href);
-            const isContact = href === '/kontakt';
             return (
               <Link
                 key={href}
                 href={href}
                 aria-current={active ? 'page' : undefined}
-                className={`flex items-center gap-2 rounded-md px-3 py-2 focus-ring transition-colors ${active ? 'bg-white/10' : 'hover:bg-white/5'}`}
+                className={`flex items-center gap-2 rounded-md px-3 py-2 focus-ring transition-colors transition-shadow ${active ? 'bg-white/10' : 'hover:bg-white/5 hover-glow'}`}
               >
                 {Icon && <Icon size={18} className="text-white/80" />}
-                <span className={`text-sm ${isContact ? 'text-accent' : 'text-white/90'}`}>{label}</span>
+                <span className="text-sm text-white/90">{label}</span>
               </Link>
             );
           })}
@@ -84,7 +83,7 @@ export default function SiteHeader() {
             className="md:hidden rounded-md p-2 hover:bg-white/5 focus-ring"
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <IconX size={22} className="text-white" /> : <IconMenu2 size={22} className="text-white" />}
+            {open ? <Icons.IconX size={22} className="text-white" /> : <Icons.IconMenu2 size={22} className="text-white" />}
           </button>
         </div>
       </div>
@@ -96,9 +95,9 @@ export default function SiteHeader() {
           <div ref={menuRef} id="mobile-menu" className="absolute inset-x-0 top-14 border-t border-white/10 bg-black" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
             <div className="container px-3 py-2 grid max-h-[70vh] overflow-y-auto">
               {navItems.map(({ href, label, icon: Icon }) => (
-                <Link key={href} href={href} className={`flex items-center gap-2 rounded-md px-3 py-3 focus-ring transition-colors ${isActive(href) ? 'bg-white/10' : 'hover:bg-white/5'}`}>
+                <Link key={href} href={href} className={`flex items-center gap-2 rounded-md px-3 py-3 focus-ring transition-colors transition-shadow ${isActive(href) ? 'bg-white/10' : 'hover:bg-white/5 hover-glow'}`}>
                   {Icon && <Icon size={18} className="text-white/80" />}
-                  <span className={`text-sm ${href === '/kontakt' ? 'text-accent' : 'text-white/90'}`}>{label}</span>
+                  <span className="text-sm text-white/90">{label}</span>
                 </Link>
               ))}
             </div>

@@ -53,6 +53,17 @@ body {
 .focus-ring:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+/* Hover glow for interactive elements (links, buttons) */
+.transition-shadow {
+  transition: box-shadow 150ms ease;
+}
+.hover-glow:hover {
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent),
+    0 0 18px color-mix(in srgb, var(--accent) 25%, transparent);
 }
 
 /* Safari/WebKit stabilizace headeru s rozostřením */
