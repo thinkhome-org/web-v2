@@ -90,10 +90,11 @@ export default function SiteHeader() {
 
       {/* Mobile overlay */}
       {open && (
-        <div className="md:hidden fixed inset-0 z-[60]" role="dialog" aria-modal="true">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setOpen(false)} />
-          <div ref={menuRef} id="mobile-menu" className="absolute inset-0 bg-black flex flex-col" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
-            <div className="container px-3 py-3 flex items-center justify-between border-b border-white/10">
+        <div className="md:hidden fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setOpen(false)} />
+          <div ref={menuRef} id="mobile-menu" className="fixed inset-0 bg-black flex flex-col" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+            <div className="px-6 h-14 flex items-center justify-between border-b border-white/10">
+              <h2 id="mobile-menu-title" className="sr-only">Menu</h2>
               <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
                 <Image src="/logo.svg" alt="ThinkHome" width={110} height={26} />
               </Link>
@@ -101,14 +102,18 @@ export default function SiteHeader() {
                 <Icons.IconX size={22} className="text-white" />
               </button>
             </div>
-            <div className="container px-3 py-2 flex-1 overflow-y-auto grid">
+            <nav className="px-2 py-2 flex-1 overflow-y-auto">
               {navItems.map(({ href, label, icon: Icon }) => (
-                <Link key={href} href={href} className={`flex items-center gap-2 rounded-md px-3 py-3 focus-ring transition-colors transition-shadow ${isActive(href) ? 'bg-white/10' : 'hover:bg-white/5 hover-glow'}`}>
-                  {Icon && <Icon size={18} className="text-white/80" />}
-                  <span className="text-sm text-white/90">{label}</span>
+                <Link
+                  key={href}
+                  href={href}
+                  className={`flex items-center gap-3 rounded-md px-4 py-4 focus-ring transition-colors transition-shadow text-white/90 ${isActive(href) ? 'bg-white/10' : 'hover:bg-white/5 hover-glow'}`}
+                >
+                  {Icon && <Icon size={20} className="text-white/80" />}
+                  <span className="text-base">{label}</span>
                 </Link>
               ))}
-            </div>
+            </nav>
           </div>
         </div>
       )}
