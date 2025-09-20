@@ -19,6 +19,26 @@ function truncate(text: string, max: number): string {
 }
 
 export async function POST(req: NextRequest) {
+  // Basic in-memory rate limit (per instance): max 5 req / 60s per IP
+  // Note: For static hosting without serverless functions, this route isn't active.
+  const now = Date.now();
+  const ipHeader = req.headers.get('x-forwarded-for') || '';
+  const clientIp = (ipHeader.split(',')[0]?.trim() || req.headers.get('x-real-ip') || '') as string;
+  if (clientIp) {
+    const windowMs = 3_000;
+    const limit = 1;
+    // @ts-expect-error scoped cache on module
+    globalThis.__contactRate__ = globalThis.__contactRate__ || new Map<string, number[]>();
+    // @ts-expect-error scoped cache on module
+    const cache: Map<string, number[]> = globalThis.__contactRate__;
+    const arr = cache.get(clientIp) || [];
+    const recent = arr.filter((t) => now - t < windowMs);
+    if (recent.length >= limit) {
+      return NextResponse.json({ ok: false, error: 'Too many requests' }, { status: 429 });
+    }
+    recent.push(now);
+    cache.set(clientIp, recent);
+  }
   const body = await req.json().catch(() => ({}));
   const parsed = contactSchema.safeParse(body);
   if (!parsed.success) {
@@ -37,8 +57,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: 'Server not configured' }, { status: 500 });
   }
 
-  const ipHeader = req.headers.get('x-forwarded-for') || '';
-  const ip = ipHeader.split(',')[0].trim() || req.headers.get('x-real-ip') || '';
+  const ip = clientIp || '';
   const referrer = req.headers.get('referer') || '';
   const language = req.headers.get('accept-language') || '';
   const ua = req.headers.get('user-agent') || '';

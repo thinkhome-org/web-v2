@@ -1,9 +1,11 @@
 export const metadata = { title: 'Služby – ThinkHome' };
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 type Service = { title: string; desc: string };
 async function getServices(): Promise<Service[]> {
-  const { readYamlArray } = await import('@/lib/yaml');
-  return readYamlArray<Service>('services.yaml');
+  const { readValidatedArray, serviceSchema } = await import('@/lib/yaml');
+  return readValidatedArray<Service>('services.yaml', serviceSchema);
 }
 
 export default async function Page() {

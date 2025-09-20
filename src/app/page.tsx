@@ -1,7 +1,8 @@
+import dynamic from "next/dynamic";
 import ContactForm from "@/components/contact-form";
-import { HomeHero } from "@/components/sections/home-hero";
-import { HomeServices } from "@/components/sections/home-services";
-import { HomeProcess } from "@/components/sections/home-process";
+const HomeHero = dynamic(() => import("@/components/sections/home-hero").then(m => m.HomeHero), { ssr: true });
+const HomeServices = dynamic(() => import("@/components/sections/home-services").then(m => m.HomeServices), { ssr: true });
+const HomeProcess = dynamic(() => import("@/components/sections/home-process").then(m => m.HomeProcess), { ssr: true });
 
 export default function Home() {
   return (

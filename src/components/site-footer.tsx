@@ -23,8 +23,8 @@ export default async function SiteFooter() {
           {contacts?.email && <a href={`mailto:${contacts.email}`} className="flex items-center gap-2 hover:underline"><IconMail size={16} /> {contacts.email}</a>}
           {contacts?.phone && <a href={`tel:${contacts.phone.replace(/\s+/g,'')}`} className="flex items-center gap-2 hover:underline"><IconPhone size={16} /> {contacts.phone}</a>}
           <div className="flex items-center gap-3 pt-2">
-            {contacts?.linkedin && <a aria-label="LinkedIn" href={contacts.linkedin} className="rounded-md p-2 hover:bg-white/5"><IconBrandLinkedin size={18} /></a>}
-            {contacts?.github && <a aria-label="GitHub" href={contacts.github} className="rounded-md p-2 hover:bg-white/5"><IconBrandGithub size={18} /></a>}
+            {contacts?.linkedin && <a aria-label="LinkedIn" href={contacts.linkedin} target="_blank" rel="noopener noreferrer" className="rounded-md p-2 hover:bg-white/5"><IconBrandLinkedin size={18} /></a>}
+            {contacts?.github && <a aria-label="GitHub" href={contacts.github} target="_blank" rel="noopener noreferrer" className="rounded-md p-2 hover:bg-white/5"><IconBrandGithub size={18} /></a>}
           </div>
         </div>
       </div>

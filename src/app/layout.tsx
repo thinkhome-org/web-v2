@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/site-footer";
+import { ToastProvider } from "@/components/ui/toast-provider";
+import { readYamlObject } from "@/lib/yaml";
 
 const plexSans = IBM_Plex_Sans({
   variable: "--font-plex-sans",
@@ -36,20 +38,44 @@ export const metadata: Metadata = {
     title: 'ThinkHome – Moderní IT bez starostí',
     description: 'Komplexní IT služby pro SMB a domácnosti: správa IT, weby, cloud a bezpečnost.',
   },
+  manifest: '/manifest.webmanifest',
+  alternates: { canonical: '/' },
 };
 
-export default function RootLayout({
+export const viewport: Viewport = {
+  themeColor: '#0a0a0a',
+  colorScheme: 'dark',
+};
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const contacts = await readYamlObject<{ email?: string; phone?: string }>("contacts.yaml");
+  const orgJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'ThinkHome',
+    url: 'https://thinkhome.org',
+    contactPoint: contacts?.email || contacts?.phone ? [{
+      '@type': 'ContactPoint',
+      email: contacts?.email,
+      telephone: contacts?.phone,
+      contactType: 'customer support',
+      availableLanguage: ['cs'],
+    }] : undefined,
+  };
   return (
     <html lang="cs">
       <body className={`${plexSans.variable} ${plexMono.variable} antialiased bg-background text-foreground`} suppressHydrationWarning>
         <a href="#main" className="skip-link">Přeskočit na obsah</a>
-        <SiteHeader />
-        <main id="main">{children}</main>
-        <SiteFooter />
+        <ToastProvider>
+          <SiteHeader />
+          <main id="main">{children}</main>
+          <SiteFooter />
+        </ToastProvider>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
       </body>
     </html>
   );
