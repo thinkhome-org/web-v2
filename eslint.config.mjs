@@ -37,6 +37,13 @@ const eslintConfig = [
       ],
     },
   },
+  {
+    files: ["src/components/ui/index.ts"],
+    rules: {
+      // Allow central barrel to import Tabler directly
+      "no-restricted-imports": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

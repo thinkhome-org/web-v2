@@ -26,7 +26,6 @@ const clientSchema = z.object({
 export default function ContactForm() {
   const { show } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<keyof z.infer<typeof clientSchema>, string>>>({});
 
@@ -42,7 +41,6 @@ export default function ContactForm() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSubmitting(true);
-    setSuccess(null);
     setError(null);
     setFieldErrors({});
 
@@ -50,7 +48,6 @@ export default function ContactForm() {
     const data = new FormData(form);
     if (String(data.get('website') || '').length > 0) {
       setIsSubmitting(false);
-      setSuccess('Děkujeme, zpráva byla odeslána.');
       form.reset();
       return;
     }
@@ -111,7 +108,6 @@ export default function ContactForm() {
         window.location.href = `mailto:info@thinkhome.org?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
         return;
       }
-      setSuccess('Děkujeme, zpráva byla odeslána. Ozveme se co nejdříve.');
       show({ title: 'Odesláno', description: 'Vaše zpráva dorazila, brzy se ozveme.', variant: 'success' });
       form.reset();
     } catch {
