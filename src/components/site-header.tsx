@@ -107,6 +107,7 @@ export default function SiteHeader() {
                 <Link
                   key={href}
                   href={href}
+                  onClick={() => setOpen(false)}
                   className={`flex items-center gap-3 rounded-md px-4 py-4 focus-ring transition-colors transition-shadow text-white/90 ${isActive(href) ? 'bg-white/10' : 'hover:bg-white/5 hover-glow'}`}
                 >
                   {Icon && <Icon size={20} className="text-white/80" />}
