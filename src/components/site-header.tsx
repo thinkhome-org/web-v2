@@ -90,9 +90,9 @@ export default function SiteHeader() {
 
       {/* Mobile overlay */}
       {open && (
-        <div className="md:hidden fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+        <div className="md:hidden fixed inset-0 z-[9999]" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setOpen(false)} />
-          <div ref={menuRef} id="mobile-menu" className="fixed inset-0 bg-black flex flex-col" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+          <div ref={menuRef} id="mobile-menu" className="fixed inset-0 bg-black flex flex-col transform-gpu will-change-transform" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
             <div className="px-6 h-14 flex items-center justify-between border-b border-white/10">
               <h2 id="mobile-menu-title" className="sr-only">Menu</h2>
               <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
