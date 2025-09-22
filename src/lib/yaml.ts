@@ -27,9 +27,16 @@ export const teamMemberSchema = z.object({
   image: z.string().optional(),
   links: z.object({ linkedin: z.string().url().optional(), github: z.string().url().optional() }).optional(),
 });
+export const projectSchema = z.object({
+  title: z.string(),
+  desc: z.string(),
+  url: z.string().url().optional(),
+  tags: z.array(z.string()).optional(),
+});
 
 export type Service = z.infer<typeof serviceSchema>;
 export type TeamMember = z.infer<typeof teamMemberSchema>;
+export type Project = z.infer<typeof projectSchema>;
 
 export async function readValidatedArray<T>(relativePath: string, schema: z.ZodType<T>): Promise<T[]> {
   const items = await readYamlArray<unknown>(relativePath);

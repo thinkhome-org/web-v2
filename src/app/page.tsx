@@ -1,14 +1,17 @@
 import Link from 'next/link'
 import { Container, Section, Card, CardContent, CardHeader, Button } from '@/components/ui'
 import ContactForm from '@/components/contact-form'
-import { IconRocket, IconHeadset, IconShieldCheck, IconWorld, IconCloud, IconServer, IconDeviceLaptop } from '@tabler/icons-react'
+import { IconRocket, IconHeadset, IconShieldCheck } from '@tabler/icons-react'
+import { readValidatedArray, projectSchema, type Project } from '@/lib/yaml'
 
-export default function Page() {
+export default async function Page() {
+  const projects = await readValidatedArray<Project>('projects.yaml', projectSchema)
+  const featured = projects.slice(0, 3)
   return (
     <>
       <Section className="border-0 scroll-mt-20" id="home">
         <Container className="px-6 py-16 md:py-24 grid gap-10 md:gap-12">
-          <div className="grid md:grid-cols-[1.1fr,0.9fr] items-center gap-8 md:gap-12">
+          <div className="grid items-center gap-8 md:gap-12">
             <div className="space-y-5">
               <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">ThinkHome – moderní IT bez starostí</h1>
               <p className="text-white/80 text-base md:text-lg max-w-prose">IT, které prostě funguje. Zrychlíme práci, snížíme náklady a dáme technologiím jasný řád – přehledně, klidně a bez zbytečných složitostí.</p>
@@ -25,36 +28,6 @@ export default function Page() {
                 <li>• 24/7 dohled a dlouhodobá podpora</li>
                 <li>• 200+ spokojených klientů</li>
               </ul>
-            </div>
-            <div className="relative rounded-xl overflow-hidden border border-white/10 p-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="aspect-square rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center">
-                  <IconWorld size={40} className="text-white/80" />
-                </div>
-                <div className="aspect-square rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center">
-                  <IconCloud size={40} className="text-white/80" />
-                </div>
-                <div className="aspect-square rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center">
-                  <IconServer size={40} className="text-white/80" />
-                </div>
-                <div className="aspect-square rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center">
-                  <IconDeviceLaptop size={40} className="text-white/80" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container className="px-6 py-6 md:py-8">
-          <div className="flex flex-wrap items-center justify-center gap-6 opacity-80">
-            <span className="text-xs uppercase tracking-wide text-white/60">Naše silné stránky</span>
-            <div className="flex items-center gap-6 text-white/80">
-              <div className="inline-flex items-center gap-2"><IconWorld size={18} /><span className="text-sm">Web</span></div>
-              <div className="inline-flex items-center gap-2"><IconCloud size={18} /><span className="text-sm">Cloud</span></div>
-              <div className="inline-flex items-center gap-2"><IconServer size={18} /><span className="text-sm">Data</span></div>
-              <div className="inline-flex items-center gap-2"><IconDeviceLaptop size={18} /><span className="text-sm">Zařízení</span></div>
             </div>
           </div>
         </Container>
@@ -126,6 +99,9 @@ export default function Page() {
               <p className="text-white/70">průměrná reakce na kritické požadavky</p>
             </div>
           </div>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 opacity-80">
+            <Link href="/o-nas" className="text-xs uppercase tracking-wide text-white/60 hover:underline">Na čem stavíme</Link>
+          </div>
         </Container>
       </Section>
 
@@ -133,24 +109,14 @@ export default function Page() {
         <Container className="px-6 py-12 md:py-16">
           <h2 className="text-2xl md:text-3xl font-semibold mb-8">Co o nás říkají</h2>
           <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-            <Card>
-              <CardContent>
-                <p className="text-white/90">„Skvělá spolupráce, rychlá reakce a profi přístup. Doporučujeme.“</p>
-                <p className="mt-3 text-sm text-white/60">Klient 1</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent>
-                <p className="text-white/90">„Skvělá spolupráce, rychlá reakce a profi přístup. Doporučujeme.“</p>
-                <p className="mt-3 text-sm text-white/60">Klient 2</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent>
-                <p className="text-white/90">„Skvělá spolupráce, rychlá reakce a profi přístup. Doporučujeme.“</p>
-                <p className="mt-3 text-sm text-white/60">Klient 3</p>
-              </CardContent>
-            </Card>
+            {featured.map((p, idx) => (
+              <Card key={`${p.title}-${idx}`}>
+                <CardContent>
+                  <p className="text-white/90">{p.title}</p>
+                  <p className="mt-2 text-sm text-white/70">{p.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </Container>
       </Section>

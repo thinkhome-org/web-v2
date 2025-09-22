@@ -1,0 +1,11 @@
+- title: Firemní web – Next.js
+  desc: Rychlý marketingový web s CMS a perfektní Lighthouse skóre.
+  url: https://example.com
+  tags: [Next.js, SEO, CMS]
+- title: Interní portál – přehled úloh
+  desc: Bezpečný intranet s přihlášením, rolími a exporty.
+  tags: [React, Auth]
+- title: Migrace e‑mailů
+  desc: Hromadná migrace schránek do Google Workspace bez výpadku.
+  tags: [Google Workspace]
+
