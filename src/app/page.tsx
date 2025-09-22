@@ -1,6 +1,11 @@
 import Link from "next/link";
 import ContactForm from "@/components/contact-form";
 import { Button, Container, Section, Card, CardHeader, CardContent } from "@/components/ui";
+import { Stat } from "@/components/home/stat";
+import { Feature } from "@/components/home/feature";
+import { Service } from "@/components/home/service";
+import { Step } from "@/components/home/step";
+import { Quote } from "@/components/home/quote";
 import { IconMail, IconPlayerPlay, IconBolt, IconShieldCheck, IconChartBar, IconTools, IconWorldWww, IconCloud, IconShieldLock, IconDeviceLaptop, IconSchool, IconCheck } from "@tabler/icons-react";
 
 export default function Home() {
@@ -116,60 +121,5 @@ export default function Home() {
   );
 }
 
-function Stat({ num, label }: { num: string; label: string }) {
-  return (
-    <div className="text-center">
-      <div className="text-2xl md:text-3xl font-bold text-accent mb-1">{num}</div>
-      <div className="text-sm text-white/70">{label}</div>
-    </div>
-  );
-}
-
-function Feature({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
-  return (
-    <Card>
-      <CardHeader className="pb-2 flex items-center gap-3 text-white/90">
-        <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-accent/10 text-accent">{icon}</span>
-        {title}
-      </CardHeader>
-      <CardContent className="text-sm text-white/70">{desc}</CardContent>
-    </Card>
-  );
-}
-
-function Service({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
-  return (
-    <div className="rounded-lg border border-white/10 bg-muted p-5 hover:border-white/20 transition-colors">
-      <div className="flex items-center gap-3 text-white/90">
-        <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-accent/10 text-accent">{icon}</span>
-        <h3 className="text-lg font-medium">{title}</h3>
-      </div>
-      <p className="mt-2 text-sm text-white/70">{desc}</p>
-      <div className="mt-4 inline-flex items-center gap-2 text-sm text-accent">
-        <IconCheck size={16} /> Součástí SLA
-      </div>
-    </div>
-  );
-}
-
-function Step({ num, title, desc }: { num: string; title: string; desc: string }) {
-  return (
-    <li className="rounded-md border border-white/10 bg-muted p-5">
-      <span className="text-accent font-mono">{num}</span>
-      <p className="mt-1 font-medium text-white/90">{title}</p>
-      <p className="mt-1 text-sm text-white/70">{desc}</p>
-    </li>
-  );
-}
-
-function Quote({ text, author }: { text: string; author: string }) {
-  return (
-    <Card className="border-0 shadow-md">
-      <CardContent className="p-6">
-        <blockquote className="text-gray-700 leading-relaxed">{text}</blockquote>
-        <div className="mt-4 text-sm font-medium text-accent">{author}</div>
-      </CardContent>
-    </Card>
-  );
-}
+ 
 
