@@ -6,6 +6,9 @@ export async function generateStaticParams() {
   return team.map((p, idx) => ({ slug: (p as unknown as { slug?: string }).slug || `person-${idx}` }))
 }
 
-export default TeamTemplate
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  return <TeamTemplate params={{ slug }} />
+}
 
 

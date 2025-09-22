@@ -6,6 +6,9 @@ export async function generateStaticParams() {
   return services.map((s, idx) => ({ slug: (s as unknown as { slug?: string }).slug || `service-${idx}` }))
 }
 
-export default ServiceTemplate
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  return <ServiceTemplate params={{ slug }} />
+}
 
 
