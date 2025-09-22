@@ -57,6 +57,19 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
             </div>
           </div>
         ) : null}
+        {service.faqs?.length ? (
+          <div className="mt-12">
+            <h2 className="text-xl font-semibold">Často se ptáte</h2>
+            <div className="mt-4 grid gap-3">
+              {service.faqs.map((f, i) => (
+                <div key={i} className="rounded-lg border border-white/10 bg-muted p-4">
+                  <p className="font-medium">{f.q}</p>
+                  <p className="mt-1 text-sm text-white/80">{f.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
         <div className="mt-12">
           <Link href="/kontakt" className="inline-flex">
             <Button>Chci nezávaznou konzultaci</Button>

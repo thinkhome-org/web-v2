@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Container, Section, Card, CardContent, CardHeader, Button } from '@/components/ui'
 import ContactForm from '@/components/contact-form'
-import { IconRocket, IconHeadset, IconShieldCheck } from '@tabler/icons-react'
+import { IconRocket, IconHeadset, IconShieldCheck, IconDeviceFloppy, IconLock, IconWorld } from '@tabler/icons-react'
 import { readValidatedArray, projectSchema, type Project } from '@/lib/yaml'
 
 export default async function Page() {
@@ -79,6 +79,39 @@ export default async function Page() {
                 <p className="text-white/80">IT stavíme udržitelně a jednoduše. Roste s vámi a drží krok s tím, co opravdu potřebujete.</p>
               </CardContent>
             </Card>
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <IconDeviceFloppy size={20} className="text-white" />
+                  <h3 className="text-lg font-medium">Zálohy a obnova</h3>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-white/80">Pravidelné zálohy a testy obnovy, aby vaše data byla v bezpečí.</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <IconLock size={20} className="text-white" />
+                  <h3 className="text-lg font-medium">Bezpečnost</h3>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-white/80">Audit, prevence incidentů a průběžné aktualizace bez zdržení.</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <IconWorld size={20} className="text-white" />
+                  <h3 className="text-lg font-medium">Weby a automatizace</h3>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-white/80">Rychlé weby a chytré nástroje, které šetří čas i náklady.</p>
+              </CardContent>
+            </Card>
           </div>
         </Container>
       </Section>
@@ -99,8 +132,13 @@ export default async function Page() {
               <p className="text-white/70">průměrná reakce na kritické požadavky</p>
             </div>
           </div>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 opacity-80">
-            <Link href="/o-nas" className="text-xs uppercase tracking-wide text-white/60 hover:underline">Na čem stavíme</Link>
+          <div className="mt-8 border-t border-white/10 pt-6">
+            <div className="flex flex-wrap items-center justify-center gap-4 opacity-80">
+              <Link href="/o-nas" className="text-xs uppercase tracking-wide text-white/60 hover:underline">Na čem stavíme</Link>
+              <span className="inline-flex items-center gap-2 text-sm text-white/70"><IconWorld size={16} /> Web</span>
+              <span className="inline-flex items-center gap-2 text-sm text-white/70"><IconDeviceFloppy size={16} /> Zálohy</span>
+              <span className="inline-flex items-center gap-2 text-sm text-white/70"><IconLock size={16} /> Bezpečnost</span>
+            </div>
           </div>
         </Container>
       </Section>

@@ -27,6 +27,7 @@ export const serviceSchema = z.object({
   steps: z.array(z.string()).optional(),
   images: z.array(z.string()).optional(),
   projects: z.array(z.string()).optional(),
+  faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
 });
 export const teamMemberSchema = z.object({
   name: z.string(),

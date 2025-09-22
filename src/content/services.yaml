@@ -7,6 +7,11 @@
     - "Standardizace a zabezpečení zařízení"
     - "Monitoring, aktualizace a reporty"
   projects: ["Firemní web – Next.js"]
+  images:
+    - /services/management-1.jpg
+  faqs:
+    - q: Jak rychle převezmete správu?
+      a: Typicky do 3–5 pracovních dnů bez přerušení provozu.
 - title: "Repasované PC"
   desc: "Výkup, repas a instalace spolehlivé techniky"
   slug: repasovane-pc
@@ -15,6 +20,11 @@
     - "Výběr vhodné konfigurace"
     - "Repas, testování a instalace"
     - "Doručení a vzdálená správa"
+  images:
+    - /services/refurb-1.jpg
+  faqs:
+    - q: Záruka na repas?
+      a: Standardně 12 měsíců, lze rozšířit dle dohody.
 - title: "Webové systémy"
   desc: "Next.js a WordPress – návrh, vývoj, provoz"
   slug: webove-systemy
@@ -23,23 +33,46 @@
     - "Workshop cílů a obsahová strategie"
     - "Design, implementace a testování"
     - "Nasazení a průběžná optimalizace"
+  images:
+    - /services/web-1.jpg
+  faqs:
+    - q: Umíte i WordPress?
+      a: Ano, volíme Next.js nebo WordPress podle cíle a rozpočtu.
 - title: "Backup & e‑maily"
   desc: "Bezpečné zálohy, firemní e‑mail, privátní cloud"
   slug: backup-emaily
   steps: ["Audit dat a potřeb", "Nastavení záloh", "Test obnovy"]
+  images:
+    - /services/backup-1.jpg
+  faqs:
+    - q: Jak často testujete obnovu?
+      a: Minimálně 1× za kvartál, dle kritičnosti dat častěji.
 - title: "Google/M365/Zoho"
   desc: "Nasazení, správa, migrace a školení"
   slug: workspace-platformy
   steps: ["Návrh struktury", "Migrace schránek", "Školení týmu"]
+  images:
+    - /services/workspace-1.jpg
 - title: "Infrastruktura"
   desc: "WiFi (UniFi), kamery, tiskárny, NAS"
   slug: infrastruktura
+  images:
+    - /services/infrastructure-1.jpg
 - title: "Licence & poradenství"
   desc: "Optimalizace licencí/nákladů"
   slug: licence-poradenstvi
+  images:
+    - /services/licences-1.jpg
 - title: "Školení"
   desc: "Efektivita práce a kyberbezpečnost"
   slug: skoleni
+  images:
+    - /services/training-1.jpg
 - title: "Bezpečnostní audit"
   desc: "Audit a penetrační testy"
   slug: bezpecnostni-audit
+  images:
+    - /services/security-1.jpg
+  faqs:
+    - q: Probíhá audit na místě?
+      a: Kombinujeme vzdálené šetření s onsite ověřením klíčových bodů.
