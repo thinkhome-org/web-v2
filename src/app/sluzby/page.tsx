@@ -5,8 +5,8 @@ export const revalidate = false;
 // intentionally empty: detail služby se otevírají z jiných stránek
 
 import { readValidatedArray, serviceSchema, type Service } from '@/lib/yaml'
-import { Section, Container, Card, CardHeader, CardContent, Button } from '@/components/ui'
-import { IconChevronRight, IconTools, IconRocket, IconShieldCheck } from '@tabler/icons-react'
+import { Section, Container, Card } from '@/components/ui'
+import { IconChevronRight, IconTools } from '@tabler/icons-react'
 
 export default async function Page() {
   const services = await readValidatedArray<Service>('services.yaml', serviceSchema)

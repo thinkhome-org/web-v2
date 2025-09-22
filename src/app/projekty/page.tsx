@@ -1,6 +1,7 @@
 import { readValidatedArray, projectSchema, type Project } from '@/lib/yaml'
-import { Section, Container, Card, CardHeader, CardContent } from '@/components/ui'
+import { Section, Container, Card } from '@/components/ui'
 import { IconBriefcase, IconChevronRight } from '@tabler/icons-react'
+import Link from 'next/link'
 
 export const metadata = { title: 'Reference – ThinkHome' };
 
@@ -20,16 +21,16 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
       <Container className="px-6 py-16 md:py-24">
         <h1 className="text-3xl md:text-4xl font-semibold">Reference</h1>
         <div className="mt-6 flex flex-wrap items-center gap-2">
-          <a href="/reference" className={`px-3 py-1 rounded-md border border-white/10 text-sm hover:bg-white/5 ${activeTag ? '' : 'bg-white/10'}`}>Vše ({totalCount})</a>
+          <Link href="/reference" className={`px-3 py-1 rounded-md border border-white/10 text-sm hover:bg-white/5 ${activeTag ? '' : 'bg-white/10'}`}>Vše ({totalCount})</Link>
           {allTags.map((t) => (
-            <a key={t} href={`/reference?tag=${encodeURIComponent(t)}`} className={`px-3 py-1 rounded-md border border-white/10 text-sm hover:bg-white/5 ${activeTag === t ? 'bg-white/10' : ''}`}>{t} ({tagCounts[t] || 0})</a>
+            <Link key={t} href={`/reference?tag=${encodeURIComponent(t)}`} className={`px-3 py-1 rounded-md border border-white/10 text-sm hover:bg-white/5 ${activeTag === t ? 'bg-white/10' : ''}`}>{t} ({tagCounts[t] || 0})</Link>
           ))}
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p, idx) => {
             const slug = p.slug || `project-${idx}`
             return (
-              <a key={slug} href={`/projekty/${slug}`} className="block">
+              <Link key={slug} href={`/projekty/${slug}`} className="block">
                 <Card className="p-5 hover:bg-white/5 transition-colors hover-glow border-white/10">
                   <div className="flex items-start gap-3">
                     <div className="h-8 w-8 rounded-md bg-white/5 border border-white/10 flex items-center justify-center">
@@ -51,7 +52,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
                     </div>
                   </div>
                 </Card>
-              </a>
+              </Link>
             )
           })}
         </div>
