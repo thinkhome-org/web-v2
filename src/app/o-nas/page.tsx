@@ -52,10 +52,6 @@ export default async function Page() {
               </div>
             )}
           </dl>
-          <p className="mt-3 text-xs text-white/50">Údaje dle veřejných rejstříků. Pro doplnění DIČ / adresy nás kontaktujte.</p>
-          <div className="mt-4">
-            <a href="#kontakt" className="text-sm text-white/80 underline">Chci nezávaznou konzultaci</a>
-          </div>
         </div>
       </div>
     </section>

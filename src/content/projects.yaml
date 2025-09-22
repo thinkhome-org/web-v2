@@ -5,16 +5,32 @@
   slug: firemni-web-nextjs
   summary: Marketingový web s důrazem na rychlost a SEO.
   authors: ["erdinc-daskin"]
+  images:
+    - /projects/next-landing-1.jpg
+    - /projects/next-landing-2.jpg
+  faqs:
+    - q: Jak rychle web nasadíte?
+      a: První verze bývá hotová do 2–3 týdnů včetně copy a designu.
+    - q: Má web CMS?
+      a: Ano, používáme jednoduché CMS nebo markdown podle potřeby.
 - title: Interní portál – přehled úloh
   desc: Bezpečný intranet s přihlášením, rolími a exporty.
   tags: [React, Auth]
   slug: interni-portal
   summary: Portál pro tým s přehledem úkolů a oprávněními.
   authors: ["ondrej-jansa"]
+  images:
+    - /projects/portal-1.jpg
+  faqs:
+    - q: Jak řešíte oprávnění?
+      a: Role a skupiny s granularitou na sekce a akce.
 - title: Migrace e‑mailů
   desc: Hromadná migrace schránek do Google Workspace bez výpadku.
   tags: [Google Workspace]
   slug: migrace-emailu
   summary: Přesun schránek bez výpadku a se školením týmu.
   authors: ["samuel-paluba"]
+  faqs:
+    - q: Budou uživatelé bez e‑mailu?
+      a: Ne, migrace probíhá po etapách a bez výpadku doručení.
 
