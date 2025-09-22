@@ -2,10 +2,19 @@
   desc: Rychlý marketingový web s CMS a perfektní Lighthouse skóre.
   url: https://example.com
   tags: [Next.js, SEO, CMS]
+  slug: firemni-web-nextjs
+  summary: Marketingový web s důrazem na rychlost a SEO.
+  authors: ["erdinc-daskin"]
 - title: Interní portál – přehled úloh
   desc: Bezpečný intranet s přihlášením, rolími a exporty.
   tags: [React, Auth]
+  slug: interni-portal
+  summary: Portál pro tým s přehledem úkolů a oprávněními.
+  authors: ["ondrej-jansa"]
 - title: Migrace e‑mailů
   desc: Hromadná migrace schránek do Google Workspace bez výpadku.
   tags: [Google Workspace]
+  slug: migrace-emailu
+  summary: Přesun schránek bez výpadku a se školením týmu.
+  authors: ["samuel-paluba"]
 

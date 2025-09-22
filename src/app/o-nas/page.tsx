@@ -11,7 +11,7 @@ export default async function Page() {
     <section className="px-6 py-16 md:py-24">
       <div className="container">
         <h1 className="text-3xl md:text-4xl font-semibold">O nás</h1>
-        <p className="mt-4 text-white/80 max-w-3xl">Jsme ThinkHome. Dodáváme moderní IT bez starostí – od správy infrastruktury, přes weby až po bezpečnost. Zaměřujeme se na SMB a domácnosti s důrazem na rychlost, srozumitelnost a bezpečnost.</p>
+        <p className="mt-4 text-white/80 max-w-3xl">Jsme ThinkHome. Dodáváme moderní IT bez starostí – od správy infrastruktury, přes weby až po bezpečnost. Mluvíme jasně, jednáme rychle a díváme se na věci lidsky.</p>
         <div className="mt-8 rounded-lg border border-white/10 bg-muted p-5">
           <h2 className="text-lg font-medium">Fakturační údaje</h2>
           <dl className="mt-3 grid gap-2 text-sm text-white/80 sm:grid-cols-2">
@@ -53,6 +53,9 @@ export default async function Page() {
             )}
           </dl>
           <p className="mt-3 text-xs text-white/50">Údaje dle veřejných rejstříků. Pro doplnění DIČ / adresy nás kontaktujte.</p>
+          <div className="mt-4">
+            <a href="#kontakt" className="text-sm text-white/80 underline">Chci nezávaznou konzultaci</a>
+          </div>
         </div>
       </div>
     </section>

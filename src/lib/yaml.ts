@@ -19,19 +19,37 @@ export async function readYamlObject<T = unknown>(relativePath: string): Promise
   return null;
 }
 
-export const serviceSchema = z.object({ title: z.string(), desc: z.string() });
+export const serviceSchema = z.object({
+  title: z.string(),
+  desc: z.string(),
+  slug: z.string().optional(),
+  intro: z.string().optional(),
+  steps: z.array(z.string()).optional(),
+  images: z.array(z.string()).optional(),
+  projects: z.array(z.string()).optional(),
+});
 export const teamMemberSchema = z.object({
   name: z.string(),
   role: z.string(),
   email: z.string().email().optional(),
   image: z.string().optional(),
   links: z.object({ linkedin: z.string().url().optional(), github: z.string().url().optional() }).optional(),
+  slug: z.string().optional(),
+  bio: z.string().optional(),
+  tags: z.array(z.string()).optional(),
+  images: z.array(z.string()).optional(),
+  services: z.array(z.string()).optional(),
 });
 export const projectSchema = z.object({
   title: z.string(),
   desc: z.string(),
   url: z.string().url().optional(),
   tags: z.array(z.string()).optional(),
+  slug: z.string().optional(),
+  summary: z.string().optional(),
+  images: z.array(z.string()).optional(),
+  faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+  authors: z.array(z.string()).optional(),
 });
 
 export type Service = z.infer<typeof serviceSchema>;

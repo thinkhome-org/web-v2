@@ -2,6 +2,9 @@
   role: "CEO & Senior IT Consultant"
   email: "samuel@thinkhome.org"
   image: "/team/samuel.jpg"
+  slug: samuel-paluba
+  bio: "Zakladatel ThinkHome, zaměřený na strategii a dlouhodobé vztahy."
+  services: [turn-key-it-management, backup-emaily]
   links:
     linkedin: "https://www.linkedin.com/in/samuelpaluba"
     github: "https://github.com/sampaluba"
@@ -9,19 +12,28 @@
   role: "CTO & Cybersecurity Expert"
   email: "ondrej@thinkhome.org"
   image: "/team/ondrej.jpg"
+  slug: ondrej-jansa
+  bio: "Technický ředitel, architekt bezpečných a škálovatelných řešení."
+  services: [bezpecnostni-audit, infrastruktura]
   links:
     linkedin: "https://www.linkedin.com/in/ondrej-jansa"
 - name: "Vojtěch Pell"
   role: "WordPress Specialist & Školitel"
   email: "vojtech@thinkhome.org"
   image: "/team/vojtech.jpg"
+  slug: vojtech-pell
+  services: [repasovane-pc, webove-systemy]
 - name: "Erdinç Daşkın"
   role: "Senior Frontend Developer"
   email: "erdinc@thinkhome.org"
   image: "/team/erdinc.jpg"
+  slug: erdinc-daskin
+  services: [webove-systemy]
   links:
     github: "https://github.com/erdincdaskin"
 - name: "Šimon"
   role: "Hardware Specialist"
   email: "simon@thinkhome.org"
   image: "/team/simon.jpg"
+  slug: simon
+  services: [infrastruktura]

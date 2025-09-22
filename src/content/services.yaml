@@ -1,18 +1,45 @@
 - title: "Turn‑key IT management"
   desc: "24/7 dohled, správa zařízení a sítí"
+  slug: turn-key-it-management
+  intro: "Kompletní péče o vaše IT. Proaktivní monitoring, údržba a rychlá podpora."
+  steps:
+    - "Analýza prostředí a přechod bez výpadků"
+    - "Standardizace a zabezpečení zařízení"
+    - "Monitoring, aktualizace a reporty"
+  projects: ["Firemní web – Next.js"]
 - title: "Repasované PC"
   desc: "Výkup, repas a instalace spolehlivé techniky"
+  slug: repasovane-pc
+  intro: "Udržitelná a spolehlivá technika za zlomek ceny."
+  steps:
+    - "Výběr vhodné konfigurace"
+    - "Repas, testování a instalace"
+    - "Doručení a vzdálená správa"
 - title: "Webové systémy"
   desc: "Next.js a WordPress – návrh, vývoj, provoz"
+  slug: webove-systemy
+  intro: "Rychlé a bezpečné weby zaměřené na výkon a snadnou správu."
+  steps:
+    - "Workshop cílů a obsahová strategie"
+    - "Design, implementace a testování"
+    - "Nasazení a průběžná optimalizace"
 - title: "Backup & e‑maily"
   desc: "Bezpečné zálohy, firemní e‑mail, privátní cloud"
+  slug: backup-emaily
+  steps: ["Audit dat a potřeb", "Nastavení záloh", "Test obnovy"]
 - title: "Google/M365/Zoho"
   desc: "Nasazení, správa, migrace a školení"
+  slug: workspace-platformy
+  steps: ["Návrh struktury", "Migrace schránek", "Školení týmu"]
 - title: "Infrastruktura"
   desc: "WiFi (UniFi), kamery, tiskárny, NAS"
+  slug: infrastruktura
 - title: "Licence & poradenství"
   desc: "Optimalizace licencí/nákladů"
+  slug: licence-poradenstvi
 - title: "Školení"
   desc: "Efektivita práce a kyberbezpečnost"
+  slug: skoleni
 - title: "Bezpečnostní audit"
   desc: "Audit a penetrační testy"
+  slug: bezpecnostni-audit
