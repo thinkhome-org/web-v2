@@ -6,9 +6,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { z } from 'zod';
 import { useToast } from '@/components/ui/toast-provider';
 import { sendDiscordContact } from '@/lib/client-webhook';
+import { IconMail, IconPhone, IconCopy } from '@tabler/icons-react'
 
 const clientSchema = z.object({
   name: z.string().optional().transform((v) => (v || '').trim()),
@@ -24,11 +26,13 @@ const clientSchema = z.object({
     .refine((v) => !v || /^[+0-9 ()-]{6,}$/.test(v), 'Zadejte platný telefon'),
   company: z.string().optional(),
   subject: z.string().optional(),
-  message: z.string().min(4, 'Zpráva musí mít alespoň 4 znaky'),
+  message: z.string().min(4, 'Zadejte zprávu'),
   website: z.string().optional(),
 });
 
-export default function ContactForm() {
+interface Props { email?: string; phone?: string }
+
+export default function ContactForm({ email = 'info@thinkhome.org', phone = '+420 910 129 289' }: Props) {
   const { show } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -123,8 +127,23 @@ export default function ContactForm() {
     }
   }
 
+  function handleCopy(value: string, labelText: string) {
+    if (!value) return;
+    navigator.clipboard.writeText(value).then(() => show({ title: 'Zkopírováno', description: labelText, variant: 'success' }));
+  }
+
   return (
-    <form onSubmit={handleSubmit} className="mt-8 grid gap-4 max-w-xl mx-auto fade-in" aria-busy={isSubmitting}>
+    <Card className="mt-8 max-w-2xl mx-auto">
+      <CardHeader>
+        <div className="flex flex-wrap items-center gap-3">
+          <Button variant="secondary" size="sm" onClick={() => (window.location.href = `mailto:${email}`)} leftIcon={<IconMail size={16} />}>Napsat e‑mail</Button>
+          <Button variant="secondary" size="sm" onClick={() => (window.location.href = `tel:${phone.replace(/\s+/g, '')}`)} leftIcon={<IconPhone size={16} />}>Zavolat</Button>
+          <Button variant="ghost" size="sm" onClick={() => handleCopy(email, 'E‑mail zkopírován')} leftIcon={<IconCopy size={16} />}>Kopírovat e‑mail</Button>
+          <Button variant="ghost" size="sm" onClick={() => handleCopy(phone, 'Telefon zkopírován')} leftIcon={<IconCopy size={16} />}>Kopírovat telefon</Button>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit} className="grid gap-4 fade-in" aria-busy={isSubmitting}>
       <div className="grid gap-2">
         <Label htmlFor="name">Jméno a příjmení</Label>
         <Input id="name" name="name" autoComplete="name" aria-invalid={Boolean(fieldErrors.name)} aria-describedby={fieldErrors.name ? 'name-error' : undefined} placeholder="Vaše jméno" className={fieldErrors.name ? 'border-red-500' : ''} onChange={() => clearFieldError('name')} />
@@ -149,15 +168,14 @@ export default function ContactForm() {
         <Input id="subject" name="subject" placeholder="O čem chcete mluvit?" onChange={() => clearFieldError('subject')} />
       </div>
       <div className="grid gap-2">
-        <Label htmlFor="message">Zpráva (min. 4 znaky)</Label>
-        <Textarea id="message" name="message" rows={5} required minLength={4} aria-invalid={Boolean(fieldErrors.message)} aria-describedby={fieldErrors.message ? 'message-error' : undefined} placeholder="Popište váš požadavek..." className={fieldErrors.message ? 'border-red-500' : ''} onChange={() => clearFieldError('message')} />
+            <Label htmlFor="message">Zpráva</Label>
+            <Textarea id="message" name="message" rows={5} required aria-invalid={Boolean(fieldErrors.message)} aria-describedby={fieldErrors.message ? 'message-error' : undefined} placeholder="Popište váš požadavek..." className={fieldErrors.message ? 'border-red-500' : ''} onChange={() => clearFieldError('message')} />
         {fieldErrors.message && <p id="message-error" className="text-xs text-red-400">{fieldErrors.message}</p>}
       </div>
       <div className="hidden">
         <label htmlFor="website" className="text-sm">Web</label>
         <input id="website" name="website" autoComplete="off" tabIndex={-1} />
       </div>
-      {/* Úspěch oznamujeme jen toastem, bez duplicitního zeleného textu */}
       {error && <p className="text-sm text-red-400 slide-up" role="alert" aria-live="assertive">{error}</p>}
       <div className="flex flex-col items-center gap-3">
         <Button type="submit" loading={isSubmitting} className="inline-flex items-center gap-2">
@@ -166,7 +184,9 @@ export default function ContactForm() {
         </Button>
         <p className="text-xs text-white/60 text-center">Souhlasím se zpracováním údajů pro účely vyřízení poptávky.</p>
       </div>
-    </form>
+        </form>
+      </CardContent>
+    </Card>
   );
 }
 
