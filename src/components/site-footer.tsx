@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Icons } from '@/components/ui';
 import { readYamlObject } from '@/lib/yaml';
-import { NAV_ITEMS } from '@/config/navigation';
 
 type Contacts = { email?: string; phone?: string; linkedin?: string; github?: string };
 export default async function SiteFooter() {
@@ -18,15 +17,6 @@ export default async function SiteFooter() {
             <p className="mt-3 text-sm text-white/70 max-w-sm mx-auto">Moderní IT bez starostí. Správa IT, weby, cloud a bezpečnost pro SMB a domácnosti.</p>
           </div>
 
-          {/* Navigation - 2 columns */}
-          <nav aria-label="Hlavní odkazy" className="grid grid-cols-2 gap-2 text-sm">
-            {NAV_ITEMS.filter(i => i.href !== '/').map((i) => (
-              <Link key={i.href} href={i.href} className="flex items-center gap-2 rounded-md px-3 py-2 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring">
-                {i.icon && <i.icon size={16} />}
-                {i.label}
-              </Link>
-            ))}
-          </nav>
 
           {/* Contact Info */}
           <div className="space-y-3 text-sm">
@@ -74,19 +64,12 @@ export default async function SiteFooter() {
 
       {/* Desktop Footer */}
       <div className="hidden md:block">
-        <div className="container px-6 py-12 grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-5">
+        <div className="container px-6 py-12 grid gap-10 md:grid-cols-2">
+          <div>
             <Image src="/logo.svg" alt="ThinkHome" width={110} height={26} loading="lazy" />
             <p className="mt-3 text-sm text-white/70 max-w-sm">Moderní IT bez starostí. Správa IT, weby, cloud a bezpečnost pro SMB a domácnosti.</p>
           </div>
-          <nav aria-label="Hlavní odkazy" className="grid gap-2 text-sm md:col-span-4">
-            {NAV_ITEMS.filter(i => i.href !== '/').map((i) => (
-              <Link key={i.href} href={i.href} className="rounded-md px-2 py-1 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring">
-                {i.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="grid gap-2 text-sm md:col-span-3">
+          <div className="grid gap-2 text-sm">
             {contacts?.email && <a href={`mailto:${contacts.email}`} className="flex items-center gap-2 rounded-md px-2 py-1 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring"><Icons.IconMail size={16} /> {contacts.email}</a>}
             {contacts?.phone && <a href={`tel:${contacts.phone.replace(/\s+/g,'')}`} className="flex items-center gap-2 rounded-md px-2 py-1 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring"><Icons.IconPhone size={16} /> {contacts.phone}</a>}
             <div className="flex items-center gap-3 pt-2">
