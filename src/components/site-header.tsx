@@ -118,8 +118,9 @@ export default function SiteHeader() {
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Vertical Layout for Small Screens */}
-          <div className="flex flex-col items-center justify-center space-y-6 sm:hidden">
+          {/* Vertical Layout for Small Screens with scroll */}
+          <div className="flex sm:hidden max-h-[calc(100vh-96px)] overflow-y-auto px-6">
+            <div className="mx-auto flex flex-col items-stretch gap-4 py-8 w-full max-w-sm">
             {NAV_ITEMS.map(({ href, label, icon: Icon }, index) => {
               const active = isActive(href);
               return (
@@ -127,27 +128,21 @@ export default function SiteHeader() {
                   key={href}
                   href={href}
                   aria-current={active ? 'page' : undefined}
-                  className={`flex flex-col items-center gap-3 p-4 rounded-lg focus-ring transition-all duration-200 ${
+                    className={`flex items-center justify-between gap-3 p-4 rounded-lg focus-ring transition-all duration-200 ${
                     active 
-                      ? 'text-white bg-white/10 scale-105' 
-                      : 'text-white/80 hover:text-white hover:bg-white/5 hover:scale-105'
+                      ? 'text-white bg-white/10' 
+                      : 'text-white/80 hover:text-white hover:bg-white/5'
                   }`}
                   style={{
                     animationDelay: `${index * 100}ms`,
                   }}
                 >
-                  {Icon && (
-                    <Icon 
-                      size={28} 
-                      className={`transition-colors ${
-                        active ? 'text-white' : 'text-white/80'
-                      }`} 
-                    />
-                  )}
-                  <span className="text-base font-medium">{label}</span>
+                    <span className="text-base font-medium">{label}</span>
+                    {Icon && <Icon size={22} className="text-white/70" />}
                 </Link>
               );
             })}
+            </div>
           </div>
 
           {/* Horizontal Layout for Larger Mobile Screens (iPad mini landscape, etc.) */}
