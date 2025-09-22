@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { IconX } from '@tabler/icons-react';
 
 type Item = { href: string; label: string; icon?: React.ComponentType<{ size?: number; className?: string }>; };
 
@@ -15,6 +16,13 @@ export const SiteMobileMenu = ({ items, isOpen, onClose, isActive }: {
     onClick={onClose}
   >
     <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+    <button
+      onClick={onClose}
+      className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors focus-ring"
+      aria-label="Zavřít menu"
+    >
+      <IconX size={24} className="text-white" />
+    </button>
     <div
       className={`absolute inset-0 flex items-center justify-center transition-transform duration-300 ${isOpen ? 'translate-y-0' : 'translate-y-8'}`}
       onClick={(e) => e.stopPropagation()}
@@ -30,6 +38,12 @@ export const SiteMobileMenu = ({ items, isOpen, onClose, isActive }: {
                 isActive(href) ? 'text-white bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/5'
               }`}
               style={{ animationDelay: `${index * 100}ms` }}
+              onClick={(e) => {
+                if (isActive(href)) {
+                  e.preventDefault();
+                }
+                onClose();
+              }}
             >
               <span className="text-base font-medium">{label}</span>
               {Icon && <Icon size={22} className="text-white/70" />}
@@ -47,6 +61,12 @@ export const SiteMobileMenu = ({ items, isOpen, onClose, isActive }: {
               isActive(href) ? 'text-white bg-white/10 scale-105' : 'text-white/80 hover:text-white hover:bg-white/5 hover:scale-105'
             }`}
             style={{ animationDelay: `${index * 80}ms` }}
+            onClick={(e) => {
+              if (isActive(href)) {
+                e.preventDefault();
+              }
+              onClose();
+            }}
           >
             {Icon && <Icon size={24} className={`transition-colors ${isActive(href) ? 'text-white' : 'text-white/80'}`} />}
             <span className="text-sm font-medium whitespace-nowrap">{label}</span>
