@@ -1,8 +1,7 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Container, Section, Card, CardContent, CardHeader, Button } from '@/components/ui'
 import ContactForm from '@/components/contact-form'
-import { IconRocket, IconHeadset, IconShieldCheck } from '@tabler/icons-react'
+import { IconRocket, IconHeadset, IconShieldCheck, IconWorld, IconCloud, IconServer, IconDeviceLaptop } from '@tabler/icons-react'
 
 export default function Page() {
   return (
@@ -27,8 +26,21 @@ export default function Page() {
                 <li>• 200+ spokojených klientů</li>
               </ul>
             </div>
-            <div className="relative aspect-[4/3] md:aspect-[5/4] rounded-xl overflow-hidden border border-white/10">
-              <Image src="/globe.svg" alt="Moderní technologie ThinkHome" fill priority sizes="(min-width: 768px) 40vw, 90vw" className="object-contain p-6 opacity-90" />
+            <div className="relative rounded-xl overflow-hidden border border-white/10 p-6">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="aspect-square rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center">
+                  <IconWorld size={40} className="text-white/80" />
+                </div>
+                <div className="aspect-square rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center">
+                  <IconCloud size={40} className="text-white/80" />
+                </div>
+                <div className="aspect-square rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center">
+                  <IconServer size={40} className="text-white/80" />
+                </div>
+                <div className="aspect-square rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center">
+                  <IconDeviceLaptop size={40} className="text-white/80" />
+                </div>
+              </div>
             </div>
           </div>
         </Container>
@@ -37,12 +49,12 @@ export default function Page() {
       <Section>
         <Container className="px-6 py-6 md:py-8">
           <div className="flex flex-wrap items-center justify-center gap-6 opacity-80">
-            <span className="text-xs uppercase tracking-wide text-white/60">Technologie, na kterých stavíme</span>
-            <div className="flex items-center gap-6">
-              <Image src="/next.svg" alt="Next.js" width={72} height={18} className="opacity-70" />
-              <Image src="/vercel.svg" alt="Vercel" width={72} height={18} className="opacity-70" />
-              <Image src="/globe.svg" alt="Web" width={72} height={18} className="opacity-70" />
-              <Image src="/window.svg" alt="Apps" width={72} height={18} className="opacity-70" />
+            <span className="text-xs uppercase tracking-wide text-white/60">Naše silné stránky</span>
+            <div className="flex items-center gap-6 text-white/80">
+              <div className="inline-flex items-center gap-2"><IconWorld size={18} /><span className="text-sm">Web</span></div>
+              <div className="inline-flex items-center gap-2"><IconCloud size={18} /><span className="text-sm">Cloud</span></div>
+              <div className="inline-flex items-center gap-2"><IconServer size={18} /><span className="text-sm">Data</span></div>
+              <div className="inline-flex items-center gap-2"><IconDeviceLaptop size={18} /><span className="text-sm">Zařízení</span></div>
             </div>
           </div>
         </Container>
@@ -123,20 +135,20 @@ export default function Page() {
           <div className="grid md:grid-cols-3 gap-4 md:gap-6">
             <Card>
               <CardContent>
-                <p className="text-white/90">„Přešli jsme na ThinkHome a hned první měsíc ubyly výpadky. Komunikace rychlá, řešení praktická.“</p>
-                <p className="mt-3 text-sm text-white/60">COO, výrobní společnost</p>
+                <p className="text-white/90">„Skvělá spolupráce, rychlá reakce a profi přístup. Doporučujeme.“</p>
+                <p className="mt-3 text-sm text-white/60">Klient 1</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent>
-                <p className="text-white/90">„Pomohli nám zjednodušit IT a ušetřit náklady na licence. Všechno vysvětlí bez zbytečného žargonu.“</p>
-                <p className="mt-3 text-sm text-white/60">CEO, marketingová agentura</p>
+                <p className="text-white/90">„Skvělá spolupráce, rychlá reakce a profi přístup. Doporučujeme.“</p>
+                <p className="mt-3 text-sm text-white/60">Klient 2</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent>
-                <p className="text-white/90">„Na incidenty reagují opravdu rychle a proaktivně hlídají prevenci. IT konečně nebrzdí.“</p>
-                <p className="mt-3 text-sm text-white/60">IT lead, e‑commerce</p>
+                <p className="text-white/90">„Skvělá spolupráce, rychlá reakce a profi přístup. Doporučujeme.“</p>
+                <p className="mt-3 text-sm text-white/60">Klient 3</p>
               </CardContent>
             </Card>
           </div>
