@@ -7,7 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://thinkhome.org';
   const now = new Date();
   return [
-    { url: `${base}/`, lastModified: now },
     { url: `${base}/o-nas`, lastModified: now },
     { url: `${base}/nas-tym`, lastModified: now },
     { url: `${base}/sluzby`, lastModified: now },
