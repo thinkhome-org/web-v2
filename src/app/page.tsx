@@ -7,7 +7,7 @@ import { IconRocket, IconHeadset, IconShieldCheck } from '@tabler/icons-react'
 export default function Page() {
   return (
     <>
-      <Section className="border-0">
+      <Section className="border-0 scroll-mt-20" id="home">
         <Container className="px-6 py-16 md:py-24 grid gap-10 md:gap-12">
           <div className="grid md:grid-cols-[1.1fr,0.9fr] items-center gap-8 md:gap-12">
             <div className="space-y-5">
@@ -28,7 +28,7 @@ export default function Page() {
               </ul>
             </div>
             <div className="relative aspect-[4/3] md:aspect-[5/4] rounded-xl overflow-hidden border border-white/10">
-              <Image src="/globe.svg" alt="Moderní technologie ThinkHome" fill priority className="object-contain p-6 opacity-90" />
+              <Image src="/globe.svg" alt="Moderní technologie ThinkHome" fill priority sizes="(min-width: 768px) 40vw, 90vw" className="object-contain p-6 opacity-90" />
             </div>
           </div>
         </Container>
@@ -48,7 +48,7 @@ export default function Page() {
         </Container>
       </Section>
 
-      <Section>
+      <Section className="scroll-mt-20">
         <Container className="px-6 py-12 md:py-16">
           <div className="max-w-2xl">
             <h2 className="text-2xl md:text-3xl font-semibold">Jednoduše řečeno</h2>
@@ -57,7 +57,7 @@ export default function Page() {
         </Container>
       </Section>
 
-      <Section id="proc">
+      <Section id="proc" className="scroll-mt-20">
         <Container className="px-6 py-12 md:py-16">
           <h2 className="text-2xl md:text-3xl font-semibold mb-8">Proč si nás firmy vybírají</h2>
           <div className="grid md:grid-cols-3 gap-4 md:gap-6">
@@ -98,7 +98,7 @@ export default function Page() {
         </Container>
       </Section>
 
-      <Section>
+      <Section className="scroll-mt-20">
         <Container className="px-6 py-12 md:py-16">
           <div className="grid md:grid-cols-3 gap-6">
             <div className="space-y-2">
@@ -117,7 +117,7 @@ export default function Page() {
         </Container>
       </Section>
 
-      <Section>
+      <Section className="scroll-mt-20">
         <Container className="px-6 py-12 md:py-16">
           <h2 className="text-2xl md:text-3xl font-semibold mb-8">Co o nás říkají</h2>
           <div className="grid md:grid-cols-3 gap-4 md:gap-6">
@@ -143,7 +143,7 @@ export default function Page() {
         </Container>
       </Section>
 
-      <Section id="kontakt">
+      <Section id="kontakt" className="scroll-mt-20">
         <Container className="px-6 py-12 md:py-16">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-semibold">Připraveni začít?</h2>

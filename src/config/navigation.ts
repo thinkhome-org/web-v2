@@ -7,6 +7,7 @@ export type NavItem = {
 };
 
 export const NAV_ITEMS: NavItem[] = [
+  { href: '/', label: 'Domů', icon: Icons.IconHome2 },
   { href: '/o-nas', label: 'O nás', icon: Icons.IconInfoCircle },
   { href: '/nas-tym', label: 'Náš tým', icon: Icons.IconUsersGroup },
   { href: '/sluzby', label: 'Služby', icon: Icons.IconTools },
