@@ -1,7 +1,7 @@
 import ContactForm from '@/components/contact-form';
 import { Container } from '@/components/ui/container';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Icons } from '@/components/ui/icons';
+import * as Icons from '@tabler/icons-react';
 import { readYamlObject } from '@/lib/yaml';
 
 export const metadata = { title: 'Kontakt – ThinkHome' };

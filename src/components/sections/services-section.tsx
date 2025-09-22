@@ -1,4 +1,4 @@
-import { Icons } from '@/components/ui/icons';
+import * as Icons from '@tabler/icons-react';
 import { Section } from '@/components/ui/section';
 import { Container } from '@/components/ui/container';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';

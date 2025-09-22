@@ -106,7 +106,7 @@ export default function SiteHeader() {
           className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors focus-ring"
           aria-label="Zavřít menu"
         >
-          <Icons.IconX size={24} className="text-white" />
+          <IconX size={24} className="text-white" />
         </button>
         
         {/* Menu Content - Responsive Layout */}

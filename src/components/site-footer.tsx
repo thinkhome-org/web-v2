@@ -70,11 +70,11 @@ export default async function SiteFooter() {
             <p className="mt-3 text-sm text-white/70 max-w-sm">Moderní IT bez starostí. Správa IT, weby, cloud a bezpečnost pro SMB a domácnosti.</p>
           </div>
           <div className="grid gap-2 text-sm">
-            {contacts?.email && <a href={`mailto:${contacts.email}`} className="flex items-center gap-2 rounded-md px-2 py-1 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring"><Icons.IconMail size={16} /> {contacts.email}</a>}
-            {contacts?.phone && <a href={`tel:${contacts.phone.replace(/\s+/g,'')}`} className="flex items-center gap-2 rounded-md px-2 py-1 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring"><Icons.IconPhone size={16} /> {contacts.phone}</a>}
+            {contacts?.email && <a href={`mailto:${contacts.email}`} className="flex items-center gap-2 rounded-md px-2 py-1 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring"><IconMail size={16} /> {contacts.email}</a>}
+            {contacts?.phone && <a href={`tel:${contacts.phone.replace(/\s+/g,'')}`} className="flex items-center gap-2 rounded-md px-2 py-1 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring"><IconPhone size={16} /> {contacts.phone}</a>}
             <div className="flex items-center gap-3 pt-2">
-              {contacts?.linkedin && <a aria-label="LinkedIn" href={contacts.linkedin} target="_blank" rel="noopener noreferrer" className="rounded-md p-2 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring"><Icons.IconBrandLinkedin size={18} /></a>}
-              {contacts?.github && <a aria-label="GitHub" href={contacts.github} target="_blank" rel="noopener noreferrer" className="rounded-md p-2 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring"><Icons.IconBrandGithub size={18} /></a>}
+              {contacts?.linkedin && <a aria-label="LinkedIn" href={contacts.linkedin} target="_blank" rel="noopener noreferrer" className="rounded-md p-2 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring"><IconBrandLinkedin size={18} /></a>}
+              {contacts?.github && <a aria-label="GitHub" href={contacts.github} target="_blank" rel="noopener noreferrer" className="rounded-md p-2 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring"><IconBrandGithub size={18} /></a>}
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { Icons } from '@/components/ui/icons';
+import * as Icons from '@tabler/icons-react';
 
 export type NavItem = {
   href: string;
