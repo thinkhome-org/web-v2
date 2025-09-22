@@ -37,7 +37,7 @@ export default async function Page() {
           {TEAM.map((p, idx) => {
             const slug = p.slug || `person-${idx}`
             return (
-              <a key={p.name} href={`/nas-tym/${slug}`} className="rounded-lg border border-white/10 bg-muted p-5 block hover:bg-white/5 transition-colors">
+              <a key={p.name} href={`/nas-tym/${slug}`} className="rounded-lg border border-white/10 p-5 block hover:bg-white/5 transition-colors backdrop-blur-sm bg-white/5">
                 <div className="flex items-center gap-4">
                   {p.image ? (
                     <Image src={p.image} alt={p.name} width={48} height={48} className="h-12 w-12 rounded-full object-cover" />

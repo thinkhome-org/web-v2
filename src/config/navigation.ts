@@ -11,7 +11,7 @@ export const NAV_ITEMS: NavItem[] = [
   { href: '/o-nas', label: 'O nás', icon: Icons.IconInfoCircle },
   { href: '/nas-tym', label: 'Náš tým', icon: Icons.IconUsersGroup },
   { href: '/sluzby', label: 'Služby', icon: Icons.IconTools },
-  { href: '/projekty', label: 'Projekty', icon: Icons.IconBriefcase },
+  { href: '/reference', label: 'Reference', icon: Icons.IconStar },
   { href: '/kontakt', label: 'Kontakt', icon: Icons.IconMail },
 ];
 

@@ -1,17 +1,32 @@
 import { readValidatedArray, projectSchema, type Project } from '@/lib/yaml'
 import { Section, Container, Card, CardHeader, CardContent } from '@/components/ui'
-import { IconBriefcase } from '@tabler/icons-react'
+import { IconBriefcase, IconChevronRight } from '@tabler/icons-react'
 
-export const metadata = { title: 'Projekty – ThinkHome' };
+export const metadata = { title: 'Reference – ThinkHome' };
 
-export default async function Page() {
+export default async function Page({ searchParams }: { searchParams: Promise<{ tag?: string }> }) {
   const projects = await readValidatedArray<Project>('projects.yaml', projectSchema)
+  const { tag } = await searchParams
+  const activeTag = tag || ''
+  const allTags = Array.from(new Set(projects.flatMap(p => p.tags || []))).sort()
+  const totalCount = projects.length
+  const tagCounts: Record<string, number> = {}
+  for (const t of allTags) {
+    tagCounts[t] = projects.filter(p => (p.tags || []).includes(t)).length
+  }
+  const filtered = activeTag ? projects.filter(p => (p.tags || []).includes(activeTag)) : projects
   return (
     <Section>
       <Container className="px-6 py-16 md:py-24">
-        <h1 className="text-3xl md:text-4xl font-semibold">Projekty</h1>
+        <h1 className="text-3xl md:text-4xl font-semibold">Reference</h1>
+        <div className="mt-6 flex flex-wrap items-center gap-2">
+          <a href="/reference" className={`px-3 py-1 rounded-md border border-white/10 text-sm hover:bg-white/5 ${activeTag ? '' : 'bg-white/10'}`}>Vše ({totalCount})</a>
+          {allTags.map((t) => (
+            <a key={t} href={`/reference?tag=${encodeURIComponent(t)}`} className={`px-3 py-1 rounded-md border border-white/10 text-sm hover:bg-white/5 ${activeTag === t ? 'bg-white/10' : ''}`}>{t} ({tagCounts[t] || 0})</a>
+          ))}
+        </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p, idx) => {
+          {filtered.map((p, idx) => {
             const slug = p.slug || `project-${idx}`
             return (
               <a key={slug} href={`/projekty/${slug}`} className="block">
@@ -30,6 +45,9 @@ export default async function Page() {
                           ))}
                         </div>
                       ) : null}
+                      <div className="mt-3 inline-flex items-center gap-2 text-xs text-white/70">
+                        <IconChevronRight size={14} /> Detail reference
+                      </div>
                     </div>
                   </div>
                 </Card>
