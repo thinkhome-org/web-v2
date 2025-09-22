@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import ContactForm from "@/components/contact-form";
-import { Section, Container } from "@/components/ui";
+import { Container } from "@/components/ui";
 
 // Dynamic imports for better performance
 const HeroSection = dynamic(() => import("@/components/sections/hero-section").then(m => m.HeroSection), { ssr: true });

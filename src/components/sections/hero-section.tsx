@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Icons } from '@/components/ui';
+import { Icons } from '@/components/ui/icons';
 import { Section } from '@/components/ui/section';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
@@ -37,18 +37,16 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button asChild size="lg" className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-white px-8 py-4 text-base font-semibold">
-              <Link href="#kontakt" className="flex items-center gap-2">
-                <Icons.IconMail size={20} />
+            <Link href="#kontakt" className="w-full sm:w-auto">
+              <Button size="md" className="w-full bg-accent hover:bg-accent/90 text-white px-8 py-4 text-base font-semibold" leftIcon={<Icons.IconMail size={20} />}>
                 Získat nabídku zdarma
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto border-white/20 text-white hover:bg-white/5 px-8 py-4 text-base">
-              <Link href="#sluzby" className="flex items-center gap-2">
-                <Icons.IconPlay size={20} />
+              </Button>
+            </Link>
+            <Link href="#sluzby" className="w-full sm:w-auto">
+              <Button variant="secondary" size="md" className="w-full border-white/20 text-white hover:bg-white/5 px-8 py-4 text-base" leftIcon={<Icons.IconPlayerPlay size={20} />}>
                 Zobrazit služby
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </div>
 
           {/* Trust Indicators */}

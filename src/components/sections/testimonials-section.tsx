@@ -1,4 +1,4 @@
-import { Icons } from '@/components/ui';
+import { Icons } from '@/components/ui/icons';
 import { Section } from '@/components/ui/section';
 import { Container } from '@/components/ui/container';
 import { Card, CardContent } from '@/components/ui/card';
@@ -54,7 +54,7 @@ export function TestimonialsSection() {
 
                 {/* Content */}
                 <blockquote className="text-gray-700 leading-relaxed mb-6">
-                  "{testimonial.content}"
+                  &ldquo;{testimonial.content}&rdquo;
                 </blockquote>
 
                 {/* Author */}

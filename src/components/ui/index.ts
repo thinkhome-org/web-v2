@@ -6,6 +6,6 @@ export { Spinner } from './spinner';
 export { Card, CardHeader, CardContent } from './card';
 export { Section } from './section';
 export { Container } from './container';
-export * as Icons from '@tabler/icons-react';
+export { Icons } from './icons';
 
 

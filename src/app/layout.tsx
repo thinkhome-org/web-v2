@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import SiteHeader from "@/components/layout/site-header";
+import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import { ToastProvider } from "@/components/ui/toast-provider";
 import { readYamlObject } from "@/lib/yaml";

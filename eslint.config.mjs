@@ -20,30 +20,7 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
-  {
-    rules: {
-      // Enforce centralized Tabler icons import via `@/components/ui`
-      "no-restricted-imports": [
-        "error",
-        {
-          paths: [
-            {
-              name: "@tabler/icons-react",
-              message:
-                "Importujte ikony přes `import { Icons } from '@/components/ui'` místo přímého importu z '@tabler/icons-react'.",
-            },
-          ],
-        },
-      ],
-    },
-  },
-  {
-    files: ["src/components/ui/index.ts"],
-    rules: {
-      // Allow central barrel to import Tabler directly
-      "no-restricted-imports": "off",
-    },
-  },
+  // Allow native '@tabler/icons-react' imports everywhere
 ];
 
 export default eslintConfig;

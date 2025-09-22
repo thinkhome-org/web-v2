@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { NAV_ITEMS } from '@/config/navigation';
-import { Icons } from '@/components/ui';
+import { IconX, IconMenu2 } from '@tabler/icons-react';
 
 export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -80,9 +80,9 @@ export default function SiteHeader() {
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
-              <Icons.IconX size={24} className="text-white" />
+              <IconX size={24} className="text-white" />
             ) : (
-              <Icons.IconMenu2 size={24} className="text-white" />
+              <IconMenu2 size={24} className="text-white" />
             )}
           </button>
         </div>

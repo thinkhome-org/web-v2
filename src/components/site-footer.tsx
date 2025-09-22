@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Icons } from '@/components/ui';
+import { IconMail, IconPhone, IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react';
 import { readYamlObject } from '@/lib/yaml';
 
 type Contacts = { email?: string; phone?: string; linkedin?: string; github?: string };
@@ -20,15 +20,15 @@ export default async function SiteFooter() {
 
           {/* Contact Info */}
           <div className="space-y-3 text-sm">
-            {contacts?.email && (
+          {contacts?.email && (
               <a href={`mailto:${contacts.email}`} className="flex items-center justify-center gap-2 rounded-md px-3 py-2 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring">
-                <Icons.IconMail size={16} />
+                <IconMail size={16} />
                 <span className="text-xs">{contacts.email}</span>
               </a>
             )}
             {contacts?.phone && (
               <a href={`tel:${contacts.phone.replace(/\s+/g,'')}`} className="flex items-center justify-center gap-2 rounded-md px-3 py-2 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring">
-                <Icons.IconPhone size={16} />
+                <IconPhone size={16} />
                 <span className="text-xs">{contacts.phone}</span>
               </a>
             )}
@@ -37,12 +37,12 @@ export default async function SiteFooter() {
             <div className="flex items-center justify-center gap-4 pt-2">
               {contacts?.linkedin && (
                 <a aria-label="LinkedIn" href={contacts.linkedin} target="_blank" rel="noopener noreferrer" className="rounded-md p-3 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring">
-                  <Icons.IconBrandLinkedin size={20} />
+                  <IconBrandLinkedin size={20} />
                 </a>
               )}
               {contacts?.github && (
                 <a aria-label="GitHub" href={contacts.github} target="_blank" rel="noopener noreferrer" className="rounded-md p-3 transition-colors transition-shadow hover:bg-white/5 hover-glow focus-ring">
-                  <Icons.IconBrandGithub size={20} />
+                  <IconBrandGithub size={20} />
                 </a>
               )}
             </div>

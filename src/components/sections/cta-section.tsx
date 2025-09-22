@@ -1,4 +1,4 @@
-import { Icons } from '@/components/ui';
+import { Icons } from '@/components/ui/icons';
 import { Section } from '@/components/ui/section';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
@@ -25,18 +25,16 @@ export function CtaSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Button asChild size="lg" className="w-full sm:w-auto bg-white text-accent hover:bg-white/90 px-8 py-4 text-base font-semibold">
-              <a href="#kontakt" className="flex items-center gap-2">
-                <Icons.IconMail size={20} />
+            <a href="#kontakt" className="w-full sm:w-auto">
+              <Button size="md" className="w-full bg-white text-accent hover:bg-white/90 px-8 py-4 text-base font-semibold" leftIcon={<Icons.IconMail size={20} />}>
                 Získat konzultaci zdarma
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 px-8 py-4 text-base">
-              <a href="tel:+420123456789" className="flex items-center gap-2">
-                <Icons.IconPhone size={20} />
+              </Button>
+            </a>
+            <a href="tel:+420123456789" className="w-full sm:w-auto">
+              <Button variant="secondary" size="md" className="w-full border-white/30 text-white hover:bg-white/10 px-8 py-4 text-base" leftIcon={<Icons.IconPhone size={20} />}>
                 Zavolat hned
-              </a>
-            </Button>
+              </Button>
+            </a>
           </div>
 
           {/* Trust Indicators */}

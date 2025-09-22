@@ -1,4 +1,4 @@
-import { Icons } from '@/components/ui';
+import { Icons } from '@/components/ui/icons';
 import { Section } from '@/components/ui/section';
 import { Container } from '@/components/ui/container';
 

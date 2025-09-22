@@ -1,4 +1,4 @@
-import { Icons } from '@/components/ui';
+import { Icons } from '@/components/ui/icons';
 
 export type NavItem = {
   href: string;
