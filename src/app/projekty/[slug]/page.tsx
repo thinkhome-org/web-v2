@@ -6,6 +6,8 @@ export async function generateStaticParams() {
   return projects.map((p, idx) => ({ slug: p.slug || `project-${idx}` }))
 }
 
+export const dynamicParams = false
+
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   return <ProjectTemplate params={{ slug }} />

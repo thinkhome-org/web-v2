@@ -1,14 +1,37 @@
-teamdata:
-  team:
-    - id: john-doe
-      name: John Doe
-      role: Senior Developer
-      bio: Experienced full-stack developer with expertise in React and Node.js
-    - id: jane-smith
-      name: Jane Smith
-      role: UI/UX Designer
-      bio: Creative designer focused on user experience and modern interfaces
-    - id: mike-johnson
-      name: Mike Johnson
-      role: Project Manager
-      bio: Skilled project manager with agile methodology expertise
+- name: Samuel Paluba
+  role: CEO & Founder
+  slug: samuel-paluba
+  bio: Vede ThinkHome od založení a specializuje se na komplexní IT řešení pro firmy.
+  email: samuel@thinkhome.org
+  links:
+    linkedin: https://linkedin.com/in/samuel-paluba
+    github: https://github.com/samuel-paluba
+- name: Ondřej Janša
+  role: Senior Developer
+  slug: ondrej-jansa
+  bio: Full-stack vývojář s více než 10 lety zkušeností v React a Node.js.
+  email: ondrej@thinkhome.org
+  links:
+    linkedin: https://linkedin.com/in/ondrej-jansa
+    github: https://github.com/ondrej-jansa
+- name: Vojtěch Pell
+  role: DevOps Engineer
+  slug: vojtech-pell
+  bio: Expert na infrastrukturu a automatizaci s důrazem na bezpečnost a škálovatelnost.
+  email: vojtech@thinkhome.org
+  links:
+    linkedin: https://linkedin.com/in/vojtech-pell
+    github: https://github.com/vojtech-pell
+- name: Erdinç Daşkın
+  role: Frontend Developer
+  slug: erdinc-daskin
+  bio: Specialista na moderní frontend technologie a uživatelské rozhraní.
+  email: erdinc@thinkhome.org
+  links:
+    linkedin: https://linkedin.com/in/erdinc-daskin
+    github: https://github.com/erdinc-daskin
+- name: Simon
+  role: Backend Developer
+  slug: simon
+  bio: Backend vývojář s experticí v databázích a API designu.
+  email: simon@thinkhome.org
