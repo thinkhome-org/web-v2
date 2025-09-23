@@ -8,8 +8,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function TeamMemberPage({ params }: { params: { slug: string } }) {
-  const { slug } = params
+export default async function TeamMemberPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
   const team = await readValidatedArray('team.yaml', teamMemberSchema)
   const member = team.find((m) => (m.slug || m.name.toLowerCase().replace(/\s+/g, '-')) === slug)
   
