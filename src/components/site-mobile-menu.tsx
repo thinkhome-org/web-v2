@@ -34,7 +34,7 @@ export const SiteMobileMenu = ({ items, isOpen, onClose, isActive }: {
               key={href}
               href={href}
               aria-current={isActive(href) ? 'page' : undefined}
-              className={`flex items-center justify-between gap-3 p-4 rounded-lg focus-ring transition-all duration-200 ${
+              className={`flex items-center justify-between gap-3 p-4 rounded-lg focus-ring transition-all duration-200 min-h-[44px] ${
                 isActive(href) ? 'text-white bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/5'
               }`}
               style={{ animationDelay: `${index * 100}ms` }}

@@ -1,28 +1,29 @@
-import { readValidatedData } from '@/lib/yaml'
-import { teamDataSchema } from '@/lib/yaml'
+import { readValidatedArray, teamMemberSchema } from '@/lib/yaml'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  const teamData = await readValidatedData('team.yaml', teamDataSchema)
-  return teamData.team.map((member: any) => ({
-    slug: member.id
+  const team = await readValidatedArray('team.yaml', teamMemberSchema)
+  return team.map((member) => ({
+    slug: member.slug || member.name.toLowerCase().replace(/\s+/g, '-')
   }))
 }
 
 export default async function TeamMemberPage({ params }: { params: { slug: string } }) {
   const { slug } = params
-  const teamData = await readValidatedData('team.yaml', teamDataSchema)
-  const member = teamData.team.find((m: any) => m.id === slug)
+  const team = await readValidatedArray('team.yaml', teamMemberSchema)
+  const member = team.find((m) => (m.slug || m.name.toLowerCase().replace(/\s+/g, '-')) === slug)
   
   if (!member) {
     notFound()
   }
   
   return (
-    <div>
-      <h1>{member.name}</h1>
-      <p>{member.role}</p>
-      <p>{member.bio}</p>
+    <div className="px-6 py-16 md:py-24">
+      <div className="container max-w-4xl mx-auto">
+        <h1 className="text-3xl md:text-4xl font-semibold">{member.name}</h1>
+        <p className="mt-2 text-white/70 text-lg">{member.role}</p>
+        {member.bio && <p className="mt-6 text-white/80">{member.bio}</p>}
+      </div>
     </div>
   )
 }
