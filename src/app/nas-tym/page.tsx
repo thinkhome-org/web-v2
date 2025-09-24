@@ -109,7 +109,6 @@ export default async function Page() {
                         {p.email && (
                           <a 
                             href={`mailto:${p.email}`}
-                            onClick={(e) => e.stopPropagation()}
                             className="p-2 rounded-full bg-white/5 hover:bg-accent/20 border border-white/10 hover:border-accent/30 transition-all duration-200 group/btn"
                           >
                             <IconMail size={16} className="text-white/70 group-hover/btn:text-accent" />
@@ -120,7 +119,6 @@ export default async function Page() {
                             href={p.links.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
                             className="p-2 rounded-full bg-white/5 hover:bg-accent/20 border border-white/10 hover:border-accent/30 transition-all duration-200 group/btn"
                           >
                             <IconBrandLinkedin size={16} className="text-white/70 group-hover/btn:text-accent" />
@@ -131,7 +129,6 @@ export default async function Page() {
                             href={p.links.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
                             className="p-2 rounded-full bg-white/5 hover:bg-accent/20 border border-white/10 hover:border-accent/30 transition-all duration-200 group/btn"
                           >
                             <IconBrandGithub size={16} className="text-white/70 group-hover/btn:text-accent" />
