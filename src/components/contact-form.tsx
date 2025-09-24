@@ -108,7 +108,7 @@ export default function ContactForm({ email = 'info@thinkhome.org', phone = '+42
   }
 
   return (
-    <Card className="mt-8 max-w-2xl mx-auto">
+    <Card className="mt-8 max-w-2xl mx-auto backdrop-blur-md bg-white/5 border border-white/20">
       <CardHeader>
         <div className="flex flex-wrap items-center gap-3">
           <Button 
@@ -116,6 +116,7 @@ export default function ContactForm({ email = 'info@thinkhome.org', phone = '+42
             size="sm" 
             onClick={() => (window.location.href = `mailto:${email}`)} 
             leftIcon={<IconMail size={16} />}
+            className="backdrop-blur-md bg-white/10 border border-white/20 hover:bg-white/15 hover:border-white/30"
           >
             Napsat e‑mail
           </Button>
@@ -124,26 +125,28 @@ export default function ContactForm({ email = 'info@thinkhome.org', phone = '+42
             size="sm" 
             onClick={() => (window.location.href = `tel:${phone.replace(/\s+/g, '')}`)} 
             leftIcon={<IconPhone size={16} />}
+            className="backdrop-blur-md bg-white/10 border border-white/20 hover:bg-white/15 hover:border-white/30"
           >
             Zavolat
           </Button>
         </div>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="grid gap-4" aria-busy={isSubmitting}>
-          <div className="grid gap-2">
-            <Label htmlFor="name">Jméno a příjmení *</Label>
+        <form onSubmit={handleSubmit} className="grid gap-6" aria-busy={isSubmitting}>
+          <div className="grid gap-3">
+            <Label htmlFor="name" className="text-white font-medium">Jméno a příjmení *</Label>
             <Input 
               id="name" 
               name="name" 
               autoComplete="name" 
               placeholder="Vaše jméno" 
               required 
+              className="backdrop-blur-md bg-white/5 border border-white/20 focus:border-accent/50 focus:bg-white/10 transition-all duration-200"
             />
           </div>
           
-          <div className="grid gap-2">
-            <Label htmlFor="email">E‑mail *</Label>
+          <div className="grid gap-3">
+            <Label htmlFor="email" className="text-white font-medium">E‑mail *</Label>
             <Input 
               id="email" 
               name="email" 
@@ -151,11 +154,12 @@ export default function ContactForm({ email = 'info@thinkhome.org', phone = '+42
               autoComplete="email" 
               placeholder="vas@email.cz" 
               required 
+              className="backdrop-blur-md bg-white/5 border border-white/20 focus:border-accent/50 focus:bg-white/10 transition-all duration-200"
             />
           </div>
           
-          <div className="grid gap-2">
-            <Label htmlFor="phone">Telefon *</Label>
+          <div className="grid gap-3">
+            <Label htmlFor="phone" className="text-white font-medium">Telefon *</Label>
             <Input 
               id="phone" 
               name="phone" 
@@ -163,17 +167,19 @@ export default function ContactForm({ email = 'info@thinkhome.org', phone = '+42
               autoComplete="tel" 
               placeholder="+420 123 456 789" 
               required 
+              className="backdrop-blur-md bg-white/5 border border-white/20 focus:border-accent/50 focus:bg-white/10 transition-all duration-200"
             />
           </div>
           
-          <div className="grid gap-2">
-            <Label htmlFor="message">Zpráva *</Label>
+          <div className="grid gap-3">
+            <Label htmlFor="message" className="text-white font-medium">Zpráva *</Label>
             <Textarea 
               id="message" 
               name="message" 
-              rows={4} 
+              rows={5} 
               placeholder="Popište váš požadavek..." 
               required 
+              className="backdrop-blur-md bg-white/5 border border-white/20 focus:border-accent/50 focus:bg-white/10 transition-all duration-200 resize-none"
             />
           </div>
           
@@ -182,18 +188,27 @@ export default function ContactForm({ email = 'info@thinkhome.org', phone = '+42
           </div>
           
           {error && (
-            <p className="text-sm text-red-400" role="alert">
-              {error}
-            </p>
+            <div className="backdrop-blur-md bg-red-500/10 border border-red-500/30 rounded-lg p-4">
+              <p className="text-sm text-red-300 flex items-center gap-2" role="alert">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+                {error}
+              </p>
+            </div>
           )}
           
-          <div className="flex flex-col items-center gap-3">
-            <Button type="submit" loading={isSubmitting} className="w-full">
+          <div className="flex flex-col items-center gap-4 pt-2">
+            <Button 
+              type="submit" 
+              loading={isSubmitting} 
+              className="w-full bg-accent hover:bg-accent/90 text-white font-medium py-3 transition-all duration-200 disabled:opacity-50"
+              disabled={isSubmitting}
+            >
               {isSubmitting && <Spinner />}
               {isSubmitting ? 'Odesílám…' : 'Odeslat zprávu'}
             </Button>
-            <p className="text-xs text-white/60 text-center">
-              Souhlasím se zpracováním údajů pro účely vyřízení poptávky.
+            <p className="text-xs text-white/60 text-center leading-relaxed max-w-md">
+              Odesláním souhlasíte se zpracováním osobních údajů pro účely vyřízení poptávky. 
+              Vaše data nebudou předána třetím stranám.
             </p>
           </div>
         </form>
