@@ -145,48 +145,90 @@ export default async function Page() {
 
       <Section className="scroll-mt-20">
         <Container className="px-6 py-12 md:py-16">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Co o nás říkají</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="w-12 h-12 bg-accent/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-accent font-bold text-lg">M</span>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent mb-4">
+              Co o nás říkají
+            </h2>
+            <p className="text-white/70 text-lg max-w-2xl mx-auto">
+              Více než 200 spokojených klientů nám důvěřuje svou IT infrastrukturu
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <Card className="text-center backdrop-blur-md bg-white/5 border border-white/20 hover:bg-white/8 hover:border-white/30 transition-all duration-300 group">
+              <CardContent className="pt-8 pb-6">
+                <div className="relative mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-accent/30 to-accent/10 rounded-full mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-accent font-bold text-xl">M</span>
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-accent/20 rounded-full"></div>
                 </div>
-                <p className="text-white/90 italic mb-4">&ldquo;ThinkHome nám ušetřil desítky hodin měsíčně. IT prostě funguje a my se můžeme soustředit na byznys.&rdquo;</p>
-                <p className="text-sm text-white/70 font-medium">Martin Novák</p>
-                <p className="text-xs text-white/60">CEO, TechStart s.r.o.</p>
+                <blockquote className="text-white/90 italic mb-6 text-lg leading-relaxed">
+                  &ldquo;ThinkHome nám ušetřil desítky hodin měsíčně. IT prostě funguje a my se můžeme soustředit na byznys.&rdquo;
+                </blockquote>
+                <div className="space-y-1">
+                  <p className="text-white font-medium">Martin Novák</p>
+                  <p className="text-sm text-accent">CEO, TechStart s.r.o.</p>
+                </div>
               </CardContent>
             </Card>
             
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="w-12 h-12 bg-accent/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-accent font-bold text-lg">A</span>
+            <Card className="text-center backdrop-blur-md bg-white/5 border border-white/20 hover:bg-white/8 hover:border-white/30 transition-all duration-300 group">
+              <CardContent className="pt-8 pb-6">
+                <div className="relative mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-accent/30 to-accent/10 rounded-full mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-accent font-bold text-xl">A</span>
+                  </div>
+                  <div className="absolute -top-2 -left-2 w-4 h-4 bg-accent/30 rounded-full"></div>
                 </div>
-                <p className="text-white/90 italic mb-4">&ldquo;Rychlá reakce, srozumitelná komunikace a řešení, které skutečně funguje. Doporučuji všem.&rdquo;</p>
-                <p className="text-sm text-white/70 font-medium">Anna Svobodová</p>
-                <p className="text-xs text-white/60">IT Manager, Inovace a.s.</p>
+                <blockquote className="text-white/90 italic mb-6 text-lg leading-relaxed">
+                  &ldquo;Rychlá reakce, srozumitelná komunikace a řešení, které skutečně funguje. Doporučuji všem.&rdquo;
+                </blockquote>
+                <div className="space-y-1">
+                  <p className="text-white font-medium">Anna Svobodová</p>
+                  <p className="text-sm text-accent">IT Manager, Inovace a.s.</p>
+                </div>
               </CardContent>
             </Card>
             
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="w-12 h-12 bg-accent/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-accent font-bold text-lg">P</span>
+            <Card className="text-center backdrop-blur-md bg-white/5 border border-white/20 hover:bg-white/8 hover:border-white/30 transition-all duration-300 group">
+              <CardContent className="pt-8 pb-6">
+                <div className="relative mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-accent/30 to-accent/10 rounded-full mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-accent font-bold text-xl">P</span>
+                  </div>
+                  <div className="absolute -bottom-1 -right-3 w-5 h-5 bg-accent/25 rounded-full"></div>
                 </div>
-                <p className="text-white/90 italic mb-4">&ldquo;Konečně IT partner, který rozumí našim potřebám a řeší problémy dřív, než se stanou kritickými.&rdquo;</p>
-                <p className="text-sm text-white/70 font-medium">Petr Dvořák</p>
-                <p className="text-xs text-white/60">Ředitel, Moderní firma</p>
+                <blockquote className="text-white/90 italic mb-6 text-lg leading-relaxed">
+                  &ldquo;Konečně IT partner, který rozumí našim potřebám a řeší problémy dřív, než se stanou kritickými.&rdquo;
+                </blockquote>
+                <div className="space-y-1">
+                  <p className="text-white font-medium">Petr Dvořák</p>
+                  <p className="text-sm text-accent">Ředitel, Moderní firma</p>
+                </div>
               </CardContent>
             </Card>
           </div>
           
-          <div className="mt-8 border-t border-white/10 pt-6">
-            <div className="flex flex-wrap items-center justify-center gap-4 opacity-80">
-              <Link href="/o-nas" className="text-xs uppercase tracking-wide text-white/60 hover:underline">Na čem stavíme</Link>
-              <span className="inline-flex items-center gap-2 text-sm text-white/70"><IconWorld size={16} /> Web</span>
-              <span className="inline-flex items-center gap-2 text-sm text-white/70"><IconDeviceFloppy size={16} /> Zálohy</span>
-              <span className="inline-flex items-center gap-2 text-sm text-white/70"><IconLock size={16} /> Bezpečnost</span>
+          <div className="text-center">
+            <div className="inline-flex items-center gap-6 px-8 py-4 backdrop-blur-md bg-white/5 border border-white/20 rounded-2xl">
+              <Link href="/o-nas" className="text-sm text-white/70 hover:text-accent transition-colors font-medium">
+                Na čem stavíme
+              </Link>
+              <div className="flex items-center gap-4 text-sm text-white/60">
+                <span className="flex items-center gap-2">
+                  <IconWorld size={16} className="text-accent" />
+                  Web
+                </span>
+                <span className="flex items-center gap-2">
+                  <IconDeviceFloppy size={16} className="text-accent" />
+                  Zálohy
+                </span>
+                <span className="flex items-center gap-2">
+                  <IconLock size={16} className="text-accent" />
+                  Bezpečnost
+                </span>
+              </div>
             </div>
           </div>
         </Container>
