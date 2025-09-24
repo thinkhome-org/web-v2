@@ -4,24 +4,28 @@
   bio: Vede ThinkHome od založení a specializuje se na komplexní IT řešení pro firmy.
   email: samuel@thinkhome.org
   links:
-    linkedin: https://linkedin.com/in/samuel-paluba
-    github: https://github.com/samuel-paluba
+    # Same nevim jestli mas linkedin, ale tenhle to urcite neni :3 Kdyztak smaz/oprav
+    #linkedin: https://linkedin.com/in/samuel-paluba
+    github: https://github.com/SamuelPalubaCZ
 - name: Ondřej Jansa
   role: Senior Developer
   slug: ondrej-jansa
   bio: Full-stack vývojář s více než 10 lety zkušeností v React a Node.js.
   email: ondrej@thinkhome.org
   links:
-    linkedin: https://linkedin.com/in/ondrej-jansa
-    github: https://github.com/ondrej-jansa
+    # Nevim jestli mas linkedin, ale tenhle to urcite neni :3 kdyztak oprav ci smaz
+    # linkedin: https://linkedin.com/in/ondrej-jansa
+    github: https://github.com/yan5q
 - name: Vojtěch Pell
   role: DevOps Engineer
   slug: vojtech-pell
   bio: Expert na infrastrukturu a automatizaci s důrazem na bezpečnost a škálovatelnost.
   email: vojtech@thinkhome.org
-  links:
-    linkedin: https://linkedin.com/in/vojtech-pell
-    github: https://github.com/vojtech-pell
+  # links:
+  # Dalsi neexistujici linkedin
+  #linkedin: https://linkedin.com/in/vojtech-pell
+  # Also neexistujici github
+  # github: https://github.com/vojtech-pell
 - name: Erdinç Daşkın
   role: Frontend Developer
   slug: erdinc-daskin
@@ -29,7 +33,7 @@
   email: erdinc@thinkhome.org
   links:
     github: https://github.com/CapinolDev
-- name: Simon
+- name: Šimon Horák
   role: Backend Developer
   slug: simon
   bio: Backend vývojář s experticí v databázích a API designu.
