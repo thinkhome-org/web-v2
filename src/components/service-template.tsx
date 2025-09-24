@@ -1,19 +1,20 @@
 import { notFound } from 'next/navigation'
 import { readValidatedArray, serviceSchema, type Service, projectSchema, type Project } from '@/lib/yaml'
-import { Container, Section, Card, CardHeader, CardContent, Button } from '@/components/ui'
-import { 
-  IconTools, IconServer, IconDesktop, IconWorld, IconShieldCheck, 
-  IconCloud, IconDatabase, IconDevices, IconCertificate, 
+import { Container, Section, Card, CardHeader, CardContent } from '@/components/ui'
+import {
+  IconTools, IconServer, IconDeviceDesktop, IconWorld,
+  IconCloud, IconDatabase, IconDevices, IconCertificate,
   IconSchool, IconSearch, IconChevronLeft, IconExternalLink,
-  IconCheckCircle, IconPhone, IconMail
+  IconCircleCheck, IconPhone, IconMail
 } from '@tabler/icons-react'
 import Link from 'next/link'
 
 // Icon mapping for different service types
+type IconComponent = typeof IconTools
 const getServiceIcon = (slug: string) => {
-  const iconMap: Record<string, any> = {
+  const iconMap: Record<string, IconComponent> = {
     'turn-key-it-management': IconServer,
-    'repasovane-pc': IconDesktop,
+    'repasovane-pc': IconDeviceDesktop,
     'webove-systemy': IconWorld,
     'backup-emaily': IconDatabase,
     'workspace-platformy': IconCloud,
@@ -172,7 +173,7 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
                     <CardContent className="pt-6">
                       <div className="flex items-start gap-3">
                         <div className="p-1 rounded-full bg-accent/20 mt-1">
-                          <IconCheckCircle size={16} className="text-accent" />
+                          <IconCircleCheck size={16} className="text-accent" />
                         </div>
                         <div>
                           <h4 className="font-semibold text-white mb-2">{f.q}</h4>

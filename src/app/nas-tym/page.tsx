@@ -5,7 +5,7 @@ export const revalidate = false;
 import Image from 'next/image';
 import fs from 'node:fs/promises';
 import { join } from 'node:path';
-import { Container, Section, Card, CardHeader, CardContent } from '@/components/ui';
+import { Container, Section, Card, CardContent } from '@/components/ui';
 import { IconMail, IconBrandLinkedin, IconBrandGithub, IconUsers } from '@tabler/icons-react';
 
 type Person = { 

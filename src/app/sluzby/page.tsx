@@ -4,17 +4,18 @@ export const revalidate = false;
 
 import { readValidatedArray, serviceSchema, type Service } from '@/lib/yaml'
 import { Section, Container, Card, CardHeader, CardContent } from '@/components/ui'
-import { 
-  IconTools, IconServer, IconDesktop, IconWorld, IconShieldCheck, 
-  IconCloud, IconDatabase, IconDevices, IconCertificate, 
-  IconSchool, IconSearch, IconChevronRight 
+import {
+  IconTools, IconServer, IconDeviceDesktop, IconWorld,
+  IconCloud, IconDatabase, IconDevices, IconCertificate,
+  IconSchool, IconSearch, IconChevronRight
 } from '@tabler/icons-react'
 
 // Icon mapping for different service types
+type IconComponent = typeof IconTools
 const getServiceIcon = (slug: string) => {
-  const iconMap: Record<string, any> = {
+  const iconMap: Record<string, IconComponent> = {
     'turn-key-it-management': IconServer,
-    'repasovane-pc': IconDesktop,
+    'repasovane-pc': IconDeviceDesktop,
     'webove-systemy': IconWorld,
     'backup-emaily': IconDatabase,
     'workspace-platformy': IconCloud,
