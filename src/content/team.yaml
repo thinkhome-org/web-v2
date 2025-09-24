@@ -6,7 +6,7 @@
   links:
     linkedin: https://linkedin.com/in/samuel-paluba
     github: https://github.com/samuel-paluba
-- name: Ondřej Janša
+- name: Ondřej Jansa
   role: Senior Developer
   slug: ondrej-jansa
   bio: Full-stack vývojář s více než 10 lety zkušeností v React a Node.js.
@@ -25,11 +25,10 @@
 - name: Erdinç Daşkın
   role: Frontend Developer
   slug: erdinc-daskin
-  bio: Specialista na moderní frontend technologie a uživatelské rozhraní.
+  bio: Specialista na moderní frontend a backend technologie a uživatelské rozhraní, zastávce funkčního programování.
   email: erdinc@thinkhome.org
   links:
-    linkedin: https://linkedin.com/in/erdinc-daskin
-    github: https://github.com/erdinc-daskin
+    github: https://github.com/CapinolDev
 - name: Simon
   role: Backend Developer
   slug: simon
