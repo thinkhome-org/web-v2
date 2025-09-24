@@ -74,10 +74,33 @@ body {
   transform: translateZ(0);
   will-change: transform;
 }
+
 .blurred-bg {
-  background-color: rgba(0, 0, 0, 0.5);
-  -webkit-backdrop-filter: blur(8px) saturate(160%);
-  backdrop-filter: blur(8px) saturate(160%);
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  backdrop-filter: blur(12px) saturate(180%);
+}
+
+/* Enhanced Glassmorphism effects */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Improved focus states */
+.focus-enhanced:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(193, 18, 31, 0.5);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Essential animations only */
