@@ -1,7 +1,12 @@
 import { HTMLAttributes } from 'react';
 
-export function Section({ className = '', ...props }: HTMLAttributes<HTMLElement>) {
-  return <section className={`border-b border-white/10 blurred-bg ${className}`} {...props} />;
+interface SectionProps extends HTMLAttributes<HTMLElement> {
+  separator?: boolean;
+}
+
+export function Section({ className = '', separator = true, ...props }: SectionProps) {
+  const separatorClass = separator ? 'border-b border-white/10' : '';
+  return <section className={`${separatorClass} ${className}`} {...props} />;
 }
 
 
