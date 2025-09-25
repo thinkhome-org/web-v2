@@ -36,13 +36,13 @@ export default async function Page() {
   
   return (
     <>
-      <Section className="px-6 py-16 md:py-24">
+      <Section className="px-4 md:px-6 py-12 md:py-16 lg:py-24">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent mb-4 md:mb-6">
               Naše služby
             </h1>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto mb-12">
+            <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-8 md:mb-12 px-2">
               Komplexní IT řešení šitá na míru vašim potřebám. Od správy infrastruktury 
               až po vývoj webových aplikací – vše pod jednou střechou.
             </p>
