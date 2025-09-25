@@ -93,13 +93,13 @@ export default async function Page() {
       </AnimatedSection>
 
       {/* Features Section */}
-      <AnimatedSection id="proc" className="scroll-mt-20 py-20 md:py-32" animation="slide-up">
-        <Container className="px-6">
+      <AnimatedSection id="proc" className="scroll-mt-20 py-16 md:py-20 lg:py-32" animation="slide-up">
+        <Container className="px-4 md:px-6">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16 text-center bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
               Proč si nás firmy vybírají
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mobile-cards">
               <Card variant="glass" className="slide-up">
                 <CardHeader>
                   <div className="flex items-center gap-4 mb-4">
