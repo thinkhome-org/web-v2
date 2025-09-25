@@ -102,15 +102,16 @@ export default async function Page() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mobile-cards">
               <Card variant="glass" className="slide-up">
                 <CardHeader>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10">
-                      <IconRocket size={28} className="text-accent" />
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4">
+                    <div className="p-2 sm:p-3 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 flex-shrink-0">
+                      <IconRocket size={24} className="text-accent sm:hidden" />
+                      <IconRocket size={28} className="text-accent hidden sm:block" />
                     </div>
-                    <h3 className="text-xl font-semibold">Méně starostí, více výsledků</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold">Méně starostí, více výsledků</h3>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-white/80 text-lg leading-relaxed">
+                  <p className="text-white/80 text-base sm:text-lg leading-relaxed">
                     Od prvního dne ubíráme agendu. Hlídáme dostupnost, aktualizace i bezpečnost – vy řešíte svůj byznys.
                   </p>
                 </CardContent>
