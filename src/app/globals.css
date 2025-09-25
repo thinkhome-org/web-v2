@@ -217,3 +217,58 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Improve mobile typography */
+  h1 {
+    line-height: 1.1;
+  }
+  
+  /* Better mobile spacing */
+  .hero-mobile-spacing {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Mobile cards spacing */
+  .mobile-cards {
+    gap: 1rem;
+  }
+  
+  /* Mobile buttons */
+  .mobile-btn {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  /* Mobile text sizing */
+  .mobile-text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+/* Touch devices improvements */
+@media (hover: none) and (pointer: coarse) {
+  .hover-glow:hover {
+    box-shadow: none;
+  }
+  
+  .glass-block:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  button, .btn-primary {
+    transform: none !important;
+  }
+}
