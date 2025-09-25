@@ -28,6 +28,7 @@ html, body {
 body {
   background: var(--background);
   color: var(--foreground);
+  overflow-x: hidden;
 }
 
 .skip-link {
