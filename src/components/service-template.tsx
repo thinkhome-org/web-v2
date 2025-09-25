@@ -76,35 +76,37 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
 
       {/* Process Steps */}
       {service.steps?.length ? (
-        <Section className="px-6 pb-12">
-          <Container>
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">
+        <AnimatedSection className="py-20 md:py-32" animation="slide-up">
+          <Container className="px-6">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
                 Jak postupujeme
               </h2>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {service.steps.map((step, i) => (
                   <Card 
                     key={i} 
-                    className="backdrop-blur-md bg-white/5 border border-white/20 hover:bg-white/8 transition-all duration-300"
+                    variant="glass"
+                    className="slide-up"
+                    style={{ animationDelay: `${i * 0.1}s` }}
                   >
                     <CardHeader>
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
-                          <span className="text-accent font-bold text-sm">{i + 1}</span>
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center">
+                          <span className="text-accent font-bold text-lg">{i + 1}</span>
                         </div>
-                        <h3 className="font-semibold text-white">Krok {i + 1}</h3>
+                        <h3 className="font-semibold text-white text-lg">Krok {i + 1}</h3>
                       </div>
                     </CardHeader>
-                    <CardContent className="pt-0">
-                      <p className="text-white/80">{step}</p>
+                    <CardContent>
+                      <p className="text-white/80 text-lg leading-relaxed">{step}</p>
                     </CardContent>
                   </Card>
                 ))}
               </div>
             </div>
           </Container>
-        </Section>
+        </AnimatedSection>
       ) : null}
 
       {/* Image Gallery */}
