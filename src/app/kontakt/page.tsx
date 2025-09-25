@@ -1,5 +1,5 @@
 import ContactForm from '@/components/contact-form';
-import { Container, Section, Card, CardHeader, CardContent } from '@/components/ui';
+import { Container, AnimatedSection, Card, CardHeader, CardContent, HeroSection } from '@/components/ui';
 import { IconMail, IconPhone, IconMapPin, IconClock, IconMessageCircle } from '@tabler/icons-react';
 
 export const metadata = { title: 'Kontakt – ThinkHome' };
