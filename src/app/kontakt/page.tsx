@@ -7,13 +7,13 @@ export const metadata = { title: 'Kontakt – ThinkHome' };
 export default async function Page() {
   return (
     <>
-      <HeroSection fullHeight={false} className="py-20 md:py-32">
-        <Container className="px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-white/95 to-white/80 bg-clip-text text-transparent fade-in">
+      <HeroSection fullHeight={false} className="py-16 md:py-20 lg:py-32">
+        <Container className="px-4 md:px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-white/95 to-white/80 bg-clip-text text-transparent fade-in">
               Kontakt
             </h1>
-            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto slide-up stagger-1">
+            <p className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto slide-up stagger-1 px-2">
               Ozvěte se nám – obvykle reagujeme do 24 hodin. Kritické incidenty řešíme obratem.
             </p>
           </div>
