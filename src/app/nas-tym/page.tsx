@@ -43,9 +43,9 @@ export default async function Page() {
 
   return (
     <>
-      <Section className="px-6 py-16 md:py-24">
+      <Section className="px-6 py-12 md:py-24">
         <Container>
-          <div className="max-w-4xl mx-auto text-center mb-12">
+          <div className="max-w-4xl mx-auto text-center mb-8 md:mb-12">
             <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent mb-6">
               Náš tým
             </h1>

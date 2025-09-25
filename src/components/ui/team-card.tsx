@@ -68,7 +68,7 @@ export default function TeamCard({ person, slug }: { person: Person; slug: strin
               href={`mailto:${person.email}`}
               onClick={(e) => e.stopPropagation()}
               className="p-2 rounded-full bg-white/5 hover:bg-accent/20 border border-white/10
-                         hover:border-accent/30 transition-all duration-200 group/btn"
+                         hover:border-accent/30 transition-all duration-200 group/btn inline-flex items-center justify-center"
             >
               <IconMail size={16} className="text-white/70 group-hover/btn:text-accent" />
             </a>
@@ -80,7 +80,7 @@ export default function TeamCard({ person, slug }: { person: Person; slug: strin
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
               className="p-2 rounded-full bg-white/5 hover:bg-accent/20 border border-white/10
-                         hover:border-accent/30 transition-all duration-200 group/btn"
+                         hover:border-accent/30 transition-all duration-200 group/btn inline-flex items-center justify-center"
             >
               <IconBrandLinkedin size={16} className="text-white/70 group-hover/btn:text-accent" />
             </a>
@@ -92,7 +92,7 @@ export default function TeamCard({ person, slug }: { person: Person; slug: strin
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
               className="p-2 rounded-full bg-white/5 hover:bg-accent/20 border border-white/10
-                         hover:border-accent/30 transition-all duration-200 group/btn"
+                         hover:border-accent/30 transition-all duration-200 group/btn inline-flex items-center justify-center"
             >
               <IconBrandGithub size={16} className="text-white/70 group-hover/btn:text-accent" />
             </a>
