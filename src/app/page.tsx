@@ -7,33 +7,33 @@ export default async function Page() {
     <>
       {/* Hero Section - Full Height */}
       <HeroSection id="home" className="scroll-mt-20">
-        <Container className="px-6 relative z-10">
+        <Container className="px-4 md:px-6 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               {/* Animated Hero Content */}
-              <div className="space-y-6">
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight bg-gradient-to-r from-white via-white/95 to-white/80 bg-clip-text text-transparent fade-in">
+              <div className="space-y-4 md:space-y-6 hero-mobile-spacing">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight bg-gradient-to-r from-white via-white/95 to-white/80 bg-clip-text text-transparent fade-in">
                   ThinkHome
                 </h1>
                 <div className="slide-up stagger-1">
-                  <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/90 mb-4">
+                  <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-white/90 mb-3 md:mb-4">
                     Moderní IT bez starostí
                   </p>
-                  <p className="text-white/70 text-lg md:text-xl max-w-4xl mx-auto leading-relaxed">
+                  <p className="text-white/70 text-base sm:text-lg md:text-xl max-w-4xl mx-auto leading-relaxed px-2">
                     IT, které prostě funguje. Zrychlíme práci, snížíme náklady a dáme technologiím jasný řád – přehledně, klidně a bez zbytečných složitostí.
                   </p>
                 </div>
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 slide-up stagger-2">
-                <Link href="#kontakt" className="inline-flex">
-                  <Button className="px-10 py-4 text-xl font-semibold btn-primary">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 slide-up stagger-2 px-2">
+                <Link href="#kontakt" className="w-full sm:w-auto">
+                  <Button className="w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-semibold btn-primary">
                     Nezávazná konzultace zdarma
                   </Button>
                 </Link>
-                <Link href="#proc" className="inline-flex">
-                  <Button variant="secondary" className="px-10 py-4 text-xl font-semibold glass-block border-white/20 hover:border-white/30">
+                <Link href="#proc" className="w-full sm:w-auto">
+                  <Button variant="secondary" className="w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-semibold glass-block border-white/20 hover:border-white/30">
                     Proč ThinkHome
                   </Button>
                 </Link>
