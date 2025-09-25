@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { readValidatedArray, serviceSchema, type Service, projectSchema, type Project } from '@/lib/yaml'
-import { Container, Section, Card, CardHeader, CardContent, ConsultationCTA } from '@/components/ui'
+import { Container, AnimatedSection, Card, CardHeader, CardContent, ConsultationCTA, HeroSection } from '@/components/ui'
 import {
   IconTools, IconServer, IconDeviceDesktop, IconWorld,
   IconCloud, IconDatabase, IconDevices, IconCertificate,
