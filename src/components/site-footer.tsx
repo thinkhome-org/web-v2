@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { IconMail, IconPhone, IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react';
 import { readYamlObject } from '@/lib/yaml';
+import { CookiePreferencesLink } from './cookie-consent';
 
 type Contacts = { email?: string; phone?: string; linkedin?: string; github?: string };
 export default async function SiteFooter() {
@@ -57,6 +58,7 @@ export default async function SiteFooter() {
               <Link href="/pravo/ochrana-soukromi" className="hover:underline text-xs">Ochrana soukromí</Link>
               <Link href="/pravo/cookies" className="hover:underline text-xs">Cookies</Link>
               <Link href="/pravo/vop" className="hover:underline text-xs">VOP</Link>
+              <CookiePreferencesLink className="text-xs" />
             </div>
           </div>
         </div>
@@ -85,6 +87,7 @@ export default async function SiteFooter() {
               <Link href="/pravo/ochrana-soukromi" className="hover:underline">Ochrana soukromí</Link>
               <Link href="/pravo/cookies" className="hover:underline">Cookies</Link>
               <Link href="/pravo/vop" className="hover:underline">VOP</Link>
+              <CookiePreferencesLink />
             </div>
           </div>
         </div>

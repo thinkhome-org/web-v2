@@ -4,6 +4,8 @@ import "./globals.css";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import { ToastProvider } from "@/components/ui/toast-provider";
+import CookieConsent from "@/components/cookie-consent";
+import AnalyticsLoader from "@/components/analytics-loader";
 import { readYamlObject } from "@/lib/yaml";
 
 const plexSans = IBM_Plex_Sans({
@@ -74,6 +76,8 @@ export default async function RootLayout({
           <SiteHeader />
           <main id="main">{children}</main>
           <SiteFooter />
+          <CookieConsent />
+          <AnalyticsLoader />
         </ToastProvider>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
       </body>
