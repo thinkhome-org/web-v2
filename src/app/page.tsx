@@ -236,11 +236,7 @@ export default async function Page() {
 
       <Section id="kontakt" className="scroll-mt-20">
         <Container className="px-6 py-12 md:py-16">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-semibold">Připraveni začít?</h2>
-            <p className="mt-3 text-white/80">Napište pár slov o tom, co řešíte. Ozveme se do 24 hodin a navrhneme jasné kroky.</p>
-          </div>
-          <ContactForm />
+          <ConsultationCTA />
         </Container>
       </Section>
     </>
