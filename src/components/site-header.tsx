@@ -55,7 +55,11 @@ export default function SiteHeader() {
 
   return (
     <>
-      <header className={`sticky-header sticky top-0 z-50 border-b border-white/10 blurred-bg ${scrolled ? '' : ''}`}>
+      <header className={`sticky-header fixed top-0 w-full z-50 transition-all duration-300 ${
+        showHeader 
+          ? 'translate-y-0 opacity-100 border-b border-white/10 blurred-bg' 
+          : '-translate-y-full opacity-0'
+      }`}>
         <div className="container px-6 h-14 md:h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/logo.svg" alt="ThinkHome" width={110} height={26} />
