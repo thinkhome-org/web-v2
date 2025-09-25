@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { z } from 'zod';
 import { useToast } from '@/components/ui/toast-provider';
 import { sendDiscordContact } from '@/lib/client-webhook';
-import { IconMail, IconPhone } from '@tabler/icons-react'
+// Icons removed - no longer needed
 
 const clientSchema = z.object({
   name: z.string().min(2, 'Zadejte jméno'),
