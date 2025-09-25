@@ -48,17 +48,7 @@ body {
 }
 
 .skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--accent);
-  color: white;
-  padding: 8px 12px;
-  border-radius: 4px;
-}
-.skip-link:focus {
-  top: 8px;
-  left: 8px;
+  display: none; /* Hidden as requested */
 }
 
 .container {
