@@ -40,32 +40,35 @@ export default async function Page() {
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 slide-up stagger-3">
-                <Card variant="glass" className="text-center py-8">
-                  <div className="space-y-3">
-                    <div className="w-16 h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center mb-4">
-                      <IconTrendingUp size={32} className="text-accent" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 mt-12 md:mt-16 slide-up stagger-3 px-2 mobile-cards">
+                <Card variant="glass" className="text-center py-6 md:py-8">
+                  <div className="space-y-2 md:space-y-3">
+                    <div className="w-12 h-12 md:w-16 md:h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center mb-3 md:mb-4">
+                      <IconTrendingUp size={24} className="text-accent md:hidden" />
+                      <IconTrendingUp size={32} className="text-accent hidden md:block" />
                     </div>
-                    <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">99,8%</p>
-                    <p className="text-white/70 text-lg">dostupnost systémů</p>
+                    <p className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">99,8%</p>
+                    <p className="text-white/70 text-base md:text-lg">dostupnost systémů</p>
                   </div>
                 </Card>
-                <Card variant="glass" className="text-center py-8 stagger-1">
-                  <div className="space-y-3">
-                    <div className="w-16 h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center mb-4">
-                      <IconUsers size={32} className="text-accent" />
+                <Card variant="glass" className="text-center py-6 md:py-8 stagger-1">
+                  <div className="space-y-2 md:space-y-3">
+                    <div className="w-12 h-12 md:w-16 md:h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center mb-3 md:mb-4">
+                      <IconUsers size={24} className="text-accent md:hidden" />
+                      <IconUsers size={32} className="text-accent hidden md:block" />
                     </div>
-                    <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">200+</p>
-                    <p className="text-white/70 text-lg">spokojených klientů</p>
+                    <p className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">200+</p>
+                    <p className="text-white/70 text-base md:text-lg">spokojených klientů</p>
                   </div>
                 </Card>
-                <Card variant="glass" className="text-center py-8 stagger-2">
-                  <div className="space-y-3">
-                    <div className="w-16 h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center mb-4">
-                      <IconClock size={32} className="text-accent" />
+                <Card variant="glass" className="text-center py-6 md:py-8 stagger-2 sm:col-span-2 md:col-span-1">
+                  <div className="space-y-2 md:space-y-3">
+                    <div className="w-12 h-12 md:w-16 md:h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center mb-3 md:mb-4">
+                      <IconClock size={24} className="text-accent md:hidden" />
+                      <IconClock size={32} className="text-accent hidden md:block" />
                     </div>
-                    <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">2h</p>
-                    <p className="text-white/70 text-lg">reakce na kritické požadavky</p>
+                    <p className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">2h</p>
+                    <p className="text-white/70 text-base md:text-lg">reakce na kritické požadavky</p>
                   </div>
                 </Card>
               </div>
