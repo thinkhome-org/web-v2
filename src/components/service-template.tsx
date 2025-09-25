@@ -165,21 +165,28 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
 
       {/* FAQ Section */}
       {service.faqs?.length ? (
-        <Section className="px-6 pb-12">
-          <Container>
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl font-semibold mb-8 text-center">Často se ptáte</h2>
-              <div className="space-y-4">
+        <AnimatedSection className="py-20 md:py-32" animation="slide-up">
+          <Container className="px-6">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+                Často se ptáte
+              </h2>
+              <div className="space-y-6">
                 {service.faqs.map((f, i) => (
-                  <Card key={i} className="backdrop-blur-md bg-white/5 border border-white/20">
-                    <CardContent className="pt-6">
-                      <div className="flex items-start gap-3">
-                        <div className="p-1 rounded-full bg-accent/20 mt-1">
-                          <IconCircleCheck size={16} className="text-accent" />
+                  <Card 
+                    key={i} 
+                    variant="glass"
+                    className="slide-up"
+                    style={{ animationDelay: `${i * 0.1}s` }}
+                  >
+                    <CardContent>
+                      <div className="flex items-start gap-4">
+                        <div className="p-2 rounded-2xl bg-gradient-to-br from-accent/30 to-accent/10 mt-1">
+                          <IconCircleCheck size={20} className="text-accent" />
                         </div>
-                        <div>
-                          <h4 className="font-semibold text-white mb-2">{f.q}</h4>
-                          <p className="text-white/80">{f.a}</p>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-white mb-3 text-lg">{f.q}</h4>
+                          <p className="text-white/80 text-lg leading-relaxed">{f.a}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -188,7 +195,7 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
               </div>
             </div>
           </Container>
-        </Section>
+        </AnimatedSection>
       ) : null}
 
       {/* Contact CTA */}
