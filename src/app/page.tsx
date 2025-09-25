@@ -168,7 +168,6 @@ export default async function Page() {
                   <div className="w-16 h-16 bg-gradient-to-br from-accent/30 to-accent/10 rounded-full mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <span className="text-accent font-bold text-xl">A</span>
                   </div>
-                  <div className="absolute -top-2 -left-2 w-4 h-4 bg-accent/30 rounded-full"></div>
                 </div>
                 <blockquote className="text-white/90 italic mb-6 text-lg leading-relaxed">
                   &ldquo;Rychlá reakce, srozumitelná komunikace a řešení, které skutečně funguje. Doporučuji všem.&rdquo;
