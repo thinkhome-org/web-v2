@@ -10,11 +10,17 @@ import { IconX, IconMenu2 } from '@tabler/icons-react';
 
 export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
+  const [showHeader, setShowHeader] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 2);
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 50);
+      // Show header after scrolling past 80% of viewport height (hero section)
+      setShowHeader(scrollY > window.innerHeight * 0.8);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
