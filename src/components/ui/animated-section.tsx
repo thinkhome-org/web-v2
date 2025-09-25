@@ -13,7 +13,7 @@ export function AnimatedSection({
   className = '', 
   animation = 'slide-up',
   delay = 0,
-  separator = true,
+  separator = false,
   children,
   ...props 
 }: AnimatedSectionProps) {
