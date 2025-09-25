@@ -185,7 +185,6 @@ export default async function Page() {
                   <div className="w-16 h-16 bg-gradient-to-br from-accent/30 to-accent/10 rounded-full mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <span className="text-accent font-bold text-xl">P</span>
                   </div>
-                  <div className="absolute -bottom-1 -right-3 w-5 h-5 bg-accent/25 rounded-full"></div>
                 </div>
                 <blockquote className="text-white/90 italic mb-6 text-lg leading-relaxed">
                   &ldquo;Konečně IT partner, který rozumí našim potřebám a řeší problémy dřív, než se stanou kritickými.&rdquo;
