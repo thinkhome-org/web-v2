@@ -109,28 +109,6 @@ export default function ContactForm({ email = 'info@thinkhome.org', phone = '+42
 
   return (
     <Card className="mt-8 max-w-2xl mx-auto backdrop-blur-md bg-white/5 border border-white/20">
-      <CardHeader>
-        <div className="flex flex-wrap items-center gap-3">
-          <Button 
-            variant="secondary" 
-            size="sm" 
-            onClick={() => (window.location.href = `mailto:${email}`)} 
-            leftIcon={<IconMail size={16} />}
-            className="backdrop-blur-md bg-white/10 border border-white/20 hover:bg-white/15 hover:border-white/30"
-          >
-            Napsat e‑mail
-          </Button>
-          <Button 
-            variant="secondary" 
-            size="sm" 
-            onClick={() => (window.location.href = `tel:${phone.replace(/\s+/g, '')}`)} 
-            leftIcon={<IconPhone size={16} />}
-            className="backdrop-blur-md bg-white/10 border border-white/20 hover:bg-white/15 hover:border-white/30"
-          >
-            Zavolat
-          </Button>
-        </div>
-      </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="grid gap-6" aria-busy={isSubmitting}>
           <div className="grid gap-3">
