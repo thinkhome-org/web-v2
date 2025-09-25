@@ -8,7 +8,7 @@ import { IconRocket, IconHeadset, IconShieldCheck, IconDeviceFloppy, IconLock, I
 export default async function Page() {
   return (
     <>
-      <Section className="border-0 scroll-mt-20" id="home">
+      <Section separator={false} className="scroll-mt-20" id="home">
         <Container className="px-6 py-16 md:py-24">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-6">
