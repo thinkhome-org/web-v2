@@ -78,6 +78,54 @@ export default async function Page() {
         </Container>
       </HeroSection>
 
+      {/* Stats Section - Moved from hero */}
+      <AnimatedSection className="py-16 md:py-20" animation="slide-up">
+        <Container className="px-4 md:px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">Důvěřují nám</h2>
+              <p className="text-white/60 max-w-2xl mx-auto">Více než 200 spokojených klientů nám svěřuje své IT</p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+              <Link href="/o-nas" className="group">
+                <Card variant="glass" className="text-center py-8 md:py-10 transition-all duration-300 group-hover:scale-105 cursor-pointer">
+                  <div className="space-y-4">
+                    <div className="w-16 h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center">
+                      <IconTrendingUp size={32} className="text-accent" />
+                    </div>
+                    <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">99,8%</p>
+                    <p className="text-white/70 text-lg">dostupnost systémů</p>
+                  </div>
+                </Card>
+              </Link>
+              <Link href="/nas-tym" className="group">
+                <Card variant="glass" className="text-center py-8 md:py-10 transition-all duration-300 group-hover:scale-105 cursor-pointer">
+                  <div className="space-y-4">
+                    <div className="w-16 h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center">
+                      <IconUsers size={32} className="text-accent" />
+                    </div>
+                    <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">200+</p>
+                    <p className="text-white/70 text-lg">spokojených klientů</p>
+                  </div>
+                </Card>
+              </Link>
+              <Link href="/kontakt" className="group">
+                <Card variant="glass" className="text-center py-8 md:py-10 transition-all duration-300 group-hover:scale-105 cursor-pointer">
+                  <div className="space-y-4">
+                    <div className="w-16 h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center">
+                      <IconClock size={32} className="text-accent" />
+                    </div>
+                    <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">2h</p>
+                    <p className="text-white/70 text-lg">reakce na kritické požadavky</p>
+                  </div>
+                </Card>
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </AnimatedSection>
+
       {/* About Section */}
       <AnimatedSection id="about" className="py-16 md:py-20 lg:py-32" animation="slide-up">
         <Container className="px-4 md:px-6">
