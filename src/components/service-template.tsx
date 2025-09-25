@@ -131,7 +131,7 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
               </div>
             </div>
           </Container>
-        </Section>
+        </AnimatedSection>
       ) : null}
 
       {/* Related Projects */}
@@ -160,7 +160,7 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
               </div>
             </div>
           </Container>
-        </Section>
+        </AnimatedSection>
       ) : null}
 
       {/* FAQ Section */}
