@@ -20,9 +20,9 @@ const clientSchema = z.object({
   website: z.string().optional(),
 });
 
-interface Props { email?: string; phone?: string }
+interface Props { email?: string }
 
-export default function ContactForm({ email = 'info@thinkhome.org', phone = '+420 910 129 289' }: Props) {
+export default function ContactForm({ email = 'info@thinkhome.org' }: Props) {
   const { show } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
