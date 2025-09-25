@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
+// Dynamic import removed - no longer needed
 import { Container, Section, Card, CardContent, CardHeader, Button, ConsultationCTA } from '@/components/ui'
 import { IconRocket, IconHeadset, IconShieldCheck, IconDeviceFloppy, IconLock, IconWorld } from '@tabler/icons-react'
 
