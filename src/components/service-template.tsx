@@ -111,7 +111,7 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
 
       {/* Image Gallery */}
       {service.images?.length ? (
-        <Section className="px-6 pb-12">
+        <AnimatedSection className="py-20 md:py-32" animation="slide-up">
           <Container>
             <div className="max-w-4xl mx-auto">
               <h3 className="text-xl font-semibold mb-6 text-center">Ukázky realizací</h3>
@@ -136,7 +136,7 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
 
       {/* Related Projects */}
       {linked.length ? (
-        <Section className="px-6 pb-12">
+        <AnimatedSection className="py-20 md:py-32" animation="slide-up">
           <Container>
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl font-semibold mb-6 text-center">Související projekty</h2>
