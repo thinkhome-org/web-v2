@@ -199,11 +199,11 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
       ) : null}
 
       {/* Contact CTA */}
-      <Section className="px-6 pb-16">
-        <Container>
+      <AnimatedSection className="py-20 md:py-32" animation="scale-in">
+        <Container className="px-6">
           <ConsultationCTA />
         </Container>
-      </Section>
+      </AnimatedSection>
     </>
   )
 }
