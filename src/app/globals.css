@@ -298,5 +298,30 @@ html {
   
   button, .btn-primary {
     transform: none !important;
+    touch-action: manipulation;
+  }
+  
+  /* Better touch targets */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevent zoom on input focus on iOS */
+@media screen and (max-width: 768px) {
+  input[type="text"], 
+  input[type="email"], 
+  input[type="tel"], 
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Fix viewport units on mobile browsers */
+@media screen and (max-width: 768px) {
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
   }
 }
