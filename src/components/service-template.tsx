@@ -192,34 +192,7 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
       {/* Contact CTA */}
       <Section className="px-6 pb-16">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <Card className="backdrop-blur-md bg-gradient-to-r from-accent/10 to-accent/5 border border-accent/30">
-              <CardContent className="pt-8 pb-8 text-center">
-                <h3 className="text-2xl font-semibold text-white mb-4">
-                  Máte zájem o tuto službu?
-                </h3>
-                <p className="text-white/80 mb-6">
-                  Spojte se s námi pro nezávaznou konzultaci a cenovou nabídku.
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Link 
-                    href="/kontakt"
-                    className="inline-flex items-center gap-2 px-8 py-3 bg-accent hover:bg-accent/90 text-white font-medium rounded-lg transition-colors"
-                  >
-                    <IconMail size={18} />
-                    Nezávazná poptávka
-                  </Link>
-                  <a 
-                    href="tel:+420910129289"
-                    className="inline-flex items-center gap-2 px-8 py-3 backdrop-blur-md bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white font-medium rounded-lg transition-all"
-                  >
-                    <IconPhone size={18} />
-                    +420 910 129 289
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+          <ConsultationCTA />
         </Container>
       </Section>
     </>
