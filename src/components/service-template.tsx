@@ -38,33 +38,33 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
   return (
     <>
       {/* Header Section */}
-      <Section className="px-6 py-16 md:py-24">
-        <Container>
-          <div className="max-w-4xl mx-auto">
+      <HeroSection fullHeight={false} className="py-20 md:py-32">
+        <Container className="px-6">
+          <div className="max-w-6xl mx-auto">
             {/* Back Navigation */}
             <Link 
               href="/sluzby" 
-              className="inline-flex items-center gap-2 text-white/70 hover:text-accent transition-colors mb-8 group"
+              className="inline-flex items-center gap-3 text-white/70 hover:text-accent transition-colors mb-12 group text-lg"
             >
-              <IconChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+              <IconChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
               Zpět na služby
             </Link>
             
             {/* Service Header */}
-            <div className="flex items-start gap-6 mb-8">
-              <div className="p-4 rounded-2xl bg-accent/20 border border-accent/30">
-                <Icon size={40} className="text-accent" />
+            <div className="text-center space-y-8">
+              <div className="w-24 h-24 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-3xl flex items-center justify-center mb-8">
+                <Icon size={48} className="text-accent" />
               </div>
-              <div className="flex-1">
-                <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent mb-4">
-                  {service.title}
-                </h1>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-white/95 to-white/80 bg-clip-text text-transparent">
+                {service.title}
+              </h1>
+              <div className="max-w-4xl mx-auto">
                 {service.intro ? (
-                  <p className="text-xl text-white/80 leading-relaxed">
+                  <p className="text-xl md:text-2xl text-white/80 leading-relaxed">
                     {service.intro}
                   </p>
                 ) : (
-                  <p className="text-xl text-white/80 leading-relaxed">
+                  <p className="text-xl md:text-2xl text-white/80 leading-relaxed">
                     {service.desc}
                   </p>
                 )}
@@ -72,7 +72,7 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
             </div>
           </div>
         </Container>
-      </Section>
+      </HeroSection>
 
       {/* Process Steps */}
       {service.steps?.length ? (
