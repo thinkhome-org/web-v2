@@ -13,18 +13,22 @@ export default function SiteHeader() {
   const [showHeader, setShowHeader] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const isHome = pathname === '/';
 
   useEffect(() => {
+    if (!isHome) {
+      setShowHeader(true);
+      return;
+    }
     const onScroll = () => {
       const scrollY = window.scrollY;
       setScrolled(scrollY > 50);
-      // Show header after scrolling past 80% of viewport height (hero section)
       setShowHeader(scrollY > window.innerHeight * 0.8);
     };
     onScroll();
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [isHome]);
 
   // Zavřít menu při změně stránky
   useEffect(() => {
