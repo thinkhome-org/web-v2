@@ -8,7 +8,7 @@ export { Input } from './input';
 export { Label } from './label';
 export { Section } from './section';
 export { Spinner } from './spinner';
-export { TeamCard } from './team-card';
+export { default as TeamCard } from './team-card';
 export { Textarea } from './textarea';
 // Icons are to be imported directly from '@tabler/icons-react'
 

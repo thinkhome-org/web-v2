@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Card } from "@/components/ui";
+import { Card } from "./card";
 import { IconMail, IconBrandLinkedin, IconBrandGithub } from "@tabler/icons-react";
 
 type Person = {
