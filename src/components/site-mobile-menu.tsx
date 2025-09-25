@@ -12,13 +12,13 @@ export const SiteMobileMenu = ({ items, isOpen, onClose, isActive }: {
   isActive: (href: string) => boolean;
 }) => (
   <div
-    className={`fixed inset-0 z-50 md:hidden transition-opacity duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+    className={`fixed inset-0 z-50 md:hidden transition-opacity duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'} ${isOpen ? 'pointer-events-auto' : ''}`}
     onClick={onClose}
   >
     <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
     <button
       onClick={onClose}
-      className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors focus-ring"
+      className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors focus-ring touch-manipulation"
       aria-label="Zavřít menu"
     >
       <IconX size={24} className="text-white" />
