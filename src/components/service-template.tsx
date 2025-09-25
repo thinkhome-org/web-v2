@@ -5,7 +5,7 @@ import {
   IconTools, IconServer, IconDeviceDesktop, IconWorld,
   IconCloud, IconDatabase, IconDevices, IconCertificate,
   IconSchool, IconSearch, IconChevronLeft, IconExternalLink,
-  IconCircleCheck, IconPhone, IconMail
+  IconCircleCheck
 } from '@tabler/icons-react'
 import Link from 'next/link'
 
