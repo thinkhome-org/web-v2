@@ -3,17 +3,7 @@ import dynamic from 'next/dynamic'
 import { Container, Section, Card, CardContent, CardHeader, Button, ConsultationCTA } from '@/components/ui'
 import { IconRocket, IconHeadset, IconShieldCheck, IconDeviceFloppy, IconLock, IconWorld } from '@tabler/icons-react'
 
-const ContactForm = dynamic(() => import('@/components/contact-form'), {
-  loading: () => (
-    <div className="mt-8 max-w-2xl mx-auto p-8 text-center">
-      <div className="animate-pulse">
-        <div className="h-4 bg-white/20 rounded mb-4"></div>
-        <div className="h-4 bg-white/20 rounded mb-4"></div>
-        <div className="h-4 bg-white/20 rounded mb-4"></div>
-      </div>
-    </div>
-  )
-})
+// ContactForm no longer needed on homepage
 
 export default async function Page() {
   return (
