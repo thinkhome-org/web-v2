@@ -78,7 +78,7 @@ export default async function Page() {
       </HeroSection>
 
       {/* About Section */}
-      <AnimatedSection className="py-16 md:py-20 lg:py-32" animation="slide-up">
+      <AnimatedSection id="about" className="py-16 md:py-20 lg:py-32" animation="slide-up">
         <Container className="px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
