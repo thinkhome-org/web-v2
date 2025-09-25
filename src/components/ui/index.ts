@@ -1,12 +1,15 @@
+export { AnimatedSection } from './animated-section';
 export { Button } from './button';
-export { Input } from './input';
-export { Textarea } from './textarea';
-export { Label } from './label';
-export { Spinner } from './spinner';
 export { Card, CardHeader, CardContent } from './card';
 export { ConsultationCTA } from './consultation-cta';
-export { Section } from './section';
 export { Container } from './container';
+export { HeroSection } from './hero-section';
+export { Input } from './input';
+export { Label } from './label';
+export { Section } from './section';
+export { Spinner } from './spinner';
+export { TeamCard } from './team-card';
+export { Textarea } from './textarea';
 // Icons are to be imported directly from '@tabler/icons-react'
 
 
