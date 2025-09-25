@@ -13,8 +13,8 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const base = 'inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors transition-shadow hover-glow focus-ring disabled:opacity-60 disabled:cursor-not-allowed';
 const variants: Record<string, string> = {
-  primary: 'bg-accent text-white hover:bg-[#a50f19]',
-  secondary: 'border border-white/15 hover:bg-white/5',
+  primary: 'bg-gradient-to-r from-accent to-red-600 text-white hover:shadow-lg hover:shadow-accent/25 border-none',
+  secondary: 'border border-white/20 hover:bg-white/5 hover:border-white/30',
   ghost: 'hover:bg-white/5',
 };
 const sizes: Record<string, string> = {
