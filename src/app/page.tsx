@@ -1,84 +1,79 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Container, AnimatedSection, Card, CardContent, CardHeader, Button, ConsultationCTA, HeroSection } from '@/components/ui'
 import { IconRocket, IconHeadset, IconShieldCheck, IconDeviceFloppy, IconLock, IconWorld, IconTrendingUp, IconClock, IconUsers } from '@tabler/icons-react'
+import { NAV_ITEMS } from '@/config/navigation'
 
 export default async function Page() {
   return (
     <>
-      {/* Hero Section - Full Height */}
+      {/* Hero Section - Redesigned */}
       <HeroSection id="home" className="scroll-mt-20">
         <Container className="px-4 md:px-6 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <div className="space-y-6 md:space-y-8">
-              {/* Animated Hero Content */}
-              <div className="space-y-4 md:space-y-6 hero-mobile-spacing">
-                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight bg-gradient-to-r from-white via-white/95 to-white/80 bg-clip-text text-transparent fade-in">
-                  ThinkHome
-                </h1>
-                <div className="slide-up stagger-1">
-                  <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-white/90 mb-3 md:mb-4">
-                    Moderní IT bez starostí
-                  </p>
-                  <p className="text-white/70 text-base sm:text-lg md:text-xl max-w-4xl mx-auto leading-relaxed px-2">
-                    IT, které prostě funguje. Zrychlíme práci, snížíme náklady a dáme technologiím jasný řád – přehledně, klidně a bez zbytečných složitostí.
-                  </p>
-                </div>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 slide-up stagger-2 px-2">
-                <Link href="#kontakt" className="w-full sm:w-auto">
-                  <Button className="w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-semibold btn-primary">
-                    Nezávazná konzultace zdarma
-                  </Button>
-                </Link>
-                <Link href="#proc" className="w-full sm:w-auto">
-                  <Button variant="secondary" className="w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-semibold glass-block border-white/20 hover:border-white/30">
-                    Proč ThinkHome
-                  </Button>
-                </Link>
-              </div>
-
-              {/* Stats Grid - Make cards clickable */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 mt-12 md:mt-16 slide-up stagger-3 px-2 mobile-cards">
-                <Link href="/o-nas" className="group">
-                  <Card variant="glass" className="text-center py-6 md:py-8 transition-all duration-300 group-hover:scale-105 cursor-pointer">
-                    <div className="space-y-2 md:space-y-3">
-                      <div className="w-12 h-12 md:w-16 md:h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center mb-3 md:mb-4">
-                        <IconTrendingUp size={24} className="text-accent md:hidden" />
-                        <IconTrendingUp size={32} className="text-accent hidden md:block" />
-                      </div>
-                      <p className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">99,8%</p>
-                      <p className="text-white/70 text-base md:text-lg">dostupnost systémů</p>
-                    </div>
-                  </Card>
-                </Link>
-                <Link href="/nas-tym" className="group">
-                  <Card variant="glass" className="text-center py-6 md:py-8 stagger-1 transition-all duration-300 group-hover:scale-105 cursor-pointer">
-                    <div className="space-y-2 md:space-y-3">
-                      <div className="w-12 h-12 md:w-16 md:h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center mb-3 md:mb-4">
-                        <IconUsers size={24} className="text-accent md:hidden" />
-                        <IconUsers size={32} className="text-accent hidden md:block" />
-                      </div>
-                      <p className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">200+</p>
-                      <p className="text-white/70 text-base md:text-lg">spokojených klientů</p>
-                    </div>
-                  </Card>
-                </Link>
-                <Link href="/kontakt" className="group">
-                  <Card variant="glass" className="text-center py-6 md:py-8 stagger-2 sm:col-span-2 md:col-span-1 transition-all duration-300 group-hover:scale-105 cursor-pointer">
-                    <div className="space-y-2 md:space-y-3">
-                      <div className="w-12 h-12 md:w-16 md:h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center mb-3 md:mb-4">
-                        <IconClock size={24} className="text-accent md:hidden" />
-                        <IconClock size={32} className="text-accent hidden md:block" />
-                      </div>
-                      <p className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">2h</p>
-                      <p className="text-white/70 text-base md:text-lg">reakce na kritické požadavky</p>
-                    </div>
-                  </Card>
-                </Link>
-              </div>
+          <div className="max-w-4xl mx-auto text-center space-y-8 md:space-y-12">
+            
+            {/* Logo */}
+            <div className="slide-up">
+              <Image 
+                src="/logo.svg" 
+                alt="ThinkHome" 
+                width={220} 
+                height={52}
+                className="mx-auto w-48 h-auto md:w-56 lg:w-64"
+                priority
+              />
             </div>
+
+            {/* Tagline */}
+            <div className="slide-up stagger-1">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white/90 mb-4 md:mb-6">
+                Moderní IT bez starostí
+              </h1>
+              <p className="text-white/70 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                IT, které prostě funguje. Zrychlíme práci, snížíme náklady a dáme technologiím jasný řád – přehledně, klidně a bez zbytečných složitostí.
+              </p>
+            </div>
+
+            {/* Navigation Menu */}
+            <div className="slide-up stagger-2">
+              <nav className="glass-block rounded-2xl p-6 md:p-8 max-w-2xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4">
+                  {NAV_ITEMS.map(({ href, label, icon: Icon }, index) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      className="group flex flex-col items-center gap-3 p-4 md:p-6 rounded-xl 
+                                bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20
+                                transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                    >
+                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 
+                                      flex items-center justify-center group-hover:from-accent/30 group-hover:to-accent/20 
+                                      transition-all duration-300">
+                        {Icon && <Icon size={24} className="text-accent" />}
+                      </div>
+                      <span className="text-sm md:text-base font-medium text-white/90 group-hover:text-white text-center">
+                        {label}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </nav>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 slide-up stagger-3">
+              <Link href="#kontakt" className="w-full sm:w-auto">
+                <Button className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold btn-primary">
+                  Nezávazná konzultace zdarma
+                </Button>
+              </Link>
+              <Link href="#about" className="w-full sm:w-auto">
+                <Button variant="secondary" className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold glass-block border-white/20 hover:border-white/30">
+                  Více informací
+                </Button>
+              </Link>
+            </div>
+
           </div>
         </Container>
       </HeroSection>
