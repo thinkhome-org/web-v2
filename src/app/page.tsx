@@ -78,13 +78,13 @@ export default async function Page() {
       </HeroSection>
 
       {/* About Section */}
-      <AnimatedSection className="py-20 md:py-32" animation="slide-up">
-        <Container className="px-6">
+      <AnimatedSection className="py-16 md:py-20 lg:py-32" animation="slide-up">
+        <Container className="px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
               Jednoduše řečeno
             </h2>
-            <p className="text-xl md:text-2xl text-white/80 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-white/80 leading-relaxed px-2">
               Potřebujete, aby IT fungovalo a nebrzdilo. My ho nastavíme tak, aby bylo rychlé, bezpečné a srozumitelné. 
               Místo odborných termínů mluvíme jasně a soustředíme se na výsledky, které uvidíte v praxi.
             </p>
