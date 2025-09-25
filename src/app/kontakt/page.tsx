@@ -20,12 +20,12 @@ export default async function Page() {
         </Container>
       </HeroSection>
 
-      <AnimatedSection className="py-20 md:py-32" animation="slide-up">
-        <Container className="px-6">
+      <AnimatedSection className="py-16 md:py-20 lg:py-32" animation="slide-up">
+        <Container className="px-4 md:px-6">
           <div className="max-w-6xl mx-auto">
             
             {/* Quick Contact Cards */}
-            <div className="grid md:grid-cols-3 gap-8 mb-20">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-20">
               <Card variant="glass" className="group slide-up">
                 <CardHeader>
                   <div className="flex items-center gap-3">
