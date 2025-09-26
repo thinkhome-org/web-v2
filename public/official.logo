@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="28" viewBox="0 0 120 28" fill="none">
+  <rect x="1" y="5" width="20" height="20" rx="2" fill="#0a0a0a" stroke="#c1121f" stroke-width="2"/>
+  <path d="M7 15h8" stroke="#c1121f" stroke-width="2"/>
+  <path d="M7 19h8" stroke="#c1121f" stroke-width="2"/>
+  <text x="28" y="20" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, Roboto" font-size="16" fill="#e6e6e6">ThinkHome</text>
+</svg>
+
+
