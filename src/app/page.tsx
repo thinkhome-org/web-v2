@@ -14,14 +14,16 @@ export default async function Page() {
             
             {/* Logo */}
             <div className="slide-up">
-              <Image 
-                src="/logo.svg" 
-                alt="ThinkHome" 
-                width={220} 
-                height={52}
-                className="mx-auto w-48 h-auto md:w-56 lg:w-64"
-                priority
-              />
+              <Link href="/" className="inline-block group">
+                <Image 
+                  src="/logo.svg" 
+                  alt="ThinkHome" 
+                  width={280} 
+                  height={66}
+                  className="mx-auto w-56 h-auto md:w-64 lg:w-72 transition-transform duration-300 group-hover:scale-105"
+                  priority
+                />
+              </Link>
             </div>
 
             {/* Tagline */}
@@ -38,7 +40,7 @@ export default async function Page() {
             <div className="slide-up stagger-2">
               <nav className="glass-block rounded-2xl p-6 md:p-8 max-w-2xl mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4">
-                  {NAV_ITEMS.map(({ href, label, icon: Icon }, index) => (
+                  {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
                     <Link
                       key={href}
                       href={href}
@@ -62,14 +64,14 @@ export default async function Page() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 slide-up stagger-3">
-              <Link href="#kontakt" className="w-full sm:w-auto">
+              <Link href="/kontakt" className="w-full sm:w-auto">
                 <Button className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold btn-primary">
                   Nezávazná konzultace zdarma
                 </Button>
               </Link>
-              <Link href="#about" className="w-full sm:w-auto">
+              <Link href="/sluzby" className="w-full sm:w-auto">
                 <Button variant="secondary" className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold glass-block border-white/20 hover:border-white/30">
-                  Více informací
+                  Naše služby
                 </Button>
               </Link>
             </div>
@@ -327,23 +329,23 @@ export default async function Page() {
             </div>
             
             <div className="slide-up stagger-3">
-              <Card variant="glass" className="inline-flex items-center gap-8 px-8 py-6">
+              <Card variant="glass" className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 px-6 sm:px-8 py-6">
                 <Link href="/o-nas" className="text-lg text-white/70 hover:text-accent transition-colors font-medium">
                   Na čem stavíme
                 </Link>
-                <div className="flex items-center gap-6 text-white/60">
-                  <span className="flex items-center gap-3 text-lg">
+                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-white/60">
+                  <Link href="/sluzby" className="flex items-center gap-3 text-lg hover:text-accent transition-colors">
                     <IconWorld size={20} className="text-accent" />
                     Web
-                  </span>
-                  <span className="flex items-center gap-3 text-lg">
+                  </Link>
+                  <Link href="/sluzby" className="flex items-center gap-3 text-lg hover:text-accent transition-colors">
                     <IconDeviceFloppy size={20} className="text-accent" />
                     Zálohy
-                  </span>
-                  <span className="flex items-center gap-3 text-lg">
+                  </Link>
+                  <Link href="/sluzby" className="flex items-center gap-3 text-lg hover:text-accent transition-colors">
                     <IconLock size={20} className="text-accent" />
                     Bezpečnost
-                  </span>
+                  </Link>
                 </div>
               </Card>
             </div>

@@ -4,7 +4,8 @@ export const revalidate = false;
 
 import fs from "node:fs/promises";
 import { join } from "node:path";
-import { Container, Section, Card, CardContent, AnimatedSection } from "@/components/ui";
+import Link from "next/link";
+import { Container, Card, CardContent, AnimatedSection } from "@/components/ui";
 import { IconMail, IconUsers, IconStar, IconCode, IconShield } from "@tabler/icons-react";
 import TeamCard from "@/components/ui/team-card";
 
@@ -126,13 +127,13 @@ export default async function Page() {
                     <IconMail size={20} />
                     Kontaktovat tým
                   </a>
-                  <a
+                  <Link
                     href="/sluzby"
                     className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 hover:border-white/40 text-white font-medium rounded-lg transition-colors text-lg hover:bg-white/5"
                   >
                     <IconShield size={20} />
                     Naše služby
-                  </a>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
