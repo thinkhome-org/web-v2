@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { official } from '@/config/official';
 import { IconMail, IconPhone, IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react';
 import { readYamlObject } from '@/lib/yaml';
 import { CookiePreferencesLink } from './cookie-consent';
@@ -14,7 +15,7 @@ export default async function SiteFooter() {
         <div className="container px-4 py-8 space-y-6">
           {/* Logo and Description */}
           <div className="text-center">
-            <Image src="/logo.svg" alt="ThinkHome" width={110} height={26} loading="lazy" className="mx-auto" />
+            <Image src={official.logo} alt={official.title} width={110} height={26} loading="lazy" className="mx-auto" />
             <p className="mt-3 text-sm text-white/70 max-w-sm mx-auto">Moderní IT bez starostí. Správa IT, weby, cloud a bezpečnost pro SMB a domácnosti.</p>
           </div>
 
@@ -68,7 +69,7 @@ export default async function SiteFooter() {
       <div className="hidden md:block">
         <div className="container px-6 py-12 grid gap-10 md:grid-cols-2">
           <div>
-            <Image src="/logo.svg" alt="ThinkHome" width={110} height={26} loading="lazy" />
+            <Image src={official.logo} alt={official.title} width={110} height={26} loading="lazy" />
             <p className="mt-3 text-sm text-white/70 max-w-sm">Moderní IT bez starostí. Správa IT, weby, cloud a bezpečnost pro SMB a domácnosti.</p>
           </div>
           <div className="grid gap-2 text-sm">

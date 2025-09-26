@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Container, AnimatedSection, Card, CardContent, CardHeader, Button, ConsultationCTA, HeroSection } from '@/components/ui'
 import { IconRocket, IconHeadset, IconShieldCheck, IconDeviceFloppy, IconLock, IconWorld, IconTrendingUp, IconClock, IconUsers } from '@tabler/icons-react'
 import { NAV_ITEMS } from '@/config/navigation'
+import { official } from '@/config/official'
 
 export default async function Page() {
   return (
@@ -14,14 +15,16 @@ export default async function Page() {
             
             {/* Logo */}
             <div className="slide-up">
-              <Image 
-                src="/logo.svg" 
-                alt="ThinkHome" 
-                width={220} 
-                height={52}
-                className="mx-auto w-48 h-auto md:w-56 lg:w-64"
-                priority
-              />
+              <Link href="/" aria-label="Domů">
+                <Image 
+                  src={official.logo} 
+                  alt={official.title} 
+                  width={220} 
+                  height={52}
+                  className="mx-auto w-48 h-auto md:w-56 lg:w-64"
+                  priority
+                />
+              </Link>
             </div>
 
             {/* Tagline */}
