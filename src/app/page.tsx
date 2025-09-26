@@ -15,7 +15,7 @@ export default async function Page() {
             {/* Logo */}
             <div className="slide-up">
               <Image 
-                src="/logo.svg" 
+                src="/official.logo" 
                 alt="ThinkHome" 
                 width={220} 
                 height={52}
