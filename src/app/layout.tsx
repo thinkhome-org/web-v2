@@ -7,6 +7,7 @@ import { ToastProvider } from "@/components/ui/toast-provider";
 import CookieConsent from "@/components/cookie-consent";
 import AnalyticsLoader from "@/components/analytics-loader";
 import { readYamlObject } from "@/lib/yaml";
+import { SITE_CONFIG } from "@/config/site";
 
 const plexSans = IBM_Plex_Sans({
   variable: "--font-plex-sans",
@@ -21,24 +22,23 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://thinkhome.org'),
+  metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: 'ThinkHome – Moderní IT bez starostí',
+    default: SITE_CONFIG.title,
     template: '%s – ThinkHome',
   },
-  description:
-    'Komplexní IT služby pro SMB a domácnosti: správa IT, weby, cloud a bezpečnost.',
+  description: SITE_CONFIG.description,
   openGraph: {
-    title: 'ThinkHome – Moderní IT bez starostí',
-    description: 'Komplexní IT služby pro SMB a domácnosti: správa IT, weby, cloud a bezpečnost.',
-    url: 'https://thinkhome.org',
-    siteName: 'ThinkHome',
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ThinkHome – Moderní IT bez starostí',
-    description: 'Komplexní IT služby pro SMB a domácnosti: správa IT, weby, cloud a bezpečnost.',
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
   },
   manifest: '/manifest.webmanifest',
   alternates: { canonical: '/' },
@@ -58,8 +58,9 @@ export default async function RootLayout({
   const orgJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'ThinkHome',
-    url: 'https://thinkhome.org',
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+    description: SITE_CONFIG.description,
     contactPoint: contacts?.email || contacts?.phone ? [{
       '@type': 'ContactPoint',
       email: contacts?.email,
