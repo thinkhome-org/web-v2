@@ -14,6 +14,7 @@ export default async function Page() {
             
             {/* Logo */}
             <div className="slide-up">
+<<<<<<< HEAD
               <Link href="/" className="inline-block group">
                 <Image 
                   src="/logo.svg" 
@@ -24,6 +25,16 @@ export default async function Page() {
                   priority
                 />
               </Link>
+=======
+              <Image 
+                src="/logo/white.svg" 
+                alt="ThinkHome" 
+                width={420} 
+                height={102}
+                className="mx-auto w-96 h-auto md:w-56 lg:w-64"
+                priority
+              />
+>>>>>>> cfe5092 (Update logo source and dimensions in page and site header components)
             </div>
 
             {/* Tagline */}

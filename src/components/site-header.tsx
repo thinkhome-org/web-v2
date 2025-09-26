@@ -66,7 +66,7 @@ export default function SiteHeader() {
       }`}>
         <div className="container px-6 h-14 md:h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.svg" alt="ThinkHome" width={110} height={26} />
+            <Image src="/logo/white.svg" alt="ThinkHome" width={110} height={26} />
           </Link>
           
           {/* Desktop Navigation */}
