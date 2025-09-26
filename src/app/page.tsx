@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Container, AnimatedSection, Card, CardContent, CardHeader, Button, ConsultationCTA, HeroSection } from '@/components/ui'
 import { IconRocket, IconHeadset, IconShieldCheck, IconDeviceFloppy, IconLock, IconWorld, IconTrendingUp, IconClock, IconUsers } from '@tabler/icons-react'
 import { NAV_ITEMS } from '@/config/navigation'
+import { SITE_CONFIG } from '@/config/site'
 
 export default async function Page() {
   return (
@@ -14,20 +15,22 @@ export default async function Page() {
             
             {/* Logo */}
             <div className="slide-up">
-              <Image 
-                src="/logo.svg" 
-                alt="ThinkHome" 
-                width={220} 
-                height={52}
-                className="mx-auto w-48 h-auto md:w-56 lg:w-64"
-                priority
-              />
+              <Link href="/" className="inline-block" aria-label={`Domovská stránka ${SITE_CONFIG.name}`}>
+                <Image
+                  src={SITE_CONFIG.official.logo.src}
+                  alt={SITE_CONFIG.official.logo.alt}
+                  width={SITE_CONFIG.official.logo.width}
+                  height={SITE_CONFIG.official.logo.height}
+                  className="mx-auto w-48 h-auto md:w-56 lg:w-64 hover:opacity-80 transition-opacity duration-300"
+                  priority
+                />
+              </Link>
             </div>
 
             {/* Tagline */}
             <div className="slide-up stagger-1">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white/90 mb-4 md:mb-6">
-                Moderní IT bez starostí
+                {SITE_CONFIG.official.tagline}
               </h1>
               <p className="text-white/70 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
                 IT, které prostě funguje. Zrychlíme práci, snížíme náklady a dáme technologiím jasný řád – přehledně, klidně a bez zbytečných složitostí.
@@ -36,22 +39,27 @@ export default async function Page() {
 
             {/* Navigation Menu */}
             <div className="slide-up stagger-2">
-              <nav className="glass-block rounded-2xl p-6 md:p-8 max-w-2xl mx-auto">
+              <nav className="glass-block rounded-2xl p-6 md:p-8 max-w-2xl mx-auto" aria-label="Hlavní navigace">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4">
                   {NAV_ITEMS.map(({ href, label, icon: Icon }, index) => (
                     <Link
                       key={href}
                       href={href}
-                      className="group flex flex-col items-center gap-3 p-4 md:p-6 rounded-xl 
+                      className="group flex flex-col items-center gap-3 p-4 md:p-6 rounded-xl
                                 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20
-                                transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                                transition-all duration-300 hover:scale-105 hover:shadow-lg
+                                focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-transparent
+                                focus:border-accent"
+                      aria-label={`Přejít na stránku ${label}`}
+                      tabIndex={0}
                     >
-                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 
-                                      flex items-center justify-center group-hover:from-accent/30 group-hover:to-accent/20 
-                                      transition-all duration-300">
-                        {Icon && <Icon size={24} className="text-accent" />}
+                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-accent/20 to-accent/10
+                                      flex items-center justify-center group-hover:from-accent/30 group-hover:to-accent/20
+                                      transition-all duration-300 group-focus:from-accent/30 group-focus:to-accent/20">
+                        {Icon && <Icon size={24} className="text-accent group-hover:scale-110 transition-transform duration-300" />}
                       </div>
-                      <span className="text-sm md:text-base font-medium text-white/90 group-hover:text-white text-center">
+                      <span className="text-sm md:text-base font-medium text-white/90 group-hover:text-white text-center
+                                      group-focus:text-white transition-colors duration-300">
                         {label}
                       </span>
                     </Link>
