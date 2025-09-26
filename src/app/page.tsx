@@ -3,8 +3,10 @@ import Image from 'next/image'
 import { Container, AnimatedSection, Card, CardContent, CardHeader, Button, ConsultationCTA, HeroSection } from '@/components/ui'
 import { IconRocket, IconHeadset, IconShieldCheck, IconDeviceFloppy, IconLock, IconWorld, IconTrendingUp, IconClock, IconUsers } from '@tabler/icons-react'
 import { NAV_ITEMS } from '@/config/navigation'
+import { readValidatedObject, officialSchema, type Official } from '@/lib/yaml'
 
 export default async function Page() {
+  const official = await readValidatedObject<Official>('official.yaml', officialSchema)
   return (
     <>
       {/* Hero Section - Redesigned */}
@@ -12,11 +14,10 @@ export default async function Page() {
         <Container className="px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8 md:space-y-12">
             
-            {/* Logo */}
             <div className="slide-up">
               <Image 
-                src="/logo.svg" 
-                alt="ThinkHome" 
+                src={official?.logo ?? '/logo.svg'} 
+                alt={official?.title ?? 'ThinkHome'} 
                 width={220} 
                 height={52}
                 className="mx-auto w-48 h-auto md:w-56 lg:w-64"

@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { readValidatedArray, serviceSchema, type Service, projectSchema, type Project } from '@/lib/yaml'
+import { readValidatedArray, serviceSchema, type Service, projectSchema, type Project, readValidatedObject, officialSchema, type Official } from '@/lib/yaml'
 import { Container, AnimatedSection, Card, CardHeader, CardContent, ConsultationCTA, HeroSection } from '@/components/ui'
 import {
   IconTools, IconServer, IconDeviceDesktop, IconWorld,
@@ -8,6 +8,8 @@ import {
   IconCircleCheck
 } from '@tabler/icons-react'
 import Link from 'next/link'
+import Image from 'next/image'
+import { NAV_ITEMS } from '@/config/navigation'
 
 // Icon mapping for different service types
 type IconComponent = typeof IconTools
@@ -27,6 +29,7 @@ const getServiceIcon = (slug: string) => {
 }
 
 export default async function ServiceTemplate({ params }: { params: { slug: string } }) {
+  const official = await readValidatedObject<Official>('official.yaml', officialSchema)
   const services = await readValidatedArray<Service>('services.yaml', serviceSchema)
   const service = services.find((s, idx) => s.slug === params.slug || `service-${idx}` === params.slug)
   if (!service) return notFound()
@@ -52,6 +55,16 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
             
             {/* Service Header */}
             <div className="text-center space-y-8">
+              <div className="slide-up">
+                <Image
+                  src={official?.logo ?? '/logo.svg'}
+                  alt={official?.title ?? 'ThinkHome'}
+                  width={220}
+                  height={52}
+                  className="mx-auto w-40 md:w-48 lg:w-56 h-auto"
+                  priority
+                />
+              </div>
               <div className="w-24 h-24 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-3xl flex items-center justify-center mb-8">
                 <Icon size={48} className="text-accent" />
               </div>
@@ -69,6 +82,24 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
                   </p>
                 )}
               </div>
+              <nav className="slide-up glass-block rounded-2xl p-4 md:p-6 max-w-3xl mx-auto">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+                  {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      className="group flex flex-col items-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300"
+                    >
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center group-hover:from-accent/30 group-hover:to-accent/20 transition-all duration-300">
+                        {Icon && <Icon size={20} className="text-accent" />}
+                      </div>
+                      <span className="text-xs md:text-sm font-medium text-white/90 group-hover:text-white text-center">
+                        {label}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </nav>
             </div>
           </div>
         </Container>

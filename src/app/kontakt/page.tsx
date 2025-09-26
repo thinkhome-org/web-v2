@@ -1,21 +1,51 @@
 import ContactForm from '@/components/contact-form';
+import Image from 'next/image'
+import Link from 'next/link'
 import { Container, AnimatedSection, Card, CardHeader, CardContent, HeroSection } from '@/components/ui';
 import { IconMail, IconPhone, IconMapPin, IconClock, IconMessageCircle } from '@tabler/icons-react';
+import { NAV_ITEMS } from '@/config/navigation'
+import { readValidatedObject, officialSchema, type Official } from '@/lib/yaml'
 
 export const metadata = { title: 'Kontakt – ThinkHome' };
 
 export default async function Page() {
+  const official = await readValidatedObject<Official>('official.yaml', officialSchema)
   return (
     <>
       <HeroSection fullHeight={false} className="py-16 md:py-20 lg:py-32">
         <Container className="px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-white/95 to-white/80 bg-clip-text text-transparent fade-in">
-              Kontakt
-            </h1>
+            <div className="slide-up">
+              <Image
+                src={official?.logo ?? '/logo.svg'}
+                alt={official?.title ?? 'ThinkHome'}
+                width={220}
+                height={52}
+                className="mx-auto w-40 h-auto md:w-48 lg:w-56"
+                priority
+              />
+            </div>
             <p className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto slide-up stagger-1 px-2">
               Ozvěte se nám – obvykle reagujeme do 24 hodin. Kritické incidenty řešíme obratem.
             </p>
+            <nav className="slide-up stagger-2 glass-block rounded-2xl p-4 md:p-6 max-w-2xl mx-auto">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+                {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="group flex flex-col items-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300"
+                  >
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center group-hover:from-accent/30 group-hover:to-accent/20 transition-all duration-300">
+                      {Icon && <Icon size={20} className="text-accent" />}
+                    </div>
+                    <span className="text-xs md:text-sm font-medium text-white/90 group-hover:text-white text-center">
+                      {label}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </nav>
           </div>
         </Container>
       </HeroSection>

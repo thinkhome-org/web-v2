@@ -53,9 +53,15 @@ export const projectSchema = z.object({
   authors: z.array(z.string()).optional(),
 });
 
+export const officialSchema = z.object({
+  logo: z.string(),
+  title: z.string(),
+});
+
 export type Service = z.infer<typeof serviceSchema>;
 export type TeamMember = z.infer<typeof teamMemberSchema>;
 export type Project = z.infer<typeof projectSchema>;
+export type Official = z.infer<typeof officialSchema>;
 
 export async function readValidatedArray<T>(relativePath: string, schema: z.ZodType<T>): Promise<T[]> {
   const items = await readYamlArray<unknown>(relativePath);
@@ -65,6 +71,14 @@ export async function readValidatedArray<T>(relativePath: string, schema: z.ZodT
     if (parsed.success) out.push(parsed.data);
   }
   return out;
+}
+
+export async function readValidatedObject<T>(relativePath: string, schema: z.ZodType<T>): Promise<T | null> {
+  const data = await readYamlObject<unknown>(relativePath);
+  if (!data) return null;
+  const parsed = schema.safeParse(data);
+  if (!parsed.success) return null;
+  return parsed.data;
 }
 
 
