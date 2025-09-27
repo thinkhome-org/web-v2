@@ -1,14 +1,39 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { Container, AnimatedSection, Card, CardContent, CardHeader, Button, ConsultationCTA, HeroSection } from '@/components/ui'
-import { IconRocket, IconHeadset, IconShieldCheck, IconDeviceFloppy, IconLock, IconWorld, IconTrendingUp, IconClock, IconUsers } from '@tabler/icons-react'
-import { NAV_ITEMS } from '@/config/navigation'
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Container,
+  AnimatedSection,
+  Card,
+  Button,
+  HeroSection,
+  TypewriterEffect,
+  ShimmerButton,
+  BackgroundBeams,
+  NumberTicker,
+  HoverEffect,
+  InfiniteMovingCards,
+  SparklesCore,
+  GradientButton,
+} from "@/components/ui";
+import {
+  IconRocket,
+  IconHeadset,
+  IconShieldCheck,
+  IconDeviceFloppy,
+  IconLock,
+  IconWorld,
+  IconTrendingUp,
+  IconClock,
+  IconUsers,
+} from "@tabler/icons-react";
+import { NAV_ITEMS } from "@/config/navigation";
 
 export default async function Page() {
   return (
     <>
-      {/* Hero Section - Redesigned */}
-      <HeroSection id="home" className="scroll-mt-20">
+      {/* Hero Section - Enhanced with Dynamic Components */}
+      <HeroSection id="home" className="scroll-mt-20 relative overflow-hidden">
+        <BackgroundBeams className="absolute inset-0 z-0" />
         <Container className="px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8 md:space-y-12">
             {/* Logo */}
@@ -25,12 +50,19 @@ export default async function Page() {
               </Link>
             </div>
 
-            {/* Tagline */}
+            {/* Dynamic Typewriter Tagline */}
             <div className="slide-up stagger-1">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white/90 mb-4 md:mb-6">
-                Moderní IT bez starostí
-              </h1>
-              <p className="text-white/70 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+              <TypewriterEffect
+                words={[
+                  { text: "Moderní" },
+                  { text: "IT" },
+                  { text: "bez", className: "text-accent" },
+                  { text: "starostí", className: "text-accent" },
+                ]}
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white/90 mb-4 md:mb-6"
+                cursorClassName="bg-accent"
+              />
+              <p className="text-white/70 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mt-6">
                 IT, které prostě funguje. Zrychlíme práci, snížíme náklady a dáme technologiím jasný
                 řád – přehledně, klidně a bez zbytečných složitostí.
               </p>
@@ -64,20 +96,27 @@ export default async function Page() {
               </nav>
             </div>
 
-            {/* CTA Buttons */}
+            {/* Enhanced CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 slide-up stagger-3">
               <Link href="/kontakt" className="w-full sm:w-auto">
-                <Button className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold btn-primary">
+                <ShimmerButton
+                  className="w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-semibold rounded-xl"
+                  shimmerColor="#ffffff"
+                  background="linear-gradient(135deg, #c1121f 0%, #d33030 100%)"
+                  borderRadius="12px"
+                >
                   Nezávazná konzultace zdarma
-                </Button>
+                </ShimmerButton>
               </Link>
               <Link href="/sluzby" className="w-full sm:w-auto">
-                <Button
-                  variant="secondary"
-                  className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold glass-block border-white/20 hover:border-white/30"
+                <ShimmerButton
+                  className="w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-semibold rounded-xl"
+                  shimmerColor="#c1121f"
+                  background="rgba(255, 255, 255, 0.05)"
+                  borderRadius="12px"
                 >
                   Naše služby
-                </Button>
+                </ShimmerButton>
               </Link>
             </div>
           </div>
@@ -106,7 +145,7 @@ export default async function Page() {
                       <IconTrendingUp size={32} className="text-accent" />
                     </div>
                     <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">
-                      99,8%
+                      <NumberTicker value={99.8} decimalPlaces={1} />%
                     </p>
                     <p className="text-white/70 text-lg">dostupnost systémů</p>
                   </div>
@@ -122,7 +161,7 @@ export default async function Page() {
                       <IconUsers size={32} className="text-accent" />
                     </div>
                     <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">
-                      200+
+                      <NumberTicker value={200} />+
                     </p>
                     <p className="text-white/70 text-lg">spokojených klientů</p>
                   </div>
@@ -138,7 +177,7 @@ export default async function Page() {
                       <IconClock size={32} className="text-accent" />
                     </div>
                     <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">
-                      2h
+                      <NumberTicker value={2} />h
                     </p>
                     <p className="text-white/70 text-lg">reakce na kritické požadavky</p>
                   </div>
@@ -165,7 +204,7 @@ export default async function Page() {
         </Container>
       </AnimatedSection>
 
-      {/* Features Section */}
+      {/* Enhanced Features Section with HoverEffect */}
       <AnimatedSection
         id="proc"
         className="scroll-mt-20 py-16 md:py-20 lg:py-32"
@@ -176,144 +215,55 @@ export default async function Page() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16 text-center bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
               Proč si nás firmy vybírají
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mobile-cards">
-              <Link href="/sluzby" className="group">
-                <Card
-                  variant="glass"
-                  className="slide-up transition-all duration-300 group-hover:scale-105 cursor-pointer h-full"
-                >
-                  <CardHeader>
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4">
-                      <div className="p-2 sm:p-3 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 flex-shrink-0">
-                        <IconRocket size={24} className="text-accent sm:hidden" />
-                        <IconRocket size={28} className="text-accent hidden sm:block" />
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-semibold">
-                        Méně starostí, více výsledků
-                      </h3>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-white/80 text-base sm:text-lg leading-relaxed">
-                      Od prvního dne ubíráme agendu. Hlídáme dostupnost, aktualizace i bezpečnost –
-                      vy řešíte svůj byznys.
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
-
-              <Link href="/kontakt" className="group">
-                <Card
-                  variant="glass"
-                  className="slide-up stagger-1 transition-all duration-300 group-hover:scale-105 cursor-pointer h-full"
-                >
-                  <CardHeader>
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="p-3 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10">
-                        <IconHeadset size={28} className="text-accent" />
-                      </div>
-                      <h3 className="text-xl font-semibold">Rychlá a lidská podpora</h3>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-white/80 text-lg leading-relaxed">
-                      Když je potřeba, jsme tady. Kritické požadavky řešíme do 2 hodin a mluvíme
-                      srozumitelně.
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
-
-              <Link href="/o-nas" className="group">
-                <Card
-                  variant="glass"
-                  className="slide-up stagger-2 transition-all duration-300 group-hover:scale-105 cursor-pointer h-full"
-                >
-                  <CardHeader>
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="p-3 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10">
-                        <IconShieldCheck size={28} className="text-accent" />
-                      </div>
-                      <h3 className="text-xl font-semibold">Dlouhodobý partner</h3>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-white/80 text-lg leading-relaxed">
-                      IT stavíme udržitelně a jednoduše. Roste s vámi a drží krok s tím, co opravdu
-                      potřebujete.
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
-
-              <Link href="/sluzby" className="group">
-                <Card
-                  variant="glass"
-                  className="slide-up stagger-3 transition-all duration-300 group-hover:scale-105 cursor-pointer h-full"
-                >
-                  <CardHeader>
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="p-3 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10">
-                        <IconDeviceFloppy size={28} className="text-accent" />
-                      </div>
-                      <h3 className="text-xl font-semibold">Zálohy a obnova</h3>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-white/80 text-lg leading-relaxed">
-                      Pravidelné zálohy a testy obnovy, aby vaše data byla v bezpečí.
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
-
-              <Link href="/sluzby" className="group">
-                <Card
-                  variant="glass"
-                  className="slide-up stagger-4 transition-all duration-300 group-hover:scale-105 cursor-pointer h-full"
-                >
-                  <CardHeader>
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="p-3 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10">
-                        <IconLock size={28} className="text-accent" />
-                      </div>
-                      <h3 className="text-xl font-semibold">Bezpečnost</h3>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-white/80 text-lg leading-relaxed">
-                      Audit, prevence incidentů a průběžné aktualizace bez zdržení.
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
-
-              <Link href="/sluzby" className="group">
-                <Card
-                  variant="glass"
-                  className="slide-up stagger-5 transition-all duration-300 group-hover:scale-105 cursor-pointer h-full"
-                >
-                  <CardHeader>
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="p-3 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10">
-                        <IconWorld size={28} className="text-accent" />
-                      </div>
-                      <h3 className="text-xl font-semibold">Weby a automatizace</h3>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-white/80 text-lg leading-relaxed">
-                      Rychlé weby a chytré nástroje, které šetří čas i náklady.
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
-            </div>
+            <HoverEffect
+              items={[
+                {
+                  title: "Méně starostí, více výsledků",
+                  description:
+                    "Od prvního dne ubíráme agendu. Hlídáme dostupnost, aktualizace i bezpečnost – vy řešíte svůj byznys.",
+                  link: "/sluzby",
+                  icon: <IconRocket size={28} className="text-accent" />,
+                },
+                {
+                  title: "Rychlá a lidská podpora",
+                  description:
+                    "Když je potřeba, jsme tady. Kritické požadavky řešíme do 2 hodin a mluvíme srozumitelně.",
+                  link: "/kontakt",
+                  icon: <IconHeadset size={28} className="text-accent" />,
+                },
+                {
+                  title: "Dlouhodobý partner",
+                  description:
+                    "IT stavíme udržitelně a jednoduše. Roste s vámi a drží krok s tím, co opravdu potřebujete.",
+                  link: "/o-nas",
+                  icon: <IconShieldCheck size={28} className="text-accent" />,
+                },
+                {
+                  title: "Zálohy a obnova",
+                  description: "Pravidelné zálohy a testy obnovy, aby vaše data byla v bezpečí.",
+                  link: "/sluzby",
+                  icon: <IconDeviceFloppy size={28} className="text-accent" />,
+                },
+                {
+                  title: "Bezpečnost",
+                  description: "Audit, prevence incidentů a průběžné aktualizace bez zdržení.",
+                  link: "/sluzby",
+                  icon: <IconLock size={28} className="text-accent" />,
+                },
+                {
+                  title: "Weby a automatizace",
+                  description: "Rychlé weby a chytré nástroje, které šetří čas i náklady.",
+                  link: "/sluzby",
+                  icon: <IconWorld size={28} className="text-accent" />,
+                },
+              ]}
+              className="gap-6 md:gap-8"
+            />
           </div>
         </Container>
       </AnimatedSection>
 
-      {/* Testimonials Section */}
+      {/* Enhanced Testimonials Section with InfiniteMovingCards */}
       <AnimatedSection className="py-20 md:py-32" animation="slide-up">
         <Container className="px-6">
           <div className="max-w-7xl mx-auto text-center">
@@ -324,61 +274,49 @@ export default async function Page() {
               Více než 200 spokojených klientů nám důvěřuje svou IT infrastrukturu
             </p>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <Card variant="glass" className="text-center py-8 slide-up">
-                <CardContent>
-                  <div className="mb-8">
-                    <div className="w-20 h-20 bg-gradient-to-br from-accent/30 to-accent/10 rounded-full mx-auto flex items-center justify-center mb-6">
-                      <span className="text-accent font-bold text-2xl">M</span>
-                    </div>
-                  </div>
-                  <blockquote className="text-white/90 italic mb-8 text-lg leading-relaxed">
-                    &ldquo;ThinkHome nám ušetřil desítky hodin měsíčně. IT prostě funguje a my se
-                    můžeme soustředit na byznys.&rdquo;
-                  </blockquote>
-                  <div className="space-y-2">
-                    <p className="text-white font-semibold text-lg">Martin Novák</p>
-                    <p className="text-accent">CEO, TechStart s.r.o.</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card variant="glass" className="text-center py-8 slide-up stagger-1">
-                <CardContent>
-                  <div className="mb-8">
-                    <div className="w-20 h-20 bg-gradient-to-br from-accent/30 to-accent/10 rounded-full mx-auto flex items-center justify-center mb-6">
-                      <span className="text-accent font-bold text-2xl">A</span>
-                    </div>
-                  </div>
-                  <blockquote className="text-white/90 italic mb-8 text-lg leading-relaxed">
-                    &ldquo;Rychlá reakce, srozumitelná komunikace a řešení, které skutečně funguje.
-                    Doporučuji všem.&rdquo;
-                  </blockquote>
-                  <div className="space-y-2">
-                    <p className="text-white font-semibold text-lg">Anna Svobodová</p>
-                    <p className="text-accent">IT Manager, Inovace a.s.</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card variant="glass" className="text-center py-8 slide-up stagger-2">
-                <CardContent>
-                  <div className="mb-8">
-                    <div className="w-20 h-20 bg-gradient-to-br from-accent/30 to-accent/10 rounded-full mx-auto flex items-center justify-center mb-6">
-                      <span className="text-accent font-bold text-2xl">P</span>
-                    </div>
-                  </div>
-                  <blockquote className="text-white/90 italic mb-8 text-lg leading-relaxed">
-                    &ldquo;Konečně IT partner, který rozumí našim potřebám a řeší problémy dřív, než
-                    se stanou kritickými.&rdquo;
-                  </blockquote>
-                  <div className="space-y-2">
-                    <p className="text-white font-semibold text-lg">Petr Dvořák</p>
-                    <p className="text-accent">Ředitel, Moderní firma</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            <InfiniteMovingCards
+              items={[
+                {
+                  quote:
+                    "ThinkHome nám ušetřil desítky hodin měsíčně. IT prostě funguje a my se můžeme soustředit na byznys.",
+                  name: "Martin Novák",
+                  title: "CEO, TechStart s.r.o.",
+                  avatar: "M",
+                },
+                {
+                  quote:
+                    "Rychlá reakce, srozumitelná komunikace a řešení, které skutečně funguje. Doporučuji všem.",
+                  name: "Anna Svobodová",
+                  title: "IT Manager, Inovace a.s.",
+                  avatar: "A",
+                },
+                {
+                  quote:
+                    "Konečně IT partner, který rozumí našim potřebám a řeší problémy dřív, než se stanou kritickými.",
+                  name: "Petr Dvořák",
+                  title: "Ředitel, Moderní firma",
+                  avatar: "P",
+                },
+                {
+                  quote:
+                    "Spolehlivost a profesionalita na nejvyšší úrovni. Naše systémy běží bez problémů už 3 roky.",
+                  name: "Jana Nováková",
+                  title: "CTO, Digital Solutions",
+                  avatar: "J",
+                },
+                {
+                  quote:
+                    "Transparentní komunikace a férové ceny. ThinkHome je náš dlouhodobý IT partner.",
+                  name: "Tomáš Procházka",
+                  title: "Majitel, E-shop Plus",
+                  avatar: "T",
+                },
+              ]}
+              direction="right"
+              speed="slow"
+              pauseOnHover={true}
+              className="mb-16"
+            />
 
             <div className="slide-up stagger-3">
               <Card
@@ -420,10 +358,54 @@ export default async function Page() {
         </Container>
       </AnimatedSection>
 
-      {/* CTA Section */}
-      <AnimatedSection id="kontakt" className="scroll-mt-20 py-20 md:py-32" animation="scale-in">
-        <Container className="px-6">
-          <ConsultationCTA />
+      {/* Enhanced CTA Section with SparklesCore */}
+      <AnimatedSection
+        id="kontakt"
+        className="scroll-mt-20 py-20 md:py-32 relative overflow-hidden"
+        animation="scale-in"
+      >
+        <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className="absolute inset-0 w-full h-full"
+          particleColor="#c1121f"
+        />
+        <Container className="px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <TypewriterEffect
+              words={[
+                { text: "Připraveni" },
+                { text: "na" },
+                { text: "změnu?", className: "text-accent" },
+              ]}
+              className="text-3xl md:text-5xl font-bold text-white mb-6"
+              cursorClassName="bg-accent"
+            />
+            <p className="text-white/80 text-xl max-w-2xl mx-auto leading-relaxed mb-8">
+              Získejte nezávaznou konzultace zdarma a zjistěte, jak můžeme zlepšit vaše IT
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/kontakt" className="w-full sm:w-auto">
+                <GradientButton
+                  className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-white"
+                  containerClassName="w-full sm:w-auto"
+                >
+                  Nezávazná konzultace zdarma
+                </GradientButton>
+              </Link>
+              <Link href="/sluzby" className="w-full sm:w-auto">
+                <Button
+                  variant="secondary"
+                  className="w-full sm:w-auto px-8 py-4 text-lg font-semibold glass-block border-white/20 hover:border-white/30"
+                >
+                  Prohlédnout služby
+                </Button>
+              </Link>
+            </div>
+          </div>
         </Container>
       </AnimatedSection>
     </>

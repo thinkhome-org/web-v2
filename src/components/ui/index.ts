@@ -1,15 +1,22 @@
-export { AnimatedSection } from './animated-section';
-export { Button } from './button';
-export { Card, CardHeader, CardContent } from './card';
-export { ConsultationCTA } from './consultation-cta';
-export { Container } from './container';
-export { HeroSection } from './hero-section';
-export { Input } from './input';
-export { Label } from './label';
-export { Section } from './section';
-export { Spinner } from './spinner';
-export { default as TeamCard } from './team-card';
-export { Textarea } from './textarea';
+export { AnimatedSection } from "./animated-section";
+export { BackgroundBeams } from "./background-beams";
+export { BentoGrid, BentoGridItem } from "./bento-grid";
+export { Button } from "./button";
+export { Card, CardHeader, CardContent } from "./card";
+export { ConsultationCTA } from "./consultation-cta";
+export { Container } from "./container";
+export { GradientButton } from "./gradient-button";
+export { HeroSection } from "./hero-section";
+export { HoverEffect } from "./hover-effect";
+export { InfiniteMovingCards } from "./infinite-moving-cards";
+export { Input } from "./input";
+export { Label } from "./label";
+export { NumberTicker } from "./number-ticker";
+export { Section } from "./section";
+export { ShimmerButton } from "./shimmer-button";
+export { Spinner } from "./spinner";
+export { SparklesCore } from "./sparkles-core";
+export { default as TeamCard } from "./team-card";
+export { Textarea } from "./textarea";
+export { TypewriterEffect } from "./typewriter-effect";
 // Icons are to be imported directly from '@tabler/icons-react'
-
-
