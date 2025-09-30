@@ -55,12 +55,12 @@ export default async function Page() {
               Seznamte se s lidmi, kteří se starají o vaše IT. Každý člen našeho týmu přináší
               unikátní expertizu a společně tvoříme silný tým.
             </p>
-            
+
             {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
               <Card variant="glass" className="text-center py-6">
                 <div className="space-y-3">
-                  <div className="w-12 h-12 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center">
+                  <div className="w-12 h-12 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-sm flex items-center justify-center">
                     <IconUsers size={24} className="text-accent" />
                   </div>
                   <p className="text-3xl font-bold text-accent">{TEAM.length}</p>
@@ -69,7 +69,7 @@ export default async function Page() {
               </Card>
               <Card variant="glass" className="text-center py-6">
                 <div className="space-y-3">
-                  <div className="w-12 h-12 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center">
+                  <div className="w-12 h-12 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-sm flex items-center justify-center">
                     <IconCode size={24} className="text-accent" />
                   </div>
                   <p className="text-3xl font-bold text-accent">10+</p>
@@ -78,7 +78,7 @@ export default async function Page() {
               </Card>
               <Card variant="glass" className="text-center py-6">
                 <div className="space-y-3">
-                  <div className="w-12 h-12 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center">
+                  <div className="w-12 h-12 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-sm flex items-center justify-center">
                     <IconStar size={24} className="text-accent" />
                   </div>
                   <p className="text-3xl font-bold text-accent">24/7</p>
@@ -87,7 +87,7 @@ export default async function Page() {
               </Card>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-6 py-3 backdrop-blur-md bg-white/5 border border-white/20 rounded-full">
+            <div className="inline-flex items-center gap-2 px-6 py-3 backdrop-blur-md bg-white/5 border border-white/20 rounded-sm">
               <IconUsers size={20} className="text-accent" />
               <span className="text-sm text-white/80">Klikněte na člena týmu pro detail</span>
             </div>
@@ -100,7 +100,7 @@ export default async function Page() {
         <Container>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
             {TEAM.map((p, idx) => (
-              <div key={p.name} className="slide-up" style={{animationDelay: `${idx * 100}ms`}}>
+              <div key={p.name} className="slide-up" style={{ animationDelay: `${idx * 100}ms` }}>
                 <TeamCard person={p} slug={p.slug || `person-${idx}`} />
               </div>
             ))}
@@ -111,13 +111,16 @@ export default async function Page() {
             <Card className="max-w-3xl mx-auto backdrop-blur-md bg-accent/10 border border-accent/30 hover:bg-accent/15 transition-all duration-300">
               <CardContent className="pt-8 pb-8">
                 <div className="flex items-center justify-center gap-3 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-accent/30 to-accent/10 rounded-sm flex items-center justify-center">
                     <IconMail size={32} className="text-accent" />
                   </div>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Máte dotaz k našemu týmu?</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                  Máte dotaz k našemu týmu?
+                </h3>
                 <p className="text-white/80 mb-6 text-lg leading-relaxed">
-                  Rádi vám představíme naše kolegy a jejich expertizu detailněji. Nebo se rovnou zeptejte na konkrétní projekt.
+                  Rádi vám představíme naše kolegy a jejich expertizu detailněji. Nebo se rovnou
+                  zeptejte na konkrétní projekt.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a

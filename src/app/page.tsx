@@ -70,18 +70,18 @@ export default async function Page() {
 
             {/* Navigation Menu */}
             <div className="slide-up stagger-2">
-              <nav className="glass-block rounded-2xl p-6 md:p-8 max-w-2xl mx-auto">
+              <nav className="glass-block rounded-sm p-6 md:p-8 max-w-2xl mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4">
                   {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
                     <Link
                       key={href}
                       href={href}
-                      className="group flex flex-col items-center gap-3 p-4 md:p-6 rounded-xl 
+                      className="group flex flex-col items-center gap-3 p-4 md:p-6 rounded-sm 
                                 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20
                                 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                     >
                       <div
-                        className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 
+                        className="w-12 h-12 md:w-14 md:h-14 rounded-sm bg-gradient-to-br from-accent/20 to-accent/10 
                                       flex items-center justify-center group-hover:from-accent/30 group-hover:to-accent/20 
                                       transition-all duration-300"
                       >
@@ -100,20 +100,20 @@ export default async function Page() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 slide-up stagger-3">
               <Link href="/kontakt" className="w-full sm:w-auto">
                 <ShimmerButton
-                  className="w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-semibold rounded-xl"
+                  className="w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-semibold"
                   shimmerColor="#ffffff"
                   background="linear-gradient(135deg, #c1121f 0%, #d33030 100%)"
-                  borderRadius="12px"
+                  borderRadius="6px"
                 >
                   Nezávazná konzultace zdarma
                 </ShimmerButton>
               </Link>
               <Link href="/sluzby" className="w-full sm:w-auto">
                 <ShimmerButton
-                  className="w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-semibold rounded-xl"
+                  className="w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-semibold"
                   shimmerColor="#c1121f"
                   background="rgba(255, 255, 255, 0.05)"
-                  borderRadius="12px"
+                  borderRadius="6px"
                 >
                   Naše služby
                 </ShimmerButton>

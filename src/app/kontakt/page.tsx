@@ -29,7 +29,7 @@ export default async function Page() {
               <Card variant="glass" className="group slide-up">
                 <CardHeader>
                   <div className="flex items-center gap-3">
-                    <div className="p-3 rounded-full bg-accent/20 group-hover:bg-accent/30 transition-colors">
+                    <div className="p-3 rounded-sm bg-accent/20 group-hover:bg-accent/30 transition-colors">
                       <IconPhone size={24} className="text-accent" />
                     </div>
                     <div>
@@ -40,9 +40,9 @@ export default async function Page() {
                 </CardHeader>
                 <CardContent>
                   <p className="font-mono text-lg text-white mb-3">+420 910 129 289</p>
-                  <a 
+                  a 
                     href="tel:+420910129289"
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-accent/20 hover:bg-accent/30 rounded-lg transition-colors border border-accent/30"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-accent/20 hover:bg-accent/30 rounded-sm transition-colors border border-accent/30"
                   >
                     <IconPhone size={16} />
                     Zavolat nyní
@@ -53,7 +53,7 @@ export default async function Page() {
               <Card className="backdrop-blur-md bg-white/5 border border-white/20 hover:bg-white/10 transition-all duration-300 group">
                 <CardHeader>
                   <div className="flex items-center gap-3">
-                    <div className="p-3 rounded-full bg-accent/20 group-hover:bg-accent/30 transition-colors">
+                    <div className="p-3 rounded-sm bg-accent/20 group-hover:bg-accent/30 transition-colors">
                       <IconMail size={24} className="text-accent" />
                     </div>
                     <div>
@@ -66,7 +66,7 @@ export default async function Page() {
                   <p className="text-white mb-3">info@thinkhome.org</p>
                   <a 
                     href="mailto:info@thinkhome.org"
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-accent/20 hover:bg-accent/30 rounded-lg transition-colors border border-accent/30"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-accent/20 hover:bg-accent/30 rounded-sm transition-colors border border-accent/30"
                   >
                     <IconMail size={16} />
                     Napsat e-mail
@@ -77,7 +77,7 @@ export default async function Page() {
               <Card className="backdrop-blur-md bg-white/5 border border-white/20 hover:bg-white/10 transition-all duration-300 group">
                 <CardHeader>
                   <div className="flex items-center gap-3">
-                    <div className="p-3 rounded-full bg-accent/20 group-hover:bg-accent/30 transition-colors">
+                    <div className="p-3 rounded-sm bg-accent/20 group-hover:bg-accent/30 transition-colors">
                       <IconClock size={24} className="text-accent" />
                     </div>
                     <div>

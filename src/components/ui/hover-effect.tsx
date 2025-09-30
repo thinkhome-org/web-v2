@@ -31,7 +31,7 @@ export function HoverEffect({ items, className }: HoverEffectProps) {
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block rounded-3xl"
+                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block rounded-sm"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -48,7 +48,7 @@ export function HoverEffect({ items, className }: HoverEffectProps) {
           <Card>
             <div className="flex items-center gap-4 mb-4">
               {item.icon && (
-                <div className="p-3 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10">
+                <div className="p-3 rounded-sm bg-gradient-to-br from-accent/20 to-accent/10">
                   {item.icon}
                 </div>
               )}

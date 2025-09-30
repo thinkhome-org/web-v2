@@ -45,7 +45,17 @@ body {
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size:
+    16px 16px,
+    16px 16px;
+  background-position:
+    0 0,
+    8px 8px;
+  background-attachment: fixed;
   color: var(--foreground);
   overflow-x: hidden;
 }

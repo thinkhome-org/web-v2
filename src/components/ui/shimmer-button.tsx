@@ -16,7 +16,7 @@ interface ShimmerButtonProps extends Omit<HTMLMotionProps<"button">, "children">
 export function ShimmerButton({
   shimmerColor = "#ffffff",
   shimmerSize = "0.05em",
-  borderRadius = "100px",
+  borderRadius = "6px",
   shimmerDuration = "3s",
   background = "rgba(0, 0, 0, 1)",
   className,
