@@ -69,7 +69,7 @@ export default async function RootLayout({
     }] : undefined,
   };
   return (
-    <html lang="cs">
+    <html lang="cs" className="dark">
       <body className={`${plexSans.variable} ${plexMono.variable} antialiased bg-background text-foreground`} suppressHydrationWarning>
         <a href="#main" className="skip-link">Přeskočit na obsah</a>
         <ToastProvider>
