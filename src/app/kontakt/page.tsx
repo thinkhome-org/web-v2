@@ -40,7 +40,7 @@ export default async function Page() {
                 </CardHeader>
                 <CardContent>
                   <p className="font-mono text-lg text-white mb-3">+420 910 129 289</p>
-                  a 
+                  <a 
                     href="tel:+420910129289"
                     className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-accent/20 hover:bg-accent/30 rounded-sm transition-colors border border-accent/30"
                   >
