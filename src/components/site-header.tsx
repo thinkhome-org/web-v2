@@ -9,7 +9,6 @@ import { NAV_ITEMS } from "@/config/navigation";
 import { IconX, IconMenu2 } from "@tabler/icons-react";
 
 export default function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
   const [showHeader, setShowHeader] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -22,7 +21,6 @@ export default function SiteHeader() {
     }
     const onScroll = () => {
       const scrollY = window.scrollY;
-      setScrolled(scrollY > 50);
       setShowHeader(scrollY > window.innerHeight * 0.8);
     };
     onScroll();
