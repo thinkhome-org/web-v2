@@ -19,4 +19,5 @@ export { SparklesCore } from "./sparkles-core";
 export { default as TeamCard } from "./team-card";
 export { Textarea } from "./textarea";
 export { TypewriterEffect } from "./typewriter-effect";
+export { Markdown } from "./markdown";
 // Icons are to be imported directly from '@tabler/icons-react'

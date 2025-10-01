@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { renderMarkdown } from '@/lib/md';
+import { Markdown } from '@/components/ui';
 
 export const dynamic = 'force-static';
 
@@ -24,11 +24,12 @@ export default async function Page(ctx: { params: Promise<{ slug: string }> }) {
   const { slug } = await ctx.params;
   const file = path.join(process.cwd(), 'src', 'content', 'legal', `${slug}.md`);
   const md = await fs.readFile(file, 'utf8').catch(() => '# Dokument nenalezen');
-  const html = renderMarkdown(md);
 
   return (
     <section className="container px-6 py-16 md:py-24">
-      <article className="prose prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: html }} />
+      <article className="prose prose-invert max-w-none">
+        <Markdown>{md}</Markdown>
+      </article>
     </section>
   );
 }
