@@ -44,6 +44,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  color-scheme: dark;
+}
+
 body {
   background-color: var(--background);
   background-image:
