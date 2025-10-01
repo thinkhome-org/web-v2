@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { readValidatedArray, teamMemberSchema, type TeamMember, projectSchema, type Project, serviceSchema, type Service } from '@/lib/yaml'
-import { Container, Section, Card, CardHeader, CardContent, AnimatedSection } from '@/components/ui'
+import { Container, Card, AnimatedSection } from '@/components/ui'
 import { IconMail, IconBrandLinkedin, IconBrandGithub, IconArrowLeft, IconUser, IconBriefcase, IconCode } from '@tabler/icons-react'
 
 export default async function TeamTemplate({ params }: { params: { slug: string } }) {
