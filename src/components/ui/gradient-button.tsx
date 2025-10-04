@@ -19,21 +19,24 @@ export function GradientButton({
   return (
     <Component
       className={cn(
-        "relative group/btn flex space-x-2 items-center justify-start px-4 w-full rounded-sm h-10 font-medium bg-zinc-900 shadow-[0px_0px_1px_1px_var(--neutral-800)]",
+        "relative group/btn flex items-center justify-center px-4 w-full h-10 rounded-sm font-medium overflow-hidden bg-zinc-900 transition-colors duration-300",
         containerClassName,
       )}
       {...props}
     >
-      <div className="absolute inset-0 rounded-sm bg-gradient-to-r from-accent to-red-400 opacity-0 group-hover/btn:opacity-100 blur transition duration-500" />
-      <div className="absolute inset-0 rounded-sm bg-gradient-to-r from-accent to-red-400 opacity-0 group-hover/btn:opacity-100 transition duration-500" />
+      {/* gradient fill that fades in on hover */}
+      <div className="absolute inset-0 bg-gradient-to-r from-accent to-red-400 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
+
+      {/* text stays above the gradient */}
       <span
         className={cn(
-          "text-neutral-300 text-sm relative z-10 transition-colors group-hover/btn:text-white duration-200",
+          "relative z-10 text-neutral-300 text-sm transition-colors duration-300 group-hover/btn:text-white",
           className,
         )}
       >
         {children}
       </span>
+
       <BottomGradient />
     </Component>
   );
