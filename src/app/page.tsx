@@ -76,13 +76,13 @@ export default async function Page() {
                     <Link
                       key={href}
                       href={href}
-                      className="group flex flex-col items-center gap-3 p-4 md:p-6 rounded-sm 
+                      className="group flex flex-col items-center gap-3 p-4 md:p-6 rounded-sm
                                 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20
                                 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                     >
                       <div
-                        className="w-12 h-12 md:w-14 md:h-14 rounded-sm bg-gradient-to-br from-accent/20 to-accent/10 
-                                      flex items-center justify-center group-hover:from-accent/30 group-hover:to-accent/20 
+                        className="w-12 h-12 md:w-14 md:h-14 rounded-sm bg-gradient-to-br from-accent/20 to-accent/10
+                                      flex items-center justify-center group-hover:from-accent/30 group-hover:to-accent/20
                                       transition-all duration-300"
                       >
                         {Icon && <Icon size={24} className="text-accent" />}
@@ -212,7 +212,7 @@ export default async function Page() {
       >
         <Container className="px-4 md:px-6">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16 text-center bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16 text-center bg-gradient-to-r from-white to-white/80 bg-clip-text">
               Proč si nás firmy vybírají
             </h2>
             <HoverEffect

@@ -1,8 +1,15 @@
-import ContactForm from '@/components/contact-form';
-import { Container, AnimatedSection, Card, CardHeader, CardContent, HeroSection } from '@/components/ui';
-import { IconMail, IconPhone, IconMapPin, IconClock, IconMessageCircle } from '@tabler/icons-react';
+import ContactForm from "@/components/contact-form";
+import {
+  Container,
+  AnimatedSection,
+  Card,
+  CardHeader,
+  CardContent,
+  HeroSection,
+} from "@/components/ui";
+import { IconMail, IconPhone, IconMapPin, IconClock, IconMessageCircle } from "@tabler/icons-react";
 
-export const metadata = { title: 'Kontakt – ThinkHome' };
+export const metadata = { title: "Kontakt – ThinkHome" };
 
 export default async function Page() {
   return (
@@ -23,7 +30,6 @@ export default async function Page() {
       <AnimatedSection className="py-16 md:py-20 lg:py-32" animation="slide-up">
         <Container className="px-4 md:px-6">
           <div className="max-w-6xl mx-auto">
-            
             {/* Quick Contact Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-20">
               <Card variant="glass" className="group slide-up">
@@ -40,7 +46,7 @@ export default async function Page() {
                 </CardHeader>
                 <CardContent>
                   <p className="font-mono text-lg text-white mb-3">+420 910 129 289</p>
-                  <a 
+                  <a
                     href="tel:+420910129289"
                     className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-accent/20 hover:bg-accent/30 rounded-sm transition-colors border border-accent/30"
                   >
@@ -64,7 +70,7 @@ export default async function Page() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-white mb-3">info@thinkhome.org</p>
-                  <a 
+                  <a
                     href="mailto:info@thinkhome.org"
                     className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-accent/20 hover:bg-accent/30 rounded-sm transition-colors border border-accent/30"
                   >
@@ -107,7 +113,6 @@ export default async function Page() {
 
             {/* Contact Form Section */}
             <div className="grid lg:grid-cols-2 gap-12 items-start">
-              
               {/* Contact Form */}
               <div>
                 <div className="mb-8">
@@ -116,36 +121,39 @@ export default async function Page() {
                     Napište nám
                   </h2>
                   <p className="text-white/80">
-                    Vyplňte formulář níže a my se vám ozveme do 24 hodin. 
-                    U kritických požadavků reagujeme do 2 hodin.
+                    Vyplňte formulář níže a my se vám ozveme do 24 hodin. U kritických požadavků
+                    reagujeme do 2 hodin.
                   </p>
                 </div>
                 <ContactForm />
               </div>
 
-              {/* Additional Information */}
               <div className="space-y-6">
-                <Card className="backdrop-blur-md bg-white/5 border border-white/20">
-                  <CardHeader>
-                    <h3 className="text-lg font-semibold flex items-center gap-2">
-                      <IconMapPin size={20} className="text-accent" />
-                      Kde nás najdete
-                    </h3>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3 text-sm">
-                      <p className="text-white/80">
-                        <strong className="text-white">Adresa:</strong><br />
-                        Rytířova 777/3<br />
-                        Praha 12, 143 00
-                      </p>
-                      <p className="text-white/70">
-                        Pracujeme převážně vzdáleně a na místě u klientů. 
-                        Osobní schůzky domlouváme individuálně.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
+                <a href="https://www.google.com/maps/place/Ryt%C3%AD%C5%99ova+777%2F3,+143+00+Praha+12-Kam%C3%BDk/@50.0151201,14.4177065,20.26z/data=!4m6!3m5!1s0x470b96b3af8207f9:0xf8831db3abe7e9c!8m2!3d50.0152274!4d14.4175731!16s%2Fg%2F11c2ftv510?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D">
+                  <Card className="backdrop-blur-md bg-white/5 border border-white/20">
+                    <CardHeader>
+                      <h3 className="text-lg font-semibold flex items-center gap-2">
+                        <IconMapPin size={20} className="text-accent" />
+                        Kde nás najdete
+                      </h3>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-3 text-sm">
+                        <p className="text-white/80">
+                          <strong className="text-white">Adresa:</strong>
+                          <br />
+                          Rytířova 777/3
+                          <br />
+                          Praha 12, 143 00
+                        </p>
+                        <p className="text-white/70">
+                          Pracujeme převážně vzdáleně a na místě u klientů. Osobní schůzky
+                          domlouváme individuálně.
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </a>
 
                 <Card className="backdrop-blur-md bg-white/5 border border-white/20">
                   <CardHeader>
@@ -182,7 +190,7 @@ export default async function Page() {
                       <h4 className="font-medium text-white">Rychlá reakce zaručena</h4>
                     </div>
                     <p className="text-sm text-white/80">
-                      Kritické situace řešíme do <strong className="text-accent">2 hodin</strong>. 
+                      Kritické situace řešíme do <strong className="text-accent">2 hodin</strong>.
                       Běžné dotazy zodpovídáme do <strong className="text-accent">24 hodin</strong>.
                     </p>
                   </CardContent>

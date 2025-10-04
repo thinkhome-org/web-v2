@@ -1,6 +1,7 @@
 email: "info@thinkhome.org"
 phone: "+420 910 129 289"
-linkedin: "https://www.linkedin.com/company/thinkhome-org"
+# Removnul sem linkedin z docku pac stranka neexistuje :) Az bude, tak ji pridejte :3
+# linkedin: "https://www.linkedin.com/company/thinkhome-org"
 github: "https://github.com/thinkhome-org"
 address:
   name: "Ing. Štefan Paluba"
