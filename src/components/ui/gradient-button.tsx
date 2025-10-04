@@ -24,10 +24,9 @@ export function GradientButton({
       )}
       {...props}
     >
-      {/* gradient fill that fades in on hover */}
+
       <div className="absolute inset-0 bg-gradient-to-r from-accent to-red-400 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
 
-      {/* text stays above the gradient */}
       <span
         className={cn(
           "relative z-10 text-neutral-300 text-sm transition-colors duration-300 group-hover/btn:text-white",

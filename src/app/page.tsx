@@ -31,12 +31,10 @@ import { NAV_ITEMS } from "@/config/navigation";
 export default async function Page() {
   return (
     <>
-      {/* Hero Section - Enhanced with Dynamic Components */}
       <HeroSection id="home" className="scroll-mt-20 relative overflow-hidden">
         <BackgroundBeams className="absolute inset-0 z-0" />
         <Container className="px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8 md:space-y-12">
-            {/* Logo */}
             <div className="slide-up">
               <Link href="/" className="inline-block group">
                 <Image
@@ -68,7 +66,6 @@ export default async function Page() {
               </p>
             </div>
 
-            {/* Navigation Menu */}
             <div className="slide-up stagger-2">
               <nav className="glass-block rounded-sm p-6 md:p-8 max-w-2xl mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4">
@@ -96,27 +93,22 @@ export default async function Page() {
               </nav>
             </div>
 
-            {/* Enhanced CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 slide-up stagger-3">
               <Link href="/kontakt" className="w-full sm:w-auto">
-                <ShimmerButton
-                  className="w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-semibold"
-                  shimmerColor="#ffffff"
-                  background="linear-gradient(135deg, #c1121f 0%, #d33030 100%)"
-                  borderRadius="6px"
+                <GradientButton
+                  className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-white"
+                  containerClassName="w-full sm:w-auto"
                 >
                   Nezávazná konzultace zdarma
-                </ShimmerButton>
+                </GradientButton>
               </Link>
               <Link href="/sluzby" className="w-full sm:w-auto">
-                <ShimmerButton
-                  className="w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-semibold"
-                  shimmerColor="#c1121f"
-                  background="rgba(255, 255, 255, 0.05)"
-                  borderRadius="6px"
+                <GradientButton
+                  className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-white"
+                  containerClassName="w-full sm:w-auto"
                 >
                   Naše služby
-                </ShimmerButton>
+                </GradientButton>
               </Link>
             </div>
           </div>
@@ -188,7 +180,6 @@ export default async function Page() {
         </Container>
       </AnimatedSection>
 
-      {/* About Section */}
       <AnimatedSection id="about" className="py-16 md:py-20 lg:py-32" animation="slide-up">
         <Container className="px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center">
@@ -204,7 +195,6 @@ export default async function Page() {
         </Container>
       </AnimatedSection>
 
-      {/* Enhanced Features Section with HoverEffect */}
       <AnimatedSection
         id="proc"
         className="scroll-mt-20 py-16 md:py-20 lg:py-32"
@@ -263,7 +253,6 @@ export default async function Page() {
         </Container>
       </AnimatedSection>
 
-      {/* Enhanced Testimonials Section with InfiniteMovingCards */}
       <AnimatedSection className="py-20 md:py-32" animation="slide-up">
         <Container className="px-6">
           <div className="max-w-7xl mx-auto text-center">
@@ -397,12 +386,12 @@ export default async function Page() {
                 </GradientButton>
               </Link>
               <Link href="/sluzby" className="w-full sm:w-auto">
-                <Button
-                  variant="secondary"
-                  className="w-full sm:w-auto px-8 py-4 text-lg font-semibold glass-block border-white/20 hover:border-white/30"
+                <GradientButton
+                  className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-white"
+                  containerClassName="w-full sm:w-auto"
                 >
                   Prohlédnout služby
-                </Button>
+                </GradientButton>
               </Link>
             </div>
           </div>

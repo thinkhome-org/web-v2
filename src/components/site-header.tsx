@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { SiteMobileMenu } from "@/components/site-mobile-menu";
 import { NAV_ITEMS } from "@/config/navigation";
 import { IconX, IconMenu2 } from "@tabler/icons-react";
+import { GradientButton } from "./ui";
 
 export default function SiteHeader() {
   const [showHeader, setShowHeader] = useState(false);
@@ -74,15 +75,17 @@ export default function SiteHeader() {
             {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
               const active = isActive(href);
               return (
-                <Link
-                  key={href}
-                  href={href}
-                  aria-current={active ? "page" : undefined}
-                  className={`flex items-center gap-2 rounded-sm px-3 py-2 focus-ring transition-colors transition-shadow ${active ? "bg-white/10" : "hover:bg-white/5 hover-glow"}`}
-                >
-                  {Icon && <Icon size={18} className="text-white/80" />}
-                  <span className="text-sm text-white/90">{label}</span>
-                </Link>
+                <GradientButton>
+                  <Link
+                    key={href}
+                    href={href}
+                    aria-current={active ? "page" : undefined}
+                    className={`flex items-center gap-2 rounded-sm px-3 py-2 focus-ring transition-colors transition-shadow `}
+                  >
+                    {Icon && <Icon size={18} className="text-white/80" />}
+                    <span className="text-sm text-white/90">{label}</span>
+                  </Link>
+                </GradientButton>
               );
             })}
           </nav>

@@ -5,7 +5,7 @@ export const revalidate = false;
 import fs from "node:fs/promises";
 import { join } from "node:path";
 import Link from "next/link";
-import { Container, Card, CardContent, AnimatedSection } from "@/components/ui";
+import { Container, Card, CardContent, AnimatedSection, GradientButton } from "@/components/ui";
 import { IconMail, IconUsers, IconStar, IconCode, IconShield } from "@tabler/icons-react";
 import TeamCard from "@/components/ui/team-card";
 
@@ -95,7 +95,6 @@ export default async function Page() {
         </Container>
       </AnimatedSection>
 
-      {/* Team Grid */}
       <AnimatedSection className="px-6 pb-20" animation="slide-up">
         <Container>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
@@ -106,7 +105,6 @@ export default async function Page() {
             ))}
           </div>
 
-          {/* Contact CTA */}
           <div className="mt-20 text-center">
             <Card className="max-w-3xl mx-auto backdrop-blur-md bg-accent/10 border border-accent/30 hover:bg-accent/15 transition-all duration-300">
               <CardContent className="pt-8 pb-8">
@@ -125,17 +123,19 @@ export default async function Page() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a
                     href="/kontakt"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent/80 text-white font-medium rounded-lg transition-colors text-lg"
+                    className="w-full sm:w-auto px-16 py- text-lg font-semibold text-white"
                   >
-                    <IconMail size={20} />
-                    Kontaktovat tým
+                    <GradientButton>
+                      <IconMail size={20} />
+                      Kontaktovat tým
+                    </GradientButton>
                   </a>
-                  <Link
-                    href="/sluzby"
-                    className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 hover:border-white/40 text-white font-medium rounded-lg transition-colors text-lg hover:bg-white/5"
-                  >
-                    <IconShield size={20} />
-                    Naše služby
+
+                  <Link href="/sluzby">
+                    <GradientButton>
+                      <IconShield size={20} />
+                      Naše služby
+                    </GradientButton>
                   </Link>
                 </div>
               </CardContent>
