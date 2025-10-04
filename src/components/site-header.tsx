@@ -79,7 +79,7 @@ export default function SiteHeader() {
                   <Link
                     href={href}
                     aria-current={active ? "page" : undefined}
-                    className={`flex items-center gap-2 rounded-sm px-3 py-2 focus-ring transition-colors transition-shadow ${active ? "bg-white/10" : "hover:bg-white/5 hover-glow"}`}
+                    className={`flex items-center gap-2 rounded-sm px-3 py-2 focus-ring transition-colors`}
                   >
                     {Icon && <Icon size={18} className="text-white/80" />}
                     <span className="text-sm text-white/90">{label}</span>
