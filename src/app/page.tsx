@@ -4,10 +4,8 @@ import {
   Container,
   AnimatedSection,
   Card,
-  Button,
   HeroSection,
   TypewriterEffect,
-  ShimmerButton,
   BackgroundBeams,
   NumberTicker,
   HoverEffect,
@@ -48,7 +46,6 @@ export default async function Page() {
               </Link>
             </div>
 
-            {/* Dynamic Typewriter Tagline */}
             <div className="slide-up stagger-1">
               <TypewriterEffect
                 words={[
@@ -115,7 +112,6 @@ export default async function Page() {
         </Container>
       </HeroSection>
 
-      {/* Stats Section - Moved from hero */}
       <AnimatedSection className="py-16 md:py-20" animation="slide-up">
         <Container className="px-4 md:px-6">
           <div className="max-w-6xl mx-auto">
