@@ -44,7 +44,6 @@ export default async function Page() {
 
   return (
     <>
-      {/* Hero Section */}
       <AnimatedSection className="px-6 py-20 md:py-32" animation="fade-in">
         <Container>
           <div className="max-w-5xl mx-auto text-center">
@@ -56,7 +55,6 @@ export default async function Page() {
               unikátní expertizu a společně tvoříme silný tým.
             </p>
 
-            {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
               <Card variant="glass" className="text-center py-6">
                 <div className="space-y-3">

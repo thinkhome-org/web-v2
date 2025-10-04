@@ -25,7 +25,6 @@ export default function TeamCard({ person, slug }: { person: Person; slug: strin
                  hover:scale-105 hover:shadow-2xl hover:shadow-accent/10"
     >
       <div className="p-8 flex flex-col items-center text-center space-y-6">
-        {/* Avatar Section */}
         <div className="relative">
           {person.image ? (
             <div
@@ -51,9 +50,9 @@ export default function TeamCard({ person, slug }: { person: Person; slug: strin
               </span>
             </div>
           )}
-          {/* Status dot */}
+
           <div
-            className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 
+            className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-green-400 to-green-600
                           rounded-sm group-hover:scale-125 transition-transform duration-300
                           border-2 border-white/20 flex items-center justify-center"
           >
@@ -61,7 +60,6 @@ export default function TeamCard({ person, slug }: { person: Person; slug: strin
           </div>
         </div>
 
-        {/* Content Section */}
         <div className="space-y-3">
           <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-accent transition-colors duration-300">
             {person.name}
@@ -71,7 +69,6 @@ export default function TeamCard({ person, slug }: { person: Person; slug: strin
           </p>
         </div>
 
-        {/* Social Links */}
         <div className="flex items-center gap-3 pt-2">
           {person.email && (
             <a

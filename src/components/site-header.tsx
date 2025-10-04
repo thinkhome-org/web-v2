@@ -71,20 +71,21 @@ export default function SiteHeader() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 ml-auto">
+          <nav className="hidden md:flex items-center gap-3 ml-auto">
             {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
               const active = isActive(href);
               return (
-                <GradientButton key={href}>
-                  <Link
-                    href={href}
-                    aria-current={active ? "page" : undefined}
-                    className={`flex items-center gap-2 rounded-sm px-3 py-2 focus-ring transition-colors`}
-                  >
-                    {Icon && <Icon size={18} className="text-white/80" />}
-                    <span className="text-sm text-white/90">{label}</span>
-                  </Link>
-                </GradientButton>
+                <Link
+                  key={href}
+                  href={href}
+                  aria-current={active ? "page" : undefined}
+                  className={`p-2 rounded-sm bg-white/10 hover:bg-accent/20 border border-white/20
+                    hover:border-accent/40 transition-all duration-200 inline-flex items-center gap-2
+                    justify-center hover:scale-110 hover:shadow-lg`}
+                >
+                  {Icon && <Icon size={18} className="text-white/80" />}
+                  <span className="text-sm text-white/90">{label}</span>
+                </Link>
               );
             })}
           </nav>
