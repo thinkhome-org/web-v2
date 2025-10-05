@@ -154,7 +154,7 @@ export default async function Page() {
                     </CardContent>
                   </Card>
                 </a>
-
+                <p></p>
                 <Card className="backdrop-blur-md bg-white/5 border border-white/20">
                   <CardHeader>
                     <h3 className="text-lg font-semibold">Co potřebujeme vědět</h3>

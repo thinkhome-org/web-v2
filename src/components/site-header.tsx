@@ -70,7 +70,6 @@ export default function SiteHeader() {
             <Image src="/logo/white.svg" alt="ThinkHome" width={110} height={26} />
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-3 ml-auto">
             {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
               const active = isActive(href);

@@ -3,7 +3,7 @@ export const dynamic = "force-static";
 export const revalidate = false;
 
 import { readValidatedArray, serviceSchema, type Service } from "@/lib/yaml";
-import { Section, Container, Card, CardHeader, CardContent } from "@/components/ui";
+import { Section, Container, Card, CardHeader, CardContent, GradientButton } from "@/components/ui";
 import {
   IconTools,
   IconServer,
@@ -47,7 +47,7 @@ export default async function Page() {
       <Section className="px-4 md:px-6 py-12 md:py-16 lg:py-24">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent mb-4 md:mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text mb-4 md:mb-6">
               Naše služby
             </h1>
             <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-8 md:mb-12 px-2">
@@ -170,17 +170,21 @@ export default async function Page() {
                   zdarma a bez závazků.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <a
-                    href="/kontakt"
-                    className="inline-flex items-center gap-2 px-8 py-3 bg-accent hover:bg-accent/90 text-white font-medium rounded-lg transition-colors"
-                  >
-                    Nezávazná konzultace
+                  <a href="/kontakt">
+                    <GradientButton
+                      className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-white"
+                      containerClassName="w-full sm:w-auto"
+                    >
+                      Nezávazná Konzultace
+                    </GradientButton>
                   </a>
-                  <a
-                    href="tel:+420910129289"
-                    className="inline-flex items-center gap-2 px-8 py-3 backdrop-blur-md bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white font-medium rounded-lg transition-all"
-                  >
-                    Zavolat: +420 910 129 289
+                  <a href="tel:420901129289">
+                    <GradientButton
+                      className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-white"
+                      containerClassName="w-full sm:w-auto"
+                    >
+                      Zavolat: +420 910 129 289
+                    </GradientButton>
                   </a>
                 </div>
               </CardContent>

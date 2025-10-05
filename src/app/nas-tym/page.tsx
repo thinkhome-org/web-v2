@@ -104,40 +104,38 @@ export default async function Page() {
           </div>
 
           <div className="mt-20 text-center">
-            <Card className="max-w-3xl mx-auto backdrop-blur-md bg-accent/10 border border-accent/30 hover:bg-accent/15 transition-all duration-300">
-              <CardContent className="pt-8 pb-8">
-                <div className="flex items-center justify-center gap-3 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-accent/30 to-accent/10 rounded-sm flex items-center justify-center">
-                    <IconMail size={32} className="text-accent" />
-                  </div>
+            <CardContent className="pt-8 pb-8">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-accent/30 to-accent/10 rounded-sm flex items-center justify-center">
+                  <IconMail size={32} className="text-accent" />
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Máte dotaz k našemu týmu?
-                </h3>
-                <p className="text-white/80 mb-6 text-lg leading-relaxed">
-                  Rádi vám představíme naše kolegy a jejich expertizu detailněji. Nebo se rovnou
-                  zeptejte na konkrétní projekt.
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <a
-                    href="/kontakt"
-                    className="w-full sm:w-auto px-16 py- text-lg font-semibold text-white"
-                  >
-                    <GradientButton>
-                      <IconMail size={20} />
-                      Kontaktovat tým
-                    </GradientButton>
-                  </a>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                Máte dotaz k našemu týmu?
+              </h3>
+              <p className="text-white/80 mb-6 text-lg leading-relaxed">
+                Rádi vám představíme naše kolegy a jejich expertizu detailněji. Nebo se rovnou
+                zeptejte na konkrétní projekt.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                  href="/kontakt"
+                  className="w-full sm:w-auto px-16 py- text-lg font-semibold text-white"
+                >
+                  <GradientButton>
+                    <IconMail size={20} />
+                    Kontaktovat tým
+                  </GradientButton>
+                </a>
 
-                  <Link href="/sluzby">
-                    <GradientButton>
-                      <IconShield size={20} />
-                      Naše služby
-                    </GradientButton>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
+                <Link href="/sluzby">
+                  <GradientButton>
+                    <IconShield size={20} />
+                    Naše služby
+                  </GradientButton>
+                </Link>
+              </div>
+            </CardContent>
           </div>
         </Container>
       </AnimatedSection>

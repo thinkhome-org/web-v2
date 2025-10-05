@@ -132,7 +132,7 @@ export default async function Page() {
                     <div className="w-16 h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center">
                       <IconTrendingUp size={32} className="text-accent" />
                     </div>
-                    <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">
+                    <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text">
                       <NumberTicker value={99.8} decimalPlaces={1} />%
                     </p>
                     <p className="text-white/70 text-lg">dostupnost systémů</p>
@@ -148,7 +148,7 @@ export default async function Page() {
                     <div className="w-16 h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center">
                       <IconUsers size={32} className="text-accent" />
                     </div>
-                    <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">
+                    <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text">
                       <NumberTicker value={200} />+
                     </p>
                     <p className="text-white/70 text-lg">spokojených klientů</p>
@@ -164,7 +164,7 @@ export default async function Page() {
                     <div className="w-16 h-16 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl flex items-center justify-center">
                       <IconClock size={32} className="text-accent" />
                     </div>
-                    <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text text-transparent">
+                    <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-red-400 bg-clip-text">
                       <NumberTicker value={2} />h
                     </p>
                     <p className="text-white/70 text-lg">reakce na kritické požadavky</p>
@@ -179,7 +179,7 @@ export default async function Page() {
       <AnimatedSection id="about" className="py-16 md:py-20 lg:py-32" animation="slide-up">
         <Container className="px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-white to-white/80 bg-clip-text">
               Jednoduše řečeno
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-white/80 leading-relaxed px-2">
@@ -252,7 +252,7 @@ export default async function Page() {
       <AnimatedSection className="py-20 md:py-32" animation="slide-up">
         <Container className="px-6">
           <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text">
               Co o nás říkají
             </h2>
             <p className="text-white/70 text-xl max-w-3xl mx-auto mb-16">

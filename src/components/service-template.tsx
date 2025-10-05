@@ -85,7 +85,7 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
               <div className="w-24 h-24 mx-auto bg-gradient-to-br from-accent/30 to-accent/10 rounded-sm flex items-center justify-center mb-8">
                 <Icon size={48} className="text-accent" />
               </div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-white/95 to-white/80 bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-white/95 to-white/80 bg-clip-text ">
                 {service.title}
               </h1>
               <div className="max-w-4xl mx-auto">
@@ -109,7 +109,7 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
         <AnimatedSection className="py-20 md:py-32" animation="slide-up">
           <Container className="px-6">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center bg-gradient-to-r from-white to-white/80 bg-clip-text ">
                 Jak postupujeme
               </h2>
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -204,7 +204,7 @@ export default async function ServiceTemplate({ params }: { params: { slug: stri
         <AnimatedSection className="py-20 md:py-32" animation="slide-up">
           <Container className="px-6">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center bg-gradient-to-r from-white to-white/80 bg-clip-text ">
                 Často se ptáte
               </h2>
               <div className="space-y-6">
